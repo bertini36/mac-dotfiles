@@ -16,11 +16,11 @@ My personal Mac config files
     cd mac/
     brew bundle
     ```
-- Add fonts (`fonts/`) to Font Book
+- Add fonts (`fonts/`) to `Font Book`
 - Install [Iterm2](https://iterm2.com/)
   * Import config (`shell/Iterm2.json`) (Profiles -> Other Actions -> Import JSON Profiles)
   * Ensure color theme (`shell/nord.itemcolors`)
-  * Set Fira code font (Profiles -> Text -> Font -> Fira Code)
+  * Set [Monospace Neon](https://monaspace.githubnext.com/) font (Profiles -> Text -> Font -> Fira Code)
 - Install [Oh My ZSH](https://ohmyz.sh/)
   * Link `shell/.zshrc` to `~/.zshrc`: `ln ~/.dotfiles/shell/.zshrc ~/.zshrc`
   * Install plugins
@@ -35,6 +35,9 @@ My personal Mac config files
 - Install [Pycharm](https://www.jetbrains.com/pycharm/download/#section=mac)
   * Login
   * Set `Alberto's Mac keymap` (Settings -> Keymap -> Keymaps dropdown)
+  * Set `Monospace Neon` font (Settings -> Editor -> Font -> Monospace Neon)
+- Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
+- Install [Github Desktop](https://desktop.github.com/)
 - Enable auto-focus: `defaults write com.apple.Terminal FocusFollowsMouse -bool true`
 - Link the rest of configuration files
   ```

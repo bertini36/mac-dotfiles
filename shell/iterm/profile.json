@@ -137,8 +137,8 @@
     },
     "0x66-0x100000-0x3" : {
       "Version" : 1,
-      "Action" : 10,
-      "Text" : "f",
+      "Action" : 23,
+      "Text" : "",
       "Label" : ""
     },
     "0x65-0x100000-0xe" : {
@@ -280,7 +280,7 @@
   },
   "Blur" : false,
   "Vertical Spacing" : 1,
-  "Normal Font" : "FiraCode-Regular 12",
+  "Normal Font" : "MonaspaceNeon-Regular 12",
   "Use Underline Color" : false,
   "Ansi 7 Color" : {
     "Red Component" : 0.89803922176361084,
