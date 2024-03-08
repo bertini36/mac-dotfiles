@@ -38,6 +38,7 @@ My personal Mac config files
   * Set `Monospace Neon` font (Settings -> Editor -> Font -> Monospace Neon)
 - Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
 - Install [Github Desktop](https://desktop.github.com/)
+- Install [Alt Tab](https://alt-tab-macos.netlify.app/)
 - Enable auto-focus: `defaults write com.apple.Terminal FocusFollowsMouse -bool true`
 - Link the rest of configuration files
   ```
