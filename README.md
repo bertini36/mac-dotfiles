@@ -21,6 +21,7 @@ My personal Mac config files
   * Import config (`shell/Iterm2.json`) (Profiles -> Other Actions -> Import JSON Profiles)
   * Ensure color theme (`shell/nord.itemcolors`)
   * Set [Monospace Neon](https://monaspace.githubnext.com/) font (Profiles -> Text -> Font -> Fira Code)
+  * [Fix arrow](https://stackoverflow.com/questions/38136244/iterm2-how-to-remove-the-right-arrow-before-the-cursor-line)
 - Install [Oh My ZSH](https://ohmyz.sh/)
   * Link `shell/.zshrc` to `~/.zshrc`: `ln ~/.dotfiles/shell/.zshrc ~/.zshrc`
   * Install plugins

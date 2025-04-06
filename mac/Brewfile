@@ -16,3 +16,5 @@ brew "postgresql@14"
 brew "python@3.11"
 brew "pre-commit"
 brew "pyenv"
+brew tap cjbassi/gotop
+brew "gotop"
