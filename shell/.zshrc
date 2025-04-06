@@ -121,9 +121,9 @@ eval "$(direnv hook zsh)"
 alias ..="cd .."
 alias ...="cd ../.."
 alias cdc="cd $HOME/code/"
-alias ls="exa"
-alias ll="exa -l"
-alias la="exa -la"
+alias ls="eza"
+alias ll="eza -l"
+alias la="eza -la"
 alias j="z"
 
 # Jumps alias
@@ -175,3 +175,8 @@ alias update-zsh="omz update"
 alias update-all="update && update-zsh"
 alias top="gotop"
 alias pip="pip3"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/bertini36/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
