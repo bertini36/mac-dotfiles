@@ -94,4 +94,10 @@ TODO: Open concrete webs with keyboard shortcuts
 * Copy file route `Control + Shift + C`
 * Open project view `Command + 1`
 * Add selection to next occurence `Command + J`
+* Commit `Control + Command + C`
+* Push `Control + Command + K`
+* Pull `Control + Command + P`
+* Add to git `Control + Command + A`
+* Branches `Control + Command + B`
+* Recent locations `Command + Shift + R`
 TODO: Move cursor with hjkl
