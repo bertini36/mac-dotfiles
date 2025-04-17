@@ -33,6 +33,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.93725490570068359
   },
+  "Show Mark Indicators" : false,
   "Mouse Reporting" : true,
   "Cursor Boost" : 0,
   "Ansi 4 Color" : {
@@ -93,22 +94,10 @@
   "Unlimited Scrollback" : true,
   "Custom Command" : "No",
   "Keyboard Map" : {
-    "0xf701-0x380000-0x7d" : {
+    "0x62-0x40000-0xb" : {
       "Version" : 1,
-      "Action" : 21,
-      "Text" : "",
-      "Label" : ""
-    },
-    "0xf700-0x300000-0x7e" : {
-      "Version" : 1,
-      "Action" : 9,
-      "Text" : "",
-      "Label" : ""
-    },
-    "0xf701-0x300000-0x7d" : {
-      "Version" : 1,
-      "Action" : 8,
-      "Text" : "",
+      "Action" : 10,
+      "Text" : "b",
       "Label" : ""
     },
     "0x62-0x100000-0xb" : {
@@ -129,17 +118,39 @@
       "Text" : "B632CF32-5B9E-483B-8EFB-34039C7088C0",
       "Label" : ""
     },
-    "0x7f-0x100000-0x33" : {
-      "Version" : 1,
-      "Action" : 11,
-      "Text" : "0x1b 0x08",
-      "Label" : ""
+    "0x6b-0x100000-0x28" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 9,
+      "Text" : "",
+      "Escaping" : 2
+    },
+    "0x48-0x60000-0x4" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 18,
+      "Text" : "",
+      "Escaping" : 2
+    },
+    "0x4c-0x60000-0x25" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 19,
+      "Text" : "",
+      "Escaping" : 2
     },
     "0x66-0x100000-0x3" : {
       "Version" : 1,
       "Action" : 23,
       "Text" : "",
       "Label" : ""
+    },
+    "0x4b-0x60000-0x28" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 20,
+      "Text" : "",
+      "Escaping" : 2
     },
     "0x65-0x100000-0xe" : {
       "Version" : 1,
@@ -153,10 +164,10 @@
       "Text" : "B632CF32-5B9E-483B-8EFB-34039C7088C0",
       "Label" : ""
     },
-    "0xf700-0x380000-0x7e" : {
+    "0x7f-0x100000-0x33" : {
       "Version" : 1,
-      "Action" : 20,
-      "Text" : "",
+      "Action" : 11,
+      "Text" : "0x1b 0x08",
       "Label" : ""
     },
     "0x61-0x100000-0x0" : {
@@ -165,23 +176,19 @@
       "Text" : "0x01",
       "Label" : ""
     },
-    "0xf703-0x380000-0x7c" : {
-      "Version" : 1,
-      "Action" : 19,
+    "0x4a-0x60000-0x26" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 21,
       "Text" : "",
-      "Label" : ""
+      "Escaping" : 2
     },
-    "0xf702-0x380000-0x7b" : {
-      "Version" : 1,
-      "Action" : 18,
+    "0x6a-0x100000-0x26" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 8,
       "Text" : "",
-      "Label" : ""
-    },
-    "0x62-0x40000-0xb" : {
-      "Version" : 1,
-      "Action" : 10,
-      "Text" : "b",
-      "Label" : ""
+      "Escaping" : 2
     }
   },
   "Ansi 14 Color" : {
