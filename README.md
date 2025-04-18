@@ -17,11 +17,7 @@ My personal Mac config files
     brew bundle
     ```
 - Add fonts (`fonts/`) to `Font Book`
-- Install [Iterm2](https://iterm2.com/)
-  * Import config (`shell/Iterm2.json`) (Profiles -> Other Actions -> Import JSON Profiles)
-  * Ensure color theme (`shell/nord.itemcolors`)
-  * Set [Monospace Neon](https://monaspace.githubnext.com/) font (Profiles -> Text -> Font -> Fira Code)
-  * [Fix arrow](https://stackoverflow.com/questions/38136244/iterm2-how-to-remove-the-right-arrow-before-the-cursor-line)
+- Install [Warp](https://www.warp.dev/)
 - Install [Oh My ZSH](https://ohmyz.sh/)
   * Link `shell/.zshrc` to `~/.zshrc`: `ln ~/.dotfiles/shell/.zshrc ~/.zshrc`
   * Install plugins
