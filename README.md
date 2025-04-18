@@ -17,6 +17,10 @@ My personal Mac config files
     brew bundle
     ```
 - Add fonts (`fonts/`) to `Font Book`
+- Install [Karabiner](https://karabiner-elements.pqrs.org/)
+  * Map F4 to `CMD + Space` (Raycast)
+  * Left CMD + hjkl: Arrow keys
+  * Change `Caps Lock` to `CMD + CTL + Option + Shift`
 - Install [Warp](https://www.warp.dev/)
 - Install [Oh My ZSH](https://ohmyz.sh/)
   * Link `shell/.zshrc` to `~/.zshrc`: `ln ~/.dotfiles/shell/.zshrc ~/.zshrc`
@@ -42,4 +46,4 @@ My personal Mac config files
   ln ~/.dotfiles/editors/vim/.vimrc ~/.vimrc
   ```
 <br />
-<p align="center">&mdash; Built with :heart: from Mallorca &mdash;</p>
+<p align="center">&mdash; Built with ❤️ from Mallorca &mdash;</p>

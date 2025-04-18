@@ -10,11 +10,6 @@
 * Next window same app `Caps Lock + Tab`
 * App settings `CMD + ,`
 
-# Karabiner modificators
-* Map F4 to `CMD + Space` (Raycast)
-* Left CMD + hjkl: Arrow keys
-* Change `Caps Lock` to `CMD + CTL + Option + Shift`
-
 # Raycast (Caps Lock based)
 * Open Raycast `CMD + Space`
 * Open Raycast settings `CMD + ,`
