@@ -90,9 +90,8 @@
 * Replace in file `CMD + R`
 * Find in files `CMD + Shift + F`
 * Duplicate line `CTL + D`
-* Clone caret above `CTL + Shift + k`
-* Clone caret below `CTL + Shift + j`
-* Move caret to right `CTL + Right Arrow`
+* Clone caret above `CTL + Shift + ↑`
+* Clone caret below `CTL + Shift + ↓`
 * Delete file `Shift + Delete`
 * Next word occurrence `CMD + N`
 * Previous word occurrence `CMD + P`
@@ -105,7 +104,7 @@
 * Open project view `CMD + 1`
 * Add selection to next occurence `CMD + J`
 * Commit `CTL + CMD + C`
-* Push `CTL + CMD + K`
+* Push `CTL + CMD + U`
 * Pull `CTL + CMD + P`
 * Add to git `CTL + CMD + A`
 * Branches `CTL + CMD + B`
