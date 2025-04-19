@@ -98,22 +98,23 @@
 * Open actions `CMD + Shift + A`
 * Search symbols `CMD + CTL + Shift + N`
 * Search file `CMD + G`
+* Find usages `CMD + Shift + 7`
+* Go to definition `CTL + Enter`
+* Find in files `CMD + Shift + F`
 * Find in file `CMD + F`
 * Replace in file `CMD + R`
-* Find in files `CMD + Shift + F`
 * Duplicate selection `CTL + D`
 * Clone caret above `CTL + Shift + ↑`
 * Clone caret below `CTL + Shift + ↓`
-* Delete file `Shift + Delete`
 * Add caret to next match occurrence `CMD + N`
 * Add caret to previous match occurrence `CMD + P`
-* Find usages `CMD + Shift + 7`
+* Delete file `Shift + Delete`
 * Expand method `CTL + +`
 * Collapse method `CTL + -`
-* Go to definition `CTL + Enter`
 * Select file in project view `CTL + Shift + S`
 * Copy file route `CTL + Shift + C`
 * Open left sidebar `CMD + 1`
+* Format code (Black) `CMD + B`
 * Open changes `CMD + 9`
 * Commit `CTL + CMD + C`
 * Pull `CTL + CMD + P`
