@@ -1,4 +1,7 @@
-# SYSTEM (CMD based)
+# My keymap
+
+## System (CMD based)
+
 * Screen brightness down/up `F1` and `F2`
 * Mission CTL `F3`
 * Raycast `F4`
@@ -9,8 +12,10 @@
 * Close tab `CMD + W`
 * Next window same app `Caps Lock + Tab`
 * App settings `CMD + ,`
+* See hidden files `CMD + Shift + .`
 
-# Raycast (Caps Lock based)
+## Raycast (Caps Lock based)
+
 * Open Raycast `CMD + Space`
 * Open Raycast settings `CMD + ,`
 * Emojis `Caps Lock + E`
@@ -29,10 +34,11 @@
 * Right half of the screen `Caps Lock + →`
 * Maximize `Caps Lock + M`
 * Cycle between same app windoes `Caps Lock + Tab`
-* Open AI `Caps Lock + A`
+* Open AI `Caps Lock + I`
 * Open Downloads `Caps Lock + D`
 
 ## Other Raycast useful CMDs without shortcut
+
 * Kill process (plugin)
 * Search Google (quicklink)
 * Search Spotify (quicklink)
@@ -40,7 +46,8 @@
 * Define word
 * Translate (plugin)
 
-# Browser (CMD based)
+## Browser (CMD based)
+
 * Open new tab `CMD + T`
 * Close tab `CMD + W`
 * Reopen last tab `CMD + Shift + T`
@@ -52,7 +59,8 @@
 * Open link in new window `CMD + Shift + Click`
 * Move cursor to address bar `CMD + L`
 
-# Readline (CTL based)
+## Readline (CTL based)
+
 * Move cursor to beginning of line `CTL + A`
 * Move cursor to end of line `CTL + E`
 * Move cursor one word left `CTL + B`
@@ -62,13 +70,14 @@
 * Delete one character left `CTL + H`
 * Delete one character right `CTL + D`
 
-# Warp (CMD based)
+## Warp (CMD based)
+
 * Vertical split `CTL + Shift + E`
 * Horizontal split `CTL + Shift + O`
 * Clean screen `CTL + L`
 * Close tab `CMD + W`
 * Create new tab `CMD + T`
-* AI mode `CMD + A`
+* AI mode `CMD + I`
 * Open Shortcuts help `CMD + /`
 * Activate next pane `CMD + →`
 * Activate previous pane `CMD + ←`
@@ -80,32 +89,32 @@
 * Copy CMD `CMD + Shift + C`
 * Delete line `CMD + Backspace`
 
-# Pycharm
+## Cursor
+
+* Agent mode `CMD + I`
+* Generate code `CMD + K`
 * Vertical split `CTL + Shift + E`
 * Horizontal split `CTL + Shift + O`
 * Open actions `CMD + Shift + A`
-* Search classes `Contol + N`
 * Search symbols `CMD + CTL + Shift + N`
+* Search file `CMD + G`
 * Find in file `CMD + F`
 * Replace in file `CMD + R`
 * Find in files `CMD + Shift + F`
-* Duplicate line `CTL + D`
+* Duplicate selection `CTL + D`
 * Clone caret above `CTL + Shift + ↑`
 * Clone caret below `CTL + Shift + ↓`
 * Delete file `Shift + Delete`
-* Next word occurrence `CMD + N`
-* Previous word occurrence `CMD + P`
-* Find usages `CMD + Shift + F7`
+* Add caret to next match occurrence `CMD + N`
+* Add caret to previous match occurrence `CMD + P`
+* Find usages `CMD + Shift + 7`
 * Expand method `CTL + +`
 * Collapse method `CTL + -`
-* Go to declaration `CTL + Enter/click`
+* Go to definition `CTL + Enter`
 * Select file in project view `CTL + Shift + S`
 * Copy file route `CTL + Shift + C`
-* Open project view `CMD + 1`
-* Add selection to next occurence `CMD + J`
+* Open left sidebar `CMD + 1`
+* Open changes `CMD + 9`
 * Commit `CTL + CMD + C`
-* Push `CTL + CMD + U`
 * Pull `CTL + CMD + P`
-* Add to git `CTL + CMD + A`
-* Branches `CTL + CMD + B`
-* Recent locations `CMD + Shift + R`
+* Push `CTL + CMD + U`

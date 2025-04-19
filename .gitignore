@@ -2,3 +2,4 @@ mac/Brewfile.lock.json
 .DS_Store
 Desktop.ini
 .idea/
+.vscode/
