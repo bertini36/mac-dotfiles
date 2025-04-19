@@ -115,7 +115,6 @@
 * Copy file route `CTL + Shift + C`
 * Open left sidebar `CMD + 1`
 * Format code (Black) `CMD + B`
-* Open changes `CMD + 9`
-* Commit `CTL + CMD + C`
+* Open local changes `CMD + 9`
 * Pull `CTL + CMD + P`
 * Push `CTL + CMD + U`
