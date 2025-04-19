@@ -103,18 +103,19 @@
 * Find in files `CMD + Shift + F`
 * Find in file `CMD + F`
 * Replace in file `CMD + R`
-* Duplicate selection `CTL + D`
-* Clone caret above `CTL + Shift + ↑`
-* Clone caret below `CTL + Shift + ↓`
-* Add caret to next match occurrence `CMD + N`
-* Add caret to previous match occurrence `CMD + P`
+* Duplicate line `CTL + D`
 * Delete file `Shift + Delete`
-* Expand method `CTL + +`
-* Collapse method `CTL + -`
 * Select file in project view `CTL + Shift + S`
 * Copy file route `CTL + Shift + C`
 * Open left sidebar `CMD + 1`
+* Open project root `CMD + 2`
 * Format code (Black) `CMD + B`
 * Open local changes `CMD + 9`
 * Pull `CTL + CMD + P`
 * Push `CTL + CMD + U`
+* Expand method `CTL + +`
+* Collapse method `CTL + -`
+* Clone caret above `CTL + Shift + ↑`
+* Clone caret below `CTL + Shift + ↓`
+* Add caret to next match occurrence `CMD + N`
+* Add caret to previous match occurrence `CMD + P`
