@@ -109,7 +109,7 @@
 * Copy file route `CTL + Shift + C`
 * Open left sidebar `CMD + 1`
 * Open project root `CMD + 2`
-* Format code (Black) `CMD + B`
+* Format code (Black) `CTL + CMD + L`
 * Open local changes `CMD + 9`
 * Pull `CTL + CMD + P`
 * Push `CTL + CMD + U`
