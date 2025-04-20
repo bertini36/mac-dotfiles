@@ -37,6 +37,10 @@ My personal Mac config files
 
 - Install [Raycast](https://www.raycast.com/)
   * Disable Spotlight shortcut to enable Raycast one (System Preferences -> Keyboard -> Shortcuts -> Spotlight -> Uncheck `Show Spotlight search`)
+- Install [Pycharm](https://www.jetbrains.com/pycharm/download/#section=mac)
+  * Login
+  * Set `Alberto's Mac keymap` (Settings -> Keymap -> Keymaps dropdown)
+  * Set `Monospace Neon` font (Settings -> Editor -> Font -> Monospace Neon)
 - Install [Cursor](hhttps://www.cursor.com/)
 - Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
 - Install [Github Desktop](https://desktop.github.com/)

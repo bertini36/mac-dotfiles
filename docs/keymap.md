@@ -89,6 +89,37 @@
 * Copy CMD `CMD + Shift + C`
 * Delete line `CMD + Backspace`
 
+## Pycharm
+
+* Vertical split `CTL + Shift + E`
+* Horizontal split `CTL + Shift + O`
+* Open actions `CMD + Shift + A`
+* Search classes `Contol + N`
+* Search symbols `CMD + CTL + Shift + N`
+* Find in file `CMD + F`
+* Replace in file `CMD + R`
+* Find in files `CMD + Shift + F`
+* Duplicate line `CTL + D`
+* Clone caret above `CTL + Shift + ↑`
+* Clone caret below `CTL + Shift + ↓`
+* Delete file `Shift + Delete`
+* Next word occurrence `CMD + N`
+* Previous word occurrence `CMD + P`
+* Find usages `CMD + Shift + F7`
+* Expand method `CTL + +`
+* Collapse method `CTL + -`
+* Go to declaration `CTL + Enter/click`
+* Select file in project view `CTL + Shift + S`
+* Copy file route `CTL + Shift + C`
+* Open project view `CMD + 1`
+* Add selection to next occurence `CMD + J`
+* Commit `CTL + CMD + C`
+* Push `CTL + CMD + U`
+* Pull `CTL + CMD + P`
+* Add to git `CTL + CMD + A`
+* Branches `CTL + CMD + B`
+* Recent locations `CMD + Shift + R`
+
 ## Cursor
 
 * Agent mode `CMD + I`
