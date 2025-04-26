@@ -44,6 +44,7 @@ My personal Mac config files
 - Install [Cursor](hhttps://www.cursor.com/)
 - Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
 - Install [Github Desktop](https://desktop.github.com/)
+- Install Notch box
 - Enable auto-focus: `defaults write com.apple.Terminal FocusFollowsMouse -bool true`
 - Link the rest of configuration files
 

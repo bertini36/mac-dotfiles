@@ -25,6 +25,7 @@
 * Terminal `Caps Lock + T`
 * Notion `Caps Lock + N`
 * Calendar `Caps Lock + C`
+* Mail `Caps Lock + M`
 * Finder `Caps Lock + F`
 * Wattsapp `Caps Lock + W`
 * Telegram `Caps Lock + G`
@@ -32,10 +33,11 @@
 * Bottom half of the screen `Caps Lock + ↓`
 * Top half of the screen `Caps Lock + ↑`
 * Right half of the screen `Caps Lock + →`
-* Maximize `Caps Lock + M`
+* Maximize `Caps Lock + Enter`
 * Cycle between same app windoes `Caps Lock + Tab`
 * Open AI `Caps Lock + I`
 * Open Downloads `Caps Lock + D`
+* Open Notch box `Caps Lock + O`
 
 ## Other Raycast useful CMDs without shortcut
 
@@ -105,7 +107,7 @@
 * Delete file `Shift + Delete`
 * Next word occurrence `CMD + N`
 * Previous word occurrence `CMD + P`
-* Find usages `CMD + Shift + F7`
+* Find usages `CMD + Shift + 7`
 * Expand method `CTL + +`
 * Collapse method `CTL + -`
 * Go to declaration `CTL + Enter/click`
@@ -118,7 +120,13 @@
 * Pull `CTL + CMD + P`
 * Add to git `CTL + CMD + A`
 * Branches `CTL + CMD + B`
-* Recent locations `CMD + Shift + R`
+* Recent locations `CMD + E`
+* Close active tool window: `Shift + ESC`
+* New file `CTL + Shift + N`
+* New scratch file `CMD + CTL + N`
+* Copilot chat `CMD + I`
+* Copilot inline chat `CMD + K`
+* Rollback `CMD + CTL + R`
 
 ## Cursor
 
