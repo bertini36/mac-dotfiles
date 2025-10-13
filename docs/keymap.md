@@ -4,24 +4,22 @@
 
 * Screen brightness down/up `F1` and `F2`
 * Mission CTL `F3`
-* Raycast `F4`
 * Dictation `F5`
 * Play/Pause, Previous and Next track `F6`, `F7` and `F8`
 * Mute, Volume up and Volume down `F9`, `F10` and `F11`
 * Close app `CMD + Q`
 * Close tab `CMD + W`
-* Next window same app `Caps Lock + Tab`
 * App settings `CMD + ,`
 * See hidden files `CMD + Shift + .`
 
 ## Raycast (Caps Lock based)
 
-* Open Raycast `CMD + Space`
+* Open Raycast `F4` or `CMD + Space`
 * Open Raycast settings `CMD + ,`
 * Emojis `Caps Lock + E`
 * Browser `Caps Lock + B`
 * Pycharm `Caps Lock + P`
-* Spotify `Caps Lock + S`
+* Youtube Music `Caps Lock + S`
 * Terminal `Caps Lock + T`
 * Notion `Caps Lock + N`
 * Calendar `Caps Lock + C`
@@ -29,15 +27,14 @@
 * Finder `Caps Lock + F`
 * Wattsapp `Caps Lock + W`
 * Telegram `Caps Lock + G`
+* Open AI `Caps Lock + I`
+* Open Downloads `Caps Lock + D`
+* Pomodoro `Caps Lock + O`
 * Left half of the screen `Caps Lock + ←`
 * Bottom half of the screen `Caps Lock + ↓`
 * Top half of the screen `Caps Lock + ↑`
 * Right half of the screen `Caps Lock + →`
 * Maximize `Caps Lock + Enter`
-* Cycle between same app windoes `Caps Lock + Tab`
-* Open AI `Caps Lock + I`
-* Open Downloads `Caps Lock + D`
-* Open Notch box `Caps Lock + O`
 
 ## Other Raycast useful CMDs without shortcut
 
@@ -69,26 +66,20 @@
 * Move cursor one word right `CTL + F`
 * Delete one word left `CTL + W`
 * Delete line from start `CTL + K`
-* Delete one character left `CTL + H`
-* Delete one character right `CTL + D`
 
-## Warp (CMD based)
+## Iterm (CMD based)
 
 * Vertical split `CTL + Shift + E`
 * Horizontal split `CTL + Shift + O`
 * Clean screen `CTL + L`
 * Close tab `CMD + W`
 * Create new tab `CMD + T`
-* AI mode `CMD + I`
 * Open Shortcuts help `CMD + /`
-* Activate next pane `CMD + →`
-* Activate previous pane `CMD + ←`
-* Activate next tab `CMD + Shift + →`
-* Activate previous tab `CMD + Shift + ←`
-* Previous block `CMD + ↑`
-* Next block `CMD + ↓`
+* Activate right pane `CMD + Option + →`
+* Activate left pane `CMD + Option + ←`
+* Activate upper pane `CMD + Option + ↑`
+* Activate lower pane `CMD + Option + ↓`
 * Copy `CMD + C`
-* Copy CMD `CMD + Shift + C`
 * Delete line `CMD + Backspace`
 
 ## Pycharm
@@ -127,34 +118,7 @@
 * Copilot chat `CMD + I`
 * Copilot inline chat `CMD + K`
 * Rollback `CMD + CTL + R`
-
-## Cursor
-
-* Agent mode `CMD + I`
-* Generate code `CMD + K`
-* Vertical split `CTL + Shift + E`
-* Horizontal split `CTL + Shift + O`
-* Open actions `CMD + Shift + A`
-* Search symbols `CMD + CTL + Shift + N`
-* Search file `CMD + G`
-* Find usages `CMD + Shift + 7`
-* Go to definition `CTL + Enter`
-* Find in files `CMD + Shift + F`
-* Find in file `CMD + F`
-* Replace in file `CMD + R`
-* Duplicate line `CTL + D`
-* Delete file `Shift + Delete`
-* Select file in project view `CTL + Shift + S`
-* Copy file route `CTL + Shift + C`
-* Open left sidebar `CMD + 1`
-* Open project root `CMD + 2`
-* Format code (Black) `CTL + CMD + L`
-* Open local changes `CMD + 9`
-* Pull `CTL + CMD + P`
-* Push `CTL + CMD + U`
-* Expand method `CTL + +`
-* Collapse method `CTL + -`
-* Clone caret above `CTL + Shift + ↑`
-* Clone caret below `CTL + Shift + ↓`
-* Add caret to next match occurrence `CMD + N`
-* Add caret to previous match occurrence `CMD + P`
+* Next tab `CMD + →`
+* Previous tab `CMD + ←`
+* Next splitter `CMD + Option + →`
+* Previous splitter `CMD + Option + ←`

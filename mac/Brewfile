@@ -19,3 +19,4 @@ brew "pyenv"
 brew tap cjbassi/gotop
 brew "gotop"
 brew "karabiner-elements"
+brew "gemini-cli"

@@ -163,8 +163,8 @@ alias dckill="dc; kill"
 alias docker-clean-all="docker system prune"
 
 # Others
-alias pycharm.="pycharm . &>/dev/null &"
-alias p.="pycharm."
+alias pycharm="pycharm . &>/dev/null &"
+alias p="pycharm."
 alias delpyc="find . -name '*.pyc' -exec rm -f {} \;"
 alias clean-pyc="delpyc"
 alias zsh-relaod="source ~/.zshrc"
@@ -175,8 +175,17 @@ alias update-zsh="omz update"
 alias update-all="update && update-zsh"
 alias top="gotop"
 alias pip="pip3"
+alias g="gemini"
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/bertini36/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# pnpm
+export PNPM_HOME="/Users/bertini36/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
