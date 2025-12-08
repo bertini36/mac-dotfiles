@@ -1,0 +1,20 @@
+{
+    "window.commandCenter": 1,
+    "workbench.colorTheme": "Cursor Dark Midnight",
+    "files.autoSave": "afterDelay",
+    "cursor.terminal.usePreviewBox": true,
+    "cursor.cpp.enablePartialAccepts": true,
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "emmet.useInlineCompletions": true,
+    "diffEditor.experimental.useTrueInlineView": true,
+    "terminal.integrated.fontFamily": "monospace",
+    "editor.fontFamily": "Dank Mono",
+    "editor.fontSize": 14,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "cursor.cpp.disabledLanguages": [
+        "plaintext"
+    ],
+    "makefile.configureOnOpen": false,
+    "git.confirmSync": false
+}
