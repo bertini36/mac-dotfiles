@@ -11,6 +11,7 @@
 * Close tab `CMD + W`
 * App settings `CMD + ,`
 * See hidden files `CMD + Shift + .`
+* Open settings `CMD + ,`
 
 ## Raycast (Caps Lock based)
 
@@ -30,6 +31,7 @@
 * Open AI `Caps Lock + I`
 * Open Downloads `Caps Lock + D`
 * Pomodoro `Caps Lock + O`
+* DeepL `Caps Lock + L`
 * Left half of the screen `Caps Lock + ←`
 * Bottom half of the screen `Caps Lock + ↓`
 * Top half of the screen `Caps Lock + ↑`
