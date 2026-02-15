@@ -1,20 +1,17 @@
 {
-    "window.commandCenter": 1,
-    "workbench.colorTheme": "Cursor Dark Midnight",
+    "github.copilot.nextEditSuggestions.enabled": true,
     "files.autoSave": "afterDelay",
-    "cursor.terminal.usePreviewBox": true,
-    "cursor.cpp.enablePartialAccepts": true,
+    "editor.formatOnSave": true,
+    "window.commandCenter": 1,
     "editor.inlineSuggest.suppressSuggestions": true,
     "emmet.useInlineCompletions": true,
     "diffEditor.experimental.useTrueInlineView": true,
     "terminal.integrated.fontFamily": "monospace",
     "editor.fontFamily": "Dank Mono",
+    "editor.fontLigatures": true,
     "editor.fontSize": 14,
     "git.autofetch": true,
     "git.enableSmartCommit": true,
-    "cursor.cpp.disabledLanguages": [
-        "plaintext"
-    ],
-    "makefile.configureOnOpen": false,
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "explorer.confirmDelete": false
 }

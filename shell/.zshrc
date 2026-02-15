@@ -163,8 +163,6 @@ alias dckill="dc; kill"
 alias docker-clean-all="docker system prune"
 
 # Others
-alias pycharm="pycharm . &>/dev/null &"
-alias p="pycharm."
 alias delpyc="find . -name '*.pyc' -exec rm -f {} \;"
 alias clean-pyc="delpyc"
 alias zsh-relaod="source ~/.zshrc"
@@ -189,6 +187,3 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-# Added by Antigravity
-export PATH="/Users/bertini36/.antigravity/antigravity/bin:$PATH"

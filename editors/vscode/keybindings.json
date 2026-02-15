@@ -1,13 +1,21 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "cmd+i",
-        "command": "composerMode.agent"
-    },
-    {
         "key": "ctrl+shift+alt+cmd+=",
         "command": "cursorLineEndSelect",
         "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+right",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "cmd+left",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "explorer.newFile"
     },
     {
         "key": "ctrl+shift+e",
@@ -173,7 +181,7 @@
     },
     {
         "key": "cmd+b",
-        "command": "-workbench.action.toggleSidebarVisibility"
+        "command": "workbench.action.toggleSidebarVisibility"
     },
     {
         "key": "ctrl+cmd+p",
@@ -182,10 +190,6 @@
     {
         "key": "ctrl+cmd+u",
         "command": "git.push"
-    },
-    {
-        "key": "cmd+g",
-        "command": "workbench.action.quickOpen"
     },
     {
         "key": "cmd+p",
@@ -278,5 +282,53 @@
         "key": "shift+alt+down",
         "command": "-editor.action.copyLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
-    }
+    },
+    {
+        "key": "cmd+i",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "ctrl+shift+f",
+        "command": "workbench.view.search"
+    },
+    {
+        "key": "ctrl+cmd+c",
+        "command": "workbench.view.scm"
+    },
+    {
+        "key": "ctrl+cmd+p",
+        "command": "git.pull"
+    },
+    {
+        "key": "ctrl+cmd+u",
+        "command": "git.push"
+    },
+    {
+        "key": "ctrl+cmd+shift+n",
+        "command": "workbench.action.showAllSymbols"
+    },
+    {
+        "key": "cmd+r",
+        "command": "editor.action.startFindReplaceAction",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "key": "cmd+shift+7",
+        "command": "references-view.findReferences",
+        "when": "editorHasReferenceProvider"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus"
+    },
+    {
+        "key": "cmd+1",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        "key": "ctrl+cmd+n",
+        "command": "workbench.action.files.newUntitledFile"
+    },
 ]

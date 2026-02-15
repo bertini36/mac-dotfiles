@@ -19,16 +19,14 @@
 * Open Raycast settings `CMD + ,`
 * Emojis `Caps Lock + E`
 * Browser `Caps Lock + B`
-* Pycharm `Caps Lock + P`
-* Youtube Music `Caps Lock + S`
+* Youtube Music `Caps Lock + M`
 * Terminal `Caps Lock + T`
 * Notion `Caps Lock + N`
 * Calendar `Caps Lock + C`
-* Mail `Caps Lock + M`
-* Finder `Caps Lock + F`
+* Figma `Caps Lock + F`
 * Wattsapp `Caps Lock + W`
 * Telegram `Caps Lock + G`
-* Open AI `Caps Lock + I`
+* Perplexity `Caps Lock + I`
 * Open Downloads `Caps Lock + D`
 * Pomodoro `Caps Lock + O`
 * DeepL `Caps Lock + L`
@@ -41,10 +39,6 @@
 ## Other Raycast useful CMDs without shortcut
 
 * Kill process (plugin)
-* Search Google (quicklink)
-* Search Spotify (quicklink)
-* Search files
-* Define word
 * Translate (plugin)
 
 ## Browser (CMD based)
@@ -54,8 +48,8 @@
 * Reopen last tab `CMD + Shift + T`
 * Open new window `CMD + N`
 * Close window `CMD + Shift + W`
-* Next tab `CMD + Option + →`
-* Previous tab `CMD + Option + ←`
+* Next tab `CMD + →`
+* Previous tab `CMD + ←`
 * Open link in new tab `CMD + Click`
 * Open link in new window `CMD + Shift + Click`
 * Move cursor to address bar `CMD + L`
@@ -84,12 +78,11 @@
 * Copy `CMD + C`
 * Delete line `CMD + Backspace`
 
-## Pycharm
+## Visual Studio Code (CMD based)
 
 * Vertical split `CTL + Shift + E`
 * Horizontal split `CTL + Shift + O`
 * Open actions `CMD + Shift + A`
-* Search classes `Contol + N`
 * Search symbols `CMD + CTL + Shift + N`
 * Find in file `CMD + F`
 * Replace in file `CMD + R`
@@ -111,16 +104,9 @@
 * Commit `CTL + CMD + C`
 * Push `CTL + CMD + U`
 * Pull `CTL + CMD + P`
-* Add to git `CTL + CMD + A`
-* Branches `CTL + CMD + B`
-* Recent locations `CMD + E`
-* Close active tool window: `Shift + ESC`
+* Close left sidebar: `CMD + B`
 * New file `CTL + Shift + N`
 * New scratch file `CMD + CTL + N`
 * Copilot chat `CMD + I`
-* Copilot inline chat `CMD + K`
-* Rollback `CMD + CTL + R`
 * Next tab `CMD + →`
 * Previous tab `CMD + ←`
-* Next splitter `CMD + Option + →`
-* Previous splitter `CMD + Option + ←`

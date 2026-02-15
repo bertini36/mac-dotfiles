@@ -24,7 +24,6 @@ My personal Mac config files
 - Install [Karabiner](https://karabiner-elements.pqrs.org/)
   - Change `Caps Lock` to `CMD + CTL + Option + Shift`
   - Map F4 to `CMD + Space` (Raycast)
-- Install [Warp](https://www.warp.dev/)
 - Install [Oh My ZSH](https://ohmyz.sh/)
   * Link `shell/.zshrc` to `~/.zshrc`: `ln ~/.dotfiles/shell/.zshrc ~/.zshrc`
   * Install plugins
@@ -37,13 +36,15 @@ My personal Mac config files
 
 - Install [Raycast](https://www.raycast.com/)
   * Disable Spotlight shortcut to enable Raycast one (System Preferences -> Keyboard -> Shortcuts -> Spotlight -> Uncheck `Show Spotlight search`)
-- Install [Pycharm](https://www.jetbrains.com/pycharm/download/#section=mac)
-  * Login
-  * Set `Alberto's Mac keymap` (Settings -> Keymap -> Keymaps dropdown)
-  * Set `Monospace Neon` font (Settings -> Editor -> Font -> Monospace Neon)
 - Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
 - Install [Github Desktop](https://desktop.github.com/)
+- Install [Visual Studio Code](https://code.visualstudio.com/)
 - Enable auto-focus: `defaults write com.apple.Terminal FocusFollowsMouse -bool true`
+- Install brew packages from Brewfile
+
+  ```bash
+  brew bundle --file=mac/Brewfile
+  ```
 - Link the rest of configuration files
 
   ```bash
