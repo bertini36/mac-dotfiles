@@ -20,9 +20,10 @@
 * Emojis `Caps Lock + E`
 * Browser `Caps Lock + B`
 * Youtube Music `Caps Lock + M`
+* Visual Studio Code `Caps Lock + C`
 * Terminal `Caps Lock + T`
 * Notion `Caps Lock + N`
-* Calendar `Caps Lock + C`
+* Calendar `Caps Lock + S`
 * Figma `Caps Lock + F`
 * Wattsapp `Caps Lock + W`
 * Telegram `Caps Lock + G`
