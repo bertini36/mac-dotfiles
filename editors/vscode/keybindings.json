@@ -357,5 +357,5 @@
         "key": "ctrl+x",
         "command": "editor.action.deleteLines",
         "when": "textInputFocus && !editorReadonly"
-    },
+    }
 ]
