@@ -353,4 +353,9 @@
         "key": "shift+cmd+,",
         "command": "workbench.action.openSettingsJson"
     },
+    {
+        "key": "ctrl+x",
+        "command": "editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
 ]

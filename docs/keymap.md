@@ -62,7 +62,7 @@
 * Move cursor one word left `CTL + B`
 * Move cursor one word right `CTL + F`
 * Delete one word left `CTL + W`
-* Delete line from start `CTL + K`
+* Delete line `CTL + X`
 
 ## Iterm (CMD based)
 
