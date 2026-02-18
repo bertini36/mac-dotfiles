@@ -97,7 +97,7 @@
 * Find usages `CMD + Shift + 7`
 * Expand method `CTL + +`
 * Collapse method `CTL + -`
-* Go to declaration `CTL + Enter/click`
+* Go to declaration `Command + Enter/click`
 * Select file in project view `CTL + Shift + S`
 * Copy file route `CTL + Shift + C`
 * Open project view `CMD + 1`

@@ -331,4 +331,26 @@
         "key": "ctrl+cmd+n",
         "command": "workbench.action.files.newUntitledFile"
     },
+    {
+        "key": "ctrl+cmd+o",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "ruff check --select I --fix ${file}\u000D"
+        },
+        "when": "editorTextFocus && editorLangId == python"
+    },
+    {
+        "key": "cmd+.",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+,",
+        "command": "-editor.action.inPlaceReplace.up",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+,",
+        "command": "workbench.action.openSettingsJson"
+    },
 ]

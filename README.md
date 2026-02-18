@@ -39,6 +39,22 @@ My personal Mac config files
 - Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
 - Install [Github Desktop](https://desktop.github.com/)
 - Install [Visual Studio Code](https://code.visualstudio.com/)
+  * Install extensions:
+    - [Container tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+    - [Dev containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+    - [Django](https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django)
+    - [Github Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
+    - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+    - [Lark grammar syntax support](https://marketplace.visualstudio.com/items?itemName=lark-parser.lark)
+    - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
+    - [Monokai Pro](https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode)
+    - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
+    - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+    - [Python environments](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs)
+    - [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)
+    - [shift shift](https://marketplace.visualstudio.com/items?itemName=ahebrank.shortcut-menu-bar)
+    - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+
 - Enable auto-focus: `defaults write com.apple.Terminal FocusFollowsMouse -bool true`
 - Install brew packages from Brewfile
 
