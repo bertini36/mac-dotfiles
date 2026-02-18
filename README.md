@@ -48,6 +48,7 @@ My personal Mac config files
     - [Lark grammar syntax support](https://marketplace.visualstudio.com/items?itemName=lark-parser.lark)
     - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
     - [Monokai Pro](https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode)
+    - [Tokyo Night](https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night)
     - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
     - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
     - [Python environments](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs)
