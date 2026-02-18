@@ -111,3 +111,6 @@
 * Copilot chat `CMD + I`
 * Next tab `CMD + →`
 * Previous tab `CMD + ←`
+* Fix current line `CMD + .`
+* Open project `CMD + O`
+* Open user settings file `CMD + Shift + ,`
