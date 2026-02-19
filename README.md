@@ -70,7 +70,12 @@ My personal Mac config files
   ln ~/.dotfiles/editors/vim/.vimrc ~/.vimrc
   ```
 
-To use skills in a code project, copy the folders inside `skills/` into the project inside .github/skills/.
+  - Copy skills to `~/.agents`
+
+  ```bash
+  cp -r ~/.dotfiles/.agents ~/.agents
+  ```
+  
 
 <br />
 <p align="center">&mdash; Built with ❤️ from Mallorca &mdash;</p>
