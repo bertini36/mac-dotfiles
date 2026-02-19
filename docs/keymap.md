@@ -24,7 +24,6 @@
 * Terminal `Caps Lock + T`
 * Notion `Caps Lock + N`
 * Calendar `Caps Lock + S`
-* Figma `Caps Lock + F`
 * Wattsapp `Caps Lock + W`
 * Telegram `Caps Lock + G`
 * Perplexity `Caps Lock + I`
@@ -64,7 +63,7 @@
 * Delete one word left `CTL + W`
 * Delete line `CTL + X`
 
-## Iterm (CMD based)
+## Terminal (CMD based)
 
 * Vertical split `CTL + Shift + E`
 * Horizontal split `CTL + Shift + O`
@@ -79,7 +78,7 @@
 * Copy `CMD + C`
 * Delete line `CMD + Backspace`
 
-## Visual Studio Code (CMD based)
+## IDE (CMD based)
 
 * Vertical split `CTL + Shift + E`
 * Horizontal split `CTL + Shift + O`

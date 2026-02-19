@@ -36,8 +36,9 @@ My personal Mac config files
 
 - Install [Raycast](https://www.raycast.com/)
   * Disable Spotlight shortcut to enable Raycast one (System Preferences -> Keyboard -> Shortcuts -> Spotlight -> Uncheck `Show Spotlight search`)
+- Install [Iterm2](https://iterm2.com/)
 - Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
-- Install [Github Desktop](https://desktop.github.com/)
+- Install [Jetbrains Toolbox](https://www.jetbrains.com/toolbox-app/) and [Pycharm](https://www.jetbrains.com/pycharm/)
 - Install [Visual Studio Code](https://code.visualstudio.com/)
   * Install extensions:
     - [Container tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
