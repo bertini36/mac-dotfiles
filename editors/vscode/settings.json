@@ -36,7 +36,7 @@
         "**/__pycache__": true,
         "**/.pytest_cache": true,
         "**/.ruff_cache": true,
-        "**/.mypy_cache": true,
+        "**/.mypy_cache": true
     },
     "search.maxResults": 1000,
     "search.smartCase": true,
