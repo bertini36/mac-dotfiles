@@ -21,6 +21,10 @@
         "scminput": false
     },
     "python.analysis.autoImportCompletions": true,
+    "python.analysis.exclude": [
+        "**/.direnv",
+        "**/.direnv/**"
+    ],
     "security.workspace.trust.untrustedFiles": "open",
     "search.exclude": {
         "**/node_modules": true,
@@ -47,5 +51,5 @@
     "gitlens.currentLine.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.enabled": false,
-    "workbench.iconTheme": "Monokai Pro Light Monochrome Icons"
+    "workbench.colorTheme": "Tokyo Night Storm"
 }
