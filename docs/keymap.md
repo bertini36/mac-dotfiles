@@ -62,6 +62,7 @@
 * Move cursor one word right `CTL + F`
 * Delete one word left `CTL + W`
 * Delete line `CTL + X`
+* Duplicate line `CTL + D`
 
 ## Terminal (CMD based)
 
@@ -87,7 +88,6 @@
 * Find in file `CMD + F`
 * Replace in file `CMD + R`
 * Find in files `CMD + Shift + F`
-* Duplicate line `CTL + D`
 * Clone caret above `CTL + Shift + ↑`
 * Clone caret below `CTL + Shift + ↓`
 * Delete file `Shift + Delete`
