@@ -333,10 +333,7 @@
     },
     {
         "key": "ctrl+cmd+o",
-        "command": "workbench.action.terminal.sendSequence",
-        "args": {
-            "text": "ruff check --select I --fix ${file}\u000D"
-        },
+        "command": "editor.action.organizeImports",
         "when": "editorTextFocus && editorLangId == python"
     },
     {
@@ -357,5 +354,5 @@
         "key": "ctrl+x",
         "command": "editor.action.deleteLines",
         "when": "textInputFocus && !editorReadonly"
-    }
+    },
 ]
