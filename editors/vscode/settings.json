@@ -36,7 +36,7 @@
         "**/__pycache__": true,
         "**/.pytest_cache": true,
         "**/.ruff_cache": true,
-        "**/.mypy_cache": true
+        "**/.mypy_cache": true,
     },
     "search.maxResults": 1000,
     "search.smartCase": true,
@@ -51,5 +51,8 @@
     "gitlens.currentLine.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.enabled": false,
-    "workbench.colorTheme": "Tokyo Night Storm"
+    "workbench.colorTheme": "Tokyo Night Storm",
+    "claudeCode.preferredLocation": "panel",
+    "claudeCode.allowDangerouslySkipPermissions": true,
+    "claudeCode.usePythonEnvironment": true
 }
