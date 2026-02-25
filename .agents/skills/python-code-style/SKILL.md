@@ -262,7 +262,38 @@ class UserService:
         self.logger = logger
 ```
 
-### Pattern 6: Line Length and Formatting
+### Pattern 6: Comments
+
+Add comments only when the code itself doesn't reveal the intention. Avoid commenting every line, and never add comments in tests — test names and structure should be self-explanatory.
+
+```python
+# Bad: comment restates what the code already says
+user_count += 1  # increment user count
+users = db.get_all_users()  # get all users from database
+
+# Good: comment explains *why*, not *what*
+user_count += 1  # include the requesting user who is not in the group
+retry_delay *= 2  # exponential backoff to avoid thundering herd
+
+# Bad: comments in tests
+def test_create_user():
+    # create a user with valid data
+    user = create_user(email="test@example.com")
+    # assert the user was created
+    assert user.id is not None
+
+# Good: test name and structure speak for themselves
+def test_create_user_returns_id_when_email_is_valid():
+    user = create_user(email="test@example.com")
+    assert user.id is not None
+```
+
+**Rules of thumb:**
+- If you feel the urge to comment a line, consider renaming the variable or function instead
+- Comments in tests are a sign the test needs a better name or to be split
+- Comment complex algorithms, non-obvious workarounds, or business rules that can't be expressed in code
+
+### Pattern 7: Line Length and Formatting
 
 Set line length to 120 characters for modern displays while maintaining readability.
 
@@ -293,7 +324,7 @@ error_message = (
 )
 ```
 
-### Pattern 7: Project Documentation
+### Pattern 8: Project Documentation
 
 **README Structure:**
 
