@@ -114,7 +114,7 @@ git push origin HEAD --force-with-lease
 
 ## Create the Pull Request
 
-**IMPORTANT**: Read and use the PR template at `.github/pull_request_template.md`. The PR body format must **strictly match** the template structure. Do not deviate from the template format.
+If the project has a `.github/pull_request_template.md` file, read it and use it as the PR body format — the body must **strictly match** the template structure. If no template exists, use a sensible default structure with sections for description, type of change, and testing notes.
 
 When filling out the template:
 - Replace `#XXXX` with the actual issue number, or keep as `#XXXX` if no issue exists (for small fixes)
@@ -133,7 +133,15 @@ Avoid passing the PR body directly as a command-line argument, as this often fai
 ```bash
 # Example
 echo "PR_BODY_CONTENT" > pr_body.txt
-gh pr create --title "PR_TITLE" --body-file pr_body.txt --base master --draft --label "Engine" --assignee "@me"
+gh pr create --title "PR_TITLE" --body-file pr_body.txt --base master --draft --assignee "@me"
+rm pr_body.txt # Clean up
+```
+
+If the project belongs to the Abacum organization (e.g., remote URL contains `abacum`), add `--label "Engine"`:
+
+```bash
+echo "PR_BODY_CONTENT" > pr_body.txt
+gh pr create --title "PR_TITLE" --body-file pr_body.txt --base master --draft --assignee "@me" --label "Engine"
 rm pr_body.txt # Clean up
 ```
 
