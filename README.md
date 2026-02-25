@@ -69,14 +69,8 @@ My personal Mac config files
   ln ~/.dotfiles/git/.gitignore_global ~/.gitignore_global
   ln ~/.dotfiles/langs/python/.direnvrc ~/.direnvrc
   ln ~/.dotfiles/editors/vim/.vimrc ~/.vimrc
+  ln -s ~/.dotfiles/.agents ~/.agents
   ```
-
-  - Copy skills to `~/.agents`
-
-  ```bash
-  cp -r ~/.dotfiles/.agents ~/.agents
-  ```
-  
 
 <br />
 <p align="center">&mdash; Built with ❤️ from Mallorca &mdash;</p>
