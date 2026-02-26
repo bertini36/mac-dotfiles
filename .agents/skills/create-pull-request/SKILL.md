@@ -123,7 +123,17 @@ When filling out the template:
 - Complete the "Pre-flight Checklist" items that apply
 - Ask for confirmation of the generated PR_BODY
 
-### Create PR with gh CLI as draft
+### Complex Logic — Deeper Descriptions
+
+If the PR introduces non-trivial logic (e.g., algorithmic changes, architectural decisions, subtle bug fixes, or multi-step workflows), the description must go deeper. Apply the `writing-clearly-and-concisely` skill to write a clear, precise explanation that covers:
+
+- **Why**: The problem or motivation behind the change
+- **What**: The approach taken and why it was chosen over alternatives
+- **How**: Key implementation details a reviewer needs to understand the code
+
+Avoid vague summaries. A reviewer should be able to understand the intent and trade-offs without reading every line of code.
+
+### Create PR with gh CLI
 Avoid passing the PR body directly as a command-line argument, as this often fails with complex text (newlines, quotes, etc.). Instead, use a temporary file or a here-doc/heredoc approach.
 
 **Recommended approach (File-based):**
@@ -133,7 +143,7 @@ Avoid passing the PR body directly as a command-line argument, as this often fai
 ```bash
 # Example
 echo "PR_BODY_CONTENT" > pr_body.txt
-gh pr create --title "PR_TITLE" --body-file pr_body.txt --base master --draft --assignee "@me"
+gh pr create --title "PR_TITLE" --body-file pr_body.txt --base master --assignee "@me"
 rm pr_body.txt # Clean up
 ```
 
