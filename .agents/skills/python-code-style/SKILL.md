@@ -266,14 +266,48 @@ class UserService:
 
 Add comments only when the code itself doesn't reveal the intention. Avoid commenting every line, and never add comments in tests — test names and structure should be self-explanatory.
 
+**Before adding a comment, always ask: can the code itself be made clearer?** If you feel the urge to explain what a variable, function, or block does, that's a signal the code isn't expressive enough. Try these in order before reaching for a comment:
+
+1. **Rename** — a better name often makes the comment redundant
+2. **Extract a function** — if a block needs explaining, it probably deserves its own named function
+3. **Introduce an abstraction** — a well-named variable, constant, or helper can replace an explanatory comment
+
+A comment is a last resort, not a first response to unclear code.
+
 ```python
+# Bad: comment compensates for a poor name
+x += 1  # include the requesting user
+grp = get_members()  # get all users in the group
+
+# Better: rename so the comment is unnecessary
+requesting_user_count += 1
+group_members = get_members()
+
+# Bad: comment explains what a block does
+# validate and normalize the address
+if not address.strip():
+    raise ValueError("empty")
+address = address.strip().title()
+
+# Better: extract a function with a descriptive name
+address = validate_and_normalize_address(address)
+
+# Bad: comment explains a magic value
+if len(records) > 99:  # Salesforce API hard limit
+    ...
+
+# Better: introduce a named constant
+SALESFORCE_MAX_BATCH_SIZE = 99
+if len(records) > SALESFORCE_MAX_BATCH_SIZE:
+    ...
+
+# Comment only what code structure alone can't express: *why*, not *what*
+retry_delay *= 2  # exponential backoff to avoid thundering herd
+batch_size = 99   # Salesforce API hard limit per request
+
 # Bad: comment restates what the code already says
 user_count += 1  # increment user count
 users = db.get_all_users()  # get all users from database
-
-# Good: comment explains *why*, not *what*
-user_count += 1  # include the requesting user who is not in the group
-retry_delay *= 2  # exponential backoff to avoid thundering herd
 
 # Bad: comments in tests
 def test_create_user():
@@ -289,7 +323,7 @@ def test_create_user_returns_id_when_email_is_valid():
 ```
 
 **Rules of thumb:**
-- If you feel the urge to comment a line, consider renaming the variable or function instead
+- The urge to comment is a code smell — try renaming, extracting a function, or introducing an abstraction first; add a comment only if none of those help
 - Comments in tests are a sign the test needs a better name or to be split
 - Comment complex algorithms, non-obvious workarounds, or business rules that can't be expressed in code
 
