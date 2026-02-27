@@ -21,10 +21,6 @@
         "scminput": false
     },
     "python.analysis.autoImportCompletions": true,
-    "python.analysis.exclude": [
-        "**/.direnv",
-        "**/.direnv/**"
-    ],
     "security.workspace.trust.untrustedFiles": "open",
     "search.exclude": {
         "**/node_modules": true,
@@ -56,5 +52,7 @@
     "claudeCode.allowDangerouslySkipPermissions": true,
     "claudeCode.usePythonEnvironment": true,
     "workbench.editor.enablePreview": false,
-    "workbench.editor.enablePreviewFromQuickOpen": false
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "chat.viewSessions.orientation": "stacked",
+    "chat.mcp.gallery.enabled": true
 }
