@@ -67,7 +67,6 @@ My personal Mac config files
 
   ```bash
   ln ~/.dotfiles/git/.gitignore_global ~/.gitignore_global
-  ln ~/.dotfiles/langs/python/.direnvrc ~/.direnvrc
   ln ~/.dotfiles/editors/vim/.vimrc ~/.vimrc
   ln -s ~/.dotfiles/.agents ~/.agents
   ln -s ~/.dotfiles/.agents/skills ~/.claude

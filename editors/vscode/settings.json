@@ -26,7 +26,6 @@
         "**/node_modules": true,
         "**/.git": true,
         "**/build": true,
-        "**/.direnv": true,
         "**/dist": true,
         "**/*.log": true,
         "**/__pycache__": true,
