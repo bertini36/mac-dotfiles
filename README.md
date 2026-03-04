@@ -16,12 +16,30 @@ My personal Mac config files
 - Brew packages installation:
 
     ```bash
-    cd mac/
-    brew bundle
+    brew bundle --file=mac/Brewfile
     ```
 
+    | Package | Description |
+    |---|---|
+    | `bat` | `cat` with syntax highlighting |
+    | `eza` | Modern `ls` replacement |
+    | `fzf` | Fuzzy finder for the terminal |
+    | `gh` | GitHub CLI |
+    | `pre-commit` | Git hook manager |
+    | `graphviz` | Graph visualization tools |
+    | `jq` | JSON processor |
+    | `libmagic` | File type detection library |
+    | `gotop` | Terminal system monitor |
+    | `gemini-cli` | Google Gemini AI CLI |
+    | `mole` | macOS disk space cleaner and system optimizer |
+    | `postgresql@18` | PostgreSQL database |
+    | `pyenv` | Python version manager |
+    | `uv` | Fast Python package manager |
+    | `python@3.14` | Python interpreter |
+    | `karabiner-elements` | Keyboard remapper (cask) |
+
 - Add fonts (`fonts/`) to `Font Book`
-- Install [Karabiner](https://karabiner-elements.pqrs.org/)
+- Configure [Karabiner](https://karabiner-elements.pqrs.org/)
   - Change `Caps Lock` to `CMD + CTL + Option + Shift`
   - Map F4 to `CMD + Space` (Raycast)
 - Install [Oh My ZSH](https://ohmyz.sh/)
@@ -36,6 +54,7 @@ My personal Mac config files
 
 - Install [Raycast](https://www.raycast.com/)
   * Disable Spotlight shortcut to enable Raycast one (System Preferences -> Keyboard -> Shortcuts -> Spotlight -> Uncheck `Show Spotlight search`)
+  * Configure shortcuts following [keymap.md](docs/keymap.md)
 - Install [Iterm2](https://iterm2.com/)
 - Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
 - Install [Jetbrains Toolbox](https://www.jetbrains.com/toolbox-app/) and [Pycharm](https://www.jetbrains.com/pycharm/)
@@ -48,21 +67,15 @@ My personal Mac config files
     - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
     - [Lark grammar syntax support](https://marketplace.visualstudio.com/items?itemName=lark-parser.lark)
     - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
-    - [Monokai Pro](https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode)
     - [Tokyo Night](https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night)
     - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
     - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-    - [Python environments](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs)
     - [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)
     - [shift shift](https://marketplace.visualstudio.com/items?itemName=ahebrank.shortcut-menu-bar)
     - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+    - [Auto-interpreter for PEP723 (uv)](https://marketplace.visualstudio.com/items?itemName=nsarrazin.pep723-uv-interpreter)
 
 - Enable auto-focus: `defaults write com.apple.Terminal FocusFollowsMouse -bool true`
-- Install brew packages from Brewfile
-
-  ```bash
-  brew bundle --file=mac/Brewfile
-  ```
 - Link the rest of configuration files
 
   ```bash
