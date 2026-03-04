@@ -84,8 +84,10 @@ My personal Mac config files
   ln ~/.dotfiles/git/.gitignore_global ~/.gitignore_global
   ln ~/.dotfiles/editors/vim/.vimrc ~/.vimrc
   ln -s ~/.dotfiles/.agents ~/.agents
-  ln -s ~/.dotfiles/.agents/skills ~/.claude
-  ln -s ~/.dotfiles/.agents/skills ~/.copilot
+  ln -s ~/.dotfiles/.agents/skills ~/.claude/skills
+  ln -s ~/.dotfiles/.agents/AGENTS.md ~/.claude/AGENTS.md
+  ln -s ~/.dotfiles/.agents/skills ~/.copilot/skills
+  ln -s ~/.dotfiles/.agents/AGENTS.md ~/.copilot/AGENTS.md
   ```
 
 <br />
