@@ -70,3 +70,43 @@ git worktree add ../agent-bias-detector feature/agent-bias-detector
 
 # Optional: new hotfix worktree with a new branch
 git worktree add -b hotfix/urgent ../hotfix-urgent
+```
+
+After creating each worktree, open it in a new VS Code window:
+
+```bash
+# Open each worktree in its own VS Code window
+code ../agent-summarizer
+code ../agent-bias-detector
+code ../hotfix-urgent
+
+# Or open all at once
+for dir in ../agent-summarizer ../agent-bias-detector; do
+  code "$dir"
+done
+```
+
+> **Tip:** `code <path>` opens a new VS Code window rooted at that directory. Each window is
+> fully independent — it has its own file explorer, terminal, and extension state — while all
+> windows share the same underlying Git history via the `.git` folder of the primary clone.
+
+If the main clone has a `.venv/` directory with Python dependencies installed, symlink it into
+each worktree so the interpreter and packages are immediately available without reinstalling:
+
+```bash
+# Symlink .venv from main clone into each worktree
+for dir in ../agent-summarizer ../agent-bias-detector; do
+  ln -s "$(pwd)/.venv" "$dir/.venv"
+done
+```
+
+Or individually:
+
+```bash
+ln -s ~/dev/my-app/main/.venv ~/dev/my-app/agent-summarizer/.venv
+ln -s ~/dev/my-app/main/.venv ~/dev/my-app/agent-bias-detector/.venv
+```
+
+> **Note:** A symlink works well when all worktrees run the same Python version and their
+> dependency sets are identical or nearly so. If a worktree needs a different set of packages,
+> create an independent `.venv` in that worktree instead.
