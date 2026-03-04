@@ -145,6 +145,7 @@ alias top="gotop"
 alias pip="pip3"
 alias g="gemini"
 alias c="copilot"
+alias workon="source .venv/bin/activate"
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/bertini36/.docker/completions $fpath)
