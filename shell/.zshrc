@@ -132,34 +132,6 @@ alias boatsandjoy="cd $HOME/code/boatsandjoy/"
 alias blog="cd $HOME/code/bertini36.github.io/"
 alias dropbox="cd $DROPBOX_PATH"
 
-# Git alias
-alias gaa="git add -A"
-alias gc="git c"
-alias gca="git add --all && git commit --amend --no-edit"
-alias gco="git checkout"
-alias git-dif="dot git pretty-diff"
-alias gd="dot git pretty-diff"
-alias git-status="git status -sb"
-alias gs="git status -sb"
-alias gf="git fetch --all -p"
-alias gps="git push"
-alias gpsf="git push --force"
-alias gpl="git pull --rebase --autostash"
-alias gb="git branch"
-alias ga="dot git amend"
-alias git-log="dot git pretty-log"
-alias glo="dot git pretty-log"
-alias git-discard="git stash && git stash drop"
-alias gdis="git stash && git stash drop"
-
-# Docker alias
-alias dc="docker-compose $@"
-alias dcup="dc; up -d"
-alias dcdo="dc; down"
-alias dcre="dc; restart"
-alias dckill="dc; kill"
-alias docker-clean-all="docker system prune"
-
 # Others
 alias delpyc="find . -name '*.pyc' -exec rm -f {} \;"
 alias clean-pyc="delpyc"
@@ -172,6 +144,8 @@ alias update-all="update && update-zsh"
 alias top="gotop"
 alias pip="pip3"
 alias g="gemini"
+alias c="copilot"
+
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/bertini36/.docker/completions $fpath)
 autoload -Uz compinit
