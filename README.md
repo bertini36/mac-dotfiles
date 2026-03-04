@@ -85,6 +85,7 @@ My personal Mac config files
   ln ~/.dotfiles/editors/vim/.vimrc ~/.vimrc
   ln -s ~/.dotfiles/.agents ~/.agents
   ln -s ~/.dotfiles/.agents/skills ~/.claude
+  ln -s ~/.dotfiles/.agents/skills ~/.copilot
   ```
 
 <br />
