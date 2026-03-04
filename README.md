@@ -37,6 +37,7 @@ My personal Mac config files
     | `pyenv` | Python version manager |
     | `uv` | Fast Python package manager |
     | `python@3.14` | Python interpreter |
+    | `tldr` | Simplified man pages with practical examples |
     | `karabiner-elements` | Keyboard remapper (cask) |
 
 - Add fonts (`fonts/`) to `Font Book`
