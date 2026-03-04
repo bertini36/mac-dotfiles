@@ -31,6 +31,7 @@ My personal Mac config files
     | `libmagic` | File type detection library |
     | `gotop` | Terminal system monitor |
     | `gemini-cli` | Google Gemini AI CLI |
+    | `copilot-cli` | GitHub Copilot CLI (cask) |
     | `mole` | macOS disk space cleaner and system optimizer |
     | `postgresql@18` | PostgreSQL database |
     | `pyenv` | Python version manager |
