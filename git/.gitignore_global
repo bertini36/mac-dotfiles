@@ -1,4 +1,4 @@
-# IntelliJ IDEA
+# Jetbrains
 .idea
 *.iml
 *.iws
@@ -7,14 +7,22 @@
 
 # Python
 *.pyc
-*.pyc
 __pycache__
 .mypy_cache
 .pytest_cache/
+.ruff_cache/
+.venv/
+
+# macOS
+.DS_Store
+
+# Environment
+.env
 
 # Others
-/dist/
-/build/
+dist/
+build/
+tmp/
 
 # Custom
 .no-commit
