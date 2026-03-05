@@ -31,7 +31,16 @@
         "**/__pycache__": true,
         "**/.pytest_cache": true,
         "**/.ruff_cache": true,
-        "**/.mypy_cache": true,
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.ruff_cache": true,
+        ".coverage*": true,
+        "coverage.xml": true,
+        "htmlcov": true,
     },
     "search.maxResults": 1000,
     "search.smartCase": true,
@@ -53,5 +62,8 @@
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "chat.viewSessions.orientation": "stacked",
-    "chat.mcp.gallery.enabled": true
+    "chat.mcp.gallery.enabled": true,
+    "python-envs.alwaysUseUv": false,
+    "task.allowAutomaticTasks": "on",
+    "security.promptForLocalFileProtocolHandling": false
 }
