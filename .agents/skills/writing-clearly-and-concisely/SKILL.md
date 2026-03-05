@@ -83,6 +83,7 @@ LLMs regress to statistical means, producing generic, puffy prose. Avoid:
 - **Promotional adjectives:** groundbreaking, seamless, robust, cutting-edge
 - **Overused AI vocabulary:** delve, leverage, multifaceted, foster, realm, tapestry
 - **Formatting overuse:** excessive bullets, emoji decorations, bold on every other word
+- **Em dash overuse:** the em dash (—) is a strong signal of AI-generated text. Avoid it entirely. Use a comma, semicolon, colon, or period instead.
 
 Be specific, not grandiose. Say what it actually does.
 
