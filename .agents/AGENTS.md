@@ -49,3 +49,4 @@ Tools in use: `uv` for package management, `pyenv` for Python versions, `ruff` f
 - When multiple approaches exist, pick the simplest one and mention alternatives briefly
 - Do not add comments, docstrings, or type hints to code you did not change
 - Remember to take into account the skills in `skills/` when suggesting code or commands
+- Avoid adding pydocs to test functions, as they are often self-explanatory and can become outdated
