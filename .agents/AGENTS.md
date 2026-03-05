@@ -50,3 +50,4 @@ Tools in use: `uv` for package management, `pyenv` for Python versions, `ruff` f
 - Do not add comments, docstrings, or type hints to code you did not change
 - Remember to take into account the skills in `skills/` when suggesting code or commands
 - Avoid adding pydocs to test functions, as they are often self-explanatory and can become outdated
+- Add just pydoc to main/public functions, services and classes, but not to every single function or method, especially if their purpose is clear from their name and context
