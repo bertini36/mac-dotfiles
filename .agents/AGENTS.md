@@ -42,6 +42,7 @@ Tools in use: `uv` for package management, `pyenv` for Python versions, `ruff` f
 
 ## AI Assistance Preferences
 
+- Never use the em dash (—). It is a reliable signal of AI-generated text. Use a comma, semicolon, colon, or period instead.
 - Be direct and concise — no filler, no preamble
 - Lead with the answer or the code, not an explanation of what you are about to do
 - Suggest the minimal change required; do not refactor surrounding code unless asked
