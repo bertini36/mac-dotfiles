@@ -18,6 +18,11 @@ Tools in use: `uv` for package management, `pyenv` for Python versions, `ruff` f
 - When writing docstrings, focus on clarity and conciseness. Avoid unnecessary jargon or complex language. Use simple, direct sentences to explain the purpose and functionality of the code. Remember that the goal is to make the code easily understandable for other developers who may read it in the futu re.
 - Use comments when the naming and abstractions are not sufficient to convey the intent. For example, if a function performs a non-obvious operation or has side effects that are not clear from its name, a comment can help clarify its purpose. However, avoid adding comments that simply restate what the code does, as this can create noise and reduce readability.
 - Don't use comments in tests unless absolutely necessary. Tests should be self-explanatory through clear naming and structure. If a test requires a comment to explain its purpose, consider whether the test can be refactored for clarity instead.
+- Don't use headers like 
+# ---------------------------------------------------------------------------
+# Function definitions
+# ---------------------------------------------------------------------------
+to separate code sections. Instead, use blank lines and clear naming to organize the code.
 
 ### Python
 
