@@ -83,6 +83,8 @@ My personal Mac config files
   ```bash
   ln ~/.dotfiles/git/.gitignore_global ~/.gitignore_global
   ln ~/.dotfiles/editors/vim/.vimrc ~/.vimrc
+  ln -s ~/.dotfiles/editors/claude/settings.json ~/.claude/settings.json
+  ln -s ~/.dotfiles/editors/claude/statusline-command.sh ~/.claude/statusline-command.sh
   ln -s ~/.dotfiles/agents ~/.agents
   ln -s ~/.dotfiles/agents/skills ~/.claude/skills
   ln -s ~/.dotfiles/agents/AGENTS.md ~/.claude/AGENTS.md

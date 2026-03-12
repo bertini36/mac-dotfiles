@@ -163,3 +163,4 @@ esac
 # pnpm end
 
 export PATH="$PATH:/usr/share/code/bin"
+export PATH="$HOME/.local/bin:$PATH"
