@@ -40,6 +40,16 @@ My personal Mac config files
     | `tldr` | Simplified man pages with practical examples |
     | `karabiner-elements` | Keyboard remapper (cask) |
 
+- Extra packages installation (not available through Brew):
+
+    ```bash
+    bash mac/install_extras.sh
+    ```
+
+    | Package | Description |
+    |---|---|
+    | `claude` | Anthropic Claude CLI |
+
 - Add fonts (`fonts/`) to `Font Book`
 - Configure [Karabiner](https://karabiner-elements.pqrs.org/)
   - Change `Caps Lock` to `CMD + CTL + Option + Shift`
