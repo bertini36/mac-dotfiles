@@ -113,3 +113,13 @@
 * Fix current line `CMD + .`
 * Open project `CMD + O`
 * Open user settings file `CMD + Shift + ,`
+
+## Claude
+
+* `/mcp` → List and manage connected MCP servers
+* `/plan` or `Shift + Tab` → Enter plan mode
+* `/model` → Choose between Anthropic models to serve your requests
+* `/skills` → See project and local skills available
+* `/context` → Visualize context usage in your current chat
+* `/compact` → Reduce context usage when the context window fills up
+* `ultrathink` → Unlocks maximum reasoning depth (up to 31,999 tokens)
