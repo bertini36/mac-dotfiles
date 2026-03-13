@@ -1,0 +1,47 @@
+{
+  "skill_name": "writing-clearly-and-concisely",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Edit this commit message to be clearer:\n\n'This commit delves into the authentication module and makes some pivotal changes that leverage the new JWT library to foster a more robust and seamless login experience for our users, ensuring that the enduring legacy of security is maintained.'",
+      "expected_output": "Rewrites the commit message to be concise, active, and free of AI-style puffery",
+      "files": [],
+      "expectations": [
+        "Removes puffery words (pivotal, leverage, foster, robust, seamless, enduring legacy, delves)",
+        "Rewrites in active voice",
+        "Result is significantly shorter than the original",
+        "Uses concrete language describing what actually changed",
+        "Does not use em dashes",
+        "Final message follows conventional commit style or is otherwise concise"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write an error message for when a user tries to upload a file larger than 10MB.",
+      "expected_output": "A clear, specific, positive-form error message that tells the user what to do",
+      "files": [],
+      "expectations": [
+        "States the specific limit (10MB)",
+        "Uses positive form (tells user what to do, not just what went wrong)",
+        "Is concise (one or two sentences max)",
+        "Uses concrete language (no vague terms like 'issue encountered')",
+        "Does not use puffery or promotional language",
+        "Does not use em dashes"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Rewrite this documentation paragraph:\n\n'This groundbreaking feature represents a cutting-edge approach to data processing that seamlessly integrates with your existing workflow. By leveraging our robust pipeline architecture, it fosters enhanced throughput — enabling users to process multifaceted datasets with unprecedented efficiency. The feature delves deep into the realm of parallel computing to deliver transformative results.'",
+      "expected_output": "Rewrites the paragraph with concrete language, active voice, and no AI puffery words",
+      "files": [],
+      "expectations": [
+        "Removes all AI puffery (groundbreaking, cutting-edge, seamlessly, robust, fosters, multifaceted, unprecedented, delves, realm, transformative)",
+        "Replaces vague claims with specific, concrete descriptions",
+        "Uses active voice throughout",
+        "Result is shorter than the original",
+        "Does not use em dashes",
+        "Explains what the feature actually does in plain language"
+      ]
+    }
+  ]
+}

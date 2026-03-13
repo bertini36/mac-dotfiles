@@ -1,0 +1,49 @@
+{
+  "skill_name": "create-pull-request",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just finished implementing a new user authentication feature on branch feat/oauth-login. There are 3 commits. Can you create a PR for me?",
+      "expected_output": "Creates a well-structured PR with title, description covering the auth feature, uses gh CLI with --body-file approach, checks for uncommitted changes, analyzes commits, and pushes if needed",
+      "files": [],
+      "expectations": [
+        "Runs git status to check for uncommitted changes",
+        "Runs git log to analyze commits on the branch",
+        "Runs git diff --stat to understand scope of changes",
+        "Identifies or asks for the base branch (main/master)",
+        "Uses gh pr create with --body-file flag instead of inline --body",
+        "PR description includes a summary of the authentication changes",
+        "Adds --assignee @me to the gh pr create command",
+        "Displays the PR URL after creation"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need to open a PR for a small typo fix I just committed on branch fix/readme-typo. It's just one commit fixing a spelling error in the README.",
+      "expected_output": "Creates a concise PR appropriate for a small fix, without over-engineering the description",
+      "files": [],
+      "expectations": [
+        "Checks git status before proceeding",
+        "PR title is short and descriptive for a typo fix",
+        "PR description is concise and proportional to the change",
+        "Does not ask unnecessary questions for such a simple change",
+        "Uses gh pr create with --body-file approach",
+        "Pushes the branch if not already pushed"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Create a PR for my current branch. I'm working on the abacum/engine repo and I've refactored the payment processing module into smaller services. There are 5 commits.",
+      "expected_output": "Creates a PR with the --label Engine flag since it's an Abacum repo, with a detailed description covering the refactoring",
+      "files": [],
+      "expectations": [
+        "Detects the Abacum organization from the remote URL",
+        "Adds --label Engine to the gh pr create command",
+        "Creates the PR as a draft with --draft flag",
+        "PR description explains the refactoring approach and what was split",
+        "Runs git log to understand all 5 commits",
+        "Uses --body-file approach for the PR body"
+      ]
+    }
+  ]
+}

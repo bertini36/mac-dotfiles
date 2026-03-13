@@ -1,0 +1,45 @@
+{
+  "skill_name": "kaizen-continuous-improvement",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have this function that fetches users, validates them, sends emails, logs everything, and updates a cache all in one 200-line function. How should I improve it?",
+      "expected_output": "Suggests incremental refactoring following Kaizen principles: break into smaller functions one at a time, test after each change, avoid big-bang rewrite",
+      "files": [],
+      "expectations": [
+        "Recommends incremental improvement rather than a complete rewrite",
+        "Suggests breaking the function into smaller, focused functions",
+        "Advises testing after each refactoring step",
+        "Follows the iterative refinement approach: make it work, make it clear, make it efficient",
+        "Does not try to solve everything at once",
+        "References or applies separation of concerns"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I'm building a new API endpoint for user registration. I want to handle every possible edge case upfront: rate limiting, email verification, phone verification, social login, 2FA setup, and account linking. What's the right approach?",
+      "expected_output": "Advises against over-engineering, recommends starting with the simplest version that works and adding features incrementally based on real needs (JIT/YAGNI)",
+      "files": [],
+      "expectations": [
+        "Warns against building everything at once (JIT/YAGNI principle)",
+        "Recommends starting with basic registration that works",
+        "Suggests adding features incrementally based on actual requirements",
+        "Applies the 'simplest thing that works' principle",
+        "Does not encourage premature optimization or premature abstraction"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Users keep entering invalid dates in our form and it crashes the backend. How should I fix this?",
+      "expected_output": "Applies Poka-Yoke (error proofing) principles: validate at the boundary, use types to make invalid states impossible, fail fast with clear messages",
+      "files": [],
+      "expectations": [
+        "Suggests input validation at the system boundary",
+        "Recommends using types or validated types to prevent invalid data from propagating",
+        "Advises failing fast with clear, helpful error messages",
+        "Applies error-proofing (Poka-Yoke) principles",
+        "Suggests making invalid states unrepresentable where possible"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "skill_name": "python-code-style",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm starting a new Python project. Can you set up linting and formatting with modern tooling in my pyproject.toml?",
+      "expected_output": "Configures ruff for linting and formatting with sensible defaults, and sets up mypy or pyright for type checking",
+      "files": [],
+      "expectations": [
+        "Configures ruff as the primary linter and formatter",
+        "Sets line-length to 120",
+        "Selects appropriate ruff lint rules (E, W, F, I, B, C4, UP, SIM or similar)",
+        "Configures ruff format settings (quote-style, indent-style)",
+        "Sets up mypy or pyright with strict mode",
+        "Uses pyproject.toml as the configuration file",
+        "Targets a modern Python version (3.10+)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Review this code for style issues:\n\ndef getUserByEmail(e):\n  from myproject.models import User\n  from ..utils import validate\n  import os\n  x = validate(e)\n  if x:\n    u = User.objects.filter(email=e).first()\n    return u\n  return None",
+      "expected_output": "Identifies naming convention violations, import organization issues, relative imports, poor variable names, and provides corrected code",
+      "files": [],
+      "expectations": [
+        "Flags getUserByEmail as violating snake_case convention",
+        "Flags single-letter variable names (e, x, u) as unclear",
+        "Points out import organization issues (standard lib, third-party, local not grouped)",
+        "Recommends absolute imports over relative imports",
+        "Provides a corrected version of the code",
+        "Suggests more descriptive variable names"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write a Google-style docstring for this function:\n\ndef retry_request(url, max_retries=3, backoff_factor=1.5, timeout=30):\n    # retries an HTTP GET request with exponential backoff\n    ...",
+      "expected_output": "Writes a complete Google-style docstring with Args, Returns, Raises, and optionally an Example section",
+      "files": [],
+      "expectations": [
+        "Uses Google-style docstring format",
+        "Includes an Args section documenting all parameters",
+        "Includes a Returns section",
+        "Includes a Raises section for expected exceptions",
+        "Describes what the function does in the summary line",
+        "Documents default values for optional parameters"
+      ]
+    }
+  ]
+}

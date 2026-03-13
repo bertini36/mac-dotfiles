@@ -1,0 +1,46 @@
+{
+  "skill_name": "python-type-safety",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add type hints to this code:\n\ndef fetch_users(db, active_only=True, limit=None):\n    query = db.query('SELECT * FROM users')\n    if active_only:\n        query = query.filter(active=True)\n    if limit:\n        query = query.limit(limit)\n    results = query.all()\n    return results if results else []",
+      "expected_output": "Adds complete type annotations including parameter types, return type, and handles the Optional/None cases properly",
+      "files": [],
+      "expectations": [
+        "Annotates all function parameters with types",
+        "Uses int | None for the limit parameter (modern union syntax)",
+        "Annotates the return type as list[User] or similar",
+        "Types the db parameter with a specific type or Protocol",
+        "Uses modern Python 3.10+ union syntax (| instead of Optional)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need a type-safe configuration class that requires an API key and database URL, with optional timeout and debug settings. Invalid config should fail at startup.",
+      "expected_output": "Creates a config class with required and optional fields, proper type annotations, and validation at construction time",
+      "files": [],
+      "expectations": [
+        "Creates a dataclass or similar with typed fields",
+        "Makes api_key and database_url required (no defaults)",
+        "Makes timeout and debug optional with typed defaults",
+        "Includes validation that fails fast at construction time",
+        "Uses proper type annotations on all fields",
+        "Raises clear errors for missing required config"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Create a generic repository pattern with type safety so I can reuse it for User, Product, and Order entities. Each has a different ID type (str, int, UUID).",
+      "expected_output": "Implements a generic Repository[T, ID] base class using TypeVar and Generic that preserves type information for concrete implementations",
+      "files": [],
+      "expectations": [
+        "Uses TypeVar for both the entity type and ID type",
+        "Creates a Generic base class Repository[T, ID]",
+        "Defines abstract methods with proper generic type annotations",
+        "Shows at least one concrete implementation (e.g., UserRepository)",
+        "Concrete implementation specifies exact types (Repository[User, str])",
+        "Type checker would catch mismatched types in concrete implementations"
+      ]
+    }
+  ]
+}

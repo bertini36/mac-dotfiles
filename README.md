@@ -102,5 +102,42 @@ My personal Mac config files
   ln -s ~/.dotfiles/agents/AGENTS.md ~/.copilot/AGENTS.md
   ```
 
+## 🧠 Skills
+
+This repo includes a set of reusable AI agent skills under `agents/skills/`. Each skill encodes domain-specific knowledge that the agent can apply when a task falls within its scope.
+
+| Skill | Description |
+|---|---|
+| `create-pull-request` | Create a GitHub PR following project conventions using `gh` CLI |
+| `kaizen-continuous-improvement` | Continuous improvement, error proofing, and standardization |
+| `production-code-audit` | Deep-scan a codebase and transform it to production-grade quality |
+| `python-code-style` | Python linting, formatting, naming conventions, and documentation |
+| `python-type-safety` | Type hints, generics, protocols, and strict type checking |
+| `writing-clearly-and-concisely` | Clear prose for docs, commits, error messages, and UI text |
+
+### Evals
+
+Each skill has an `evals/evals.json` file that defines test cases to measure skill effectiveness. To run the evals paste the following command your AI agent prompt.
+
+```bash
+
+1. Read the eval definitions in `agents/skills/<skill>/evals/evals.json`
+2. Generate outputs — Run each eval prompt twice per skill (once with the skill loaded, once without) and save the results to agents/skills-workspace/iteration-1/<eval-id>/with_skill/outputs/ and without_skill/outputs/.
+3. Create eval_metadata.json — Record the assertions from each eval's expectations array alongside references to the output files.
+4. Compare outputs in `agents/skills-workspace/iteration-1/<eval>/with_skill/outputs/` vs `without_skill/outputs/`
+5. Verify each assertion from `eval_metadata.json` against the corresponding output
+
+## 🔌 Claude Plugins
+
+Install the following MCP server plugins in Claude:
+
+| Plugin | Description |
+|---|---|
+| `superpowers` | Agentic development workflow with TDD, brainstorming, planning, subagent-driven execution, and code review skills |
+| `pyright-lsp` | Python type checking and language server integration |
+| `notion` | Read and manage Notion pages and databases |
+| `figma` | Read Figma designs and generate code from them |
+| `context7` | Up-to-date documentation and code examples for any library |
+
 <br />
 <p align="center">&mdash; Built with ❤️ from Mallorca &mdash;</p>
