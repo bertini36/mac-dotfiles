@@ -92,6 +92,7 @@ My personal Mac config files
 
   ```bash
   ln ~/.dotfiles/git/.gitignore_global ~/.gitignore_global
+  git config --global core.excludesfile ~/.gitignore_global
   ln ~/.dotfiles/editors/vim/.vimrc ~/.vimrc
   ln -s ~/.dotfiles/editors/claude/settings.json ~/.claude/settings.json
   ln -s ~/.dotfiles/editors/claude/statusline-command.sh ~/.claude/statusline-command.sh
