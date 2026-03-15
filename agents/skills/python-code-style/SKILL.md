@@ -147,7 +147,18 @@ def get_user_by_email(email: str) -> User | None:
     max_connections = 100
 ```
 
+Private functions used only within a module have to be prefixed with `_`:
+
+```python
+def _normalize_email(email: str) -> str:
+    return email.strip().lower()
+```
+
+The idea is that giving a module the coder can know which functions are meant to be used outside of the module and which are only for internal use. This is a convention, not an enforcement, but it helps signal intent.
+
 **Constants:**
+
+Never prepend constants with `_` to indicate "private" — use module-level constants without underscores.
 
 ```python
 # Module-level constants: SCREAMING_SNAKE_CASE
