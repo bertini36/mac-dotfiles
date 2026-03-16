@@ -1,11 +1,5 @@
 # Agent Instructions
 
-## About This Environment
-
-macOS developer setup (bertini36/mac-dotfiles). Primary languages: Python and shell scripting.
-Tools in use: `uv` for package management, `pyenv` for Python versions, `ruff` for linting/formatting,
-`pre-commit` for git hooks, `gh` CLI for GitHub operations, Docker for containers.
-
 ## Code Style
 
 ### General
@@ -35,6 +29,7 @@ to separate code sections. Instead, use blank lines and clear naming to organize
 - Absolute imports only; group as stdlib → third-party → local
 - Avoid adding pydocs to test functions, as they are often self-explanatory and can become outdated
 - Add just pydoc to main/public functions, services and classes, but not to every single function or method, especially if their purpose is clear from their name and context
+- Before running any Python script, pytest, or Django command, activate the virtual environment with `workon` alias or `source .venv/bin/activate`.
 
 ## Workflow
 
