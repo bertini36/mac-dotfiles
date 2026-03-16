@@ -1,7 +1,6 @@
 ---
 name: django-patterns
 description: Django architecture patterns, REST API design with DRF, ORM best practices, caching, signals, middleware, and production-grade Django apps.
-origin: ECC
 ---
 
 # Django Development Patterns
@@ -656,6 +655,28 @@ class RequestLoggingMiddleware(MiddlewareMixin):
             duration = time.time() - request.start_time
             logger.info(f'{request.method} {request.path} - {response.status_code} - {duration:.3f}s')
         return response
+```
+
+## ORM Optimization
+
+```python
+# select_related for ForeignKey / OneToOne (SQL JOIN)
+orders = Order.objects.select_related("customer", "customer__profile").all()
+
+# prefetch_related for ManyToMany / reverse FK (separate query)
+authors = Author.objects.prefetch_related(
+    Prefetch("books", queryset=Book.objects.filter(published=True))
+).all()
+
+# Defer fields you don't need
+posts = Post.objects.defer("body", "metadata").filter(status="published")
+
+# Use .only() when you need just a few columns
+emails = User.objects.only("id", "email").filter(is_active=True)
+
+# Bulk operations
+Product.objects.bulk_create(products, batch_size=1000)
+Product.objects.bulk_update(products, ["price", "stock"], batch_size=1000)
 ```
 
 ## Performance Optimization

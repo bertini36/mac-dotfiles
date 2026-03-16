@@ -1,0 +1,71 @@
+{
+  "skill_name": "django-patterns",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have this Django view that's slow. Can you fix the N+1 query problem?\n\nfrom django.shortcuts import render\nfrom .models import Order\n\ndef order_list(request):\n    orders = Order.objects.all()\n    return render(request, 'orders/list.html', {'orders': orders})\n\n# Template:\n# {% for order in orders %}\n#   {{ order.customer.name }} - {{ order.customer.profile.avatar_url }}\n#   {% for item in order.items.all %}\n#     {{ item.product.name }}: {{ item.quantity }}\n#   {% endfor %}\n# {% endfor %}",
+      "expected_output": "Rewrites the queryset using select_related for customer and customer__profile, and prefetch_related for items and items__product to eliminate N+1 queries",
+      "files": [],
+      "expectations": [
+        "Uses select_related('customer', 'customer__profile') for ForeignKey/OneToOne traversal",
+        "Uses prefetch_related for the reverse FK items relation",
+        "Uses Prefetch object or nested prefetch for items__product",
+        "Explains why select_related vs prefetch_related for each relation",
+        "Does not change the template or introduce unrelated changes"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Build a REST API endpoint for listing and creating products using Django REST Framework. Products have a name, price, stock, and belong to a category. Only authenticated users can create products.",
+      "expected_output": "Implements a ModelViewSet with appropriate serializers, permission classes, and URL routing via a router",
+      "files": [],
+      "expectations": [
+        "Creates a ProductSerializer with ModelSerializer",
+        "Uses a ModelViewSet (or ListCreateAPIView) for list and create actions",
+        "Sets permission_classes to require authentication for write actions",
+        "Registers the ViewSet with a DRF router",
+        "Validates that price is non-negative in the serializer",
+        "Uses select_related('category') in the queryset to avoid N+1"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need to move the business logic for placing an order out of my view. The order creation should deduct stock, create OrderItems, and send a confirmation email — all atomically. How should I structure this?",
+      "expected_output": "Introduces a service layer with a place_order function or OrderService class that wraps the logic in a transaction.atomic block",
+      "files": [],
+      "expectations": [
+        "Creates a service function or class in a services.py module",
+        "Wraps the entire operation in transaction.atomic",
+        "Deducts stock and creates OrderItems inside the transaction",
+        "Moves email sending outside or after the transaction to avoid holding the lock",
+        "Keeps the view thin — it only calls the service and returns a response",
+        "Raises a domain-level exception (e.g., InsufficientStock) on failure"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "We need to load a page that shows a list of published blog posts. Each post only needs the title, slug, and published_at fields — the body can be very large. How do I optimize the query?",
+      "expected_output": "Uses .only() or .defer() to limit the columns fetched, avoiding loading the large body field",
+      "files": [],
+      "expectations": [
+        "Uses .only('title', 'slug', 'published_at') or .defer('body') on the queryset",
+        "Filters to published posts (e.g., status='published')",
+        "Explains the difference between .only() and .defer()",
+        "Does not use .values() or .values_list() unless also explaining the trade-offs"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I need to import 50,000 product records from a CSV into the database as fast as possible. How should I do this with Django ORM?",
+      "expected_output": "Uses bulk_create with a reasonable batch_size to minimize round-trips, and explains why individual save() calls are too slow",
+      "files": [],
+      "expectations": [
+        "Uses Product.objects.bulk_create(products, batch_size=500) or similar",
+        "Parses the CSV into a list of Product instances before bulk inserting",
+        "Explains that individual .save() calls issue one INSERT per row",
+        "Mentions ignore_conflicts or update_conflicts options if relevant",
+        "Optionally wraps the operation in transaction.atomic for performance"
+      ]
+    }
+  ]
+}
