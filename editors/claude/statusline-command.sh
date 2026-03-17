@@ -34,4 +34,4 @@ else
     context_part="${MUTED}no msgs${RESET}"
 fi
 
-printf '%b' "${PURPLE}Abacum ·-·${RESET} | ${dir_part} | ${model_part} | ${context_part}"
+printf '%b' "${PURPLE}🤖${RESET} | ${dir_part} | ${model_part} | ${context_part}"
