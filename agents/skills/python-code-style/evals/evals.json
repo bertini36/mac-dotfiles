@@ -43,6 +43,47 @@
         "Describes what the function does in the summary line",
         "Documents default values for optional parameters"
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Add type annotations to this Python code:\n\ndef find_user(user_id):\n    user = db.get(user_id)\n    if user:\n        return user\n    return None\n\ndef process_items(items, max_workers=4):\n    results = []\n    for item in items:\n        results.append(process(item))\n    return results",
+      "expected_output": "Adds proper type annotations using modern Python syntax, annotating parameters, return types, and handling Optional correctly",
+      "files": [],
+      "expectations": [
+        "Uses modern union syntax (User | None instead of Optional[User])",
+        "Annotates all function parameters",
+        "Annotates all return types",
+        "Uses list[Item] and list[Result] style generics (not List[Item])",
+        "Annotates max_workers as int",
+        "Annotates items with a typed list"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Create a generic Repository base class in Python that can work with any entity type and ID type, then show a concrete UserRepository implementation.",
+      "expected_output": "Implements a Generic[T, ID] abstract base class with typed methods, and a concrete subclass that binds the type parameters",
+      "files": [],
+      "expectations": [
+        "Uses TypeVar for T and ID",
+        "Inherits from Generic[T, ID] and ABC",
+        "Decorates abstract methods with @abstractmethod",
+        "Concrete class specifies Repository[User, str]",
+        "All methods have proper type annotations",
+        "get method returns T | None"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Define a Serializable protocol in Python that any class can satisfy without inheriting from it, and demonstrate usage with a User class.",
+      "expected_output": "Defines a Protocol class with to_dict and from_dict methods, and shows a User class that satisfies it structurally",
+      "files": [],
+      "expectations": [
+        "Uses typing.Protocol",
+        "Defines to_dict and from_dict methods on the protocol",
+        "User class does not inherit from Serializable",
+        "Function accepting Serializable works with User",
+        "Optionally adds @runtime_checkable for isinstance support"
+      ]
     }
   ]
 }
