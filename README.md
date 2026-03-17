@@ -110,17 +110,17 @@ This repo includes a set of reusable AI agent skills under `agents/skills/`. Eac
 | Skill | Description |
 |---|---|
 | `create-pull-request` | Create a GitHub PR following project conventions using `gh` CLI |
+| `ddd-patterns` | DDD entities, aggregate roots, value objects, repositories, domain services, and specifications |
+| `django-patterns` | Django architecture, REST APIs with Pydantic, ORM best practices, caching, and signals |
 | `kaizen-continuous-improvement` | Continuous improvement, error proofing, and standardization |
+| `langchain-architecture` | LangChain 1.x and LangGraph for agents, memory, and tool integration |
 | `production-code-audit` | Deep-scan a codebase and transform it to production-grade quality |
-| `python-code-style` | Python linting, formatting, naming conventions, and documentation |
-| `python-type-safety` | Type hints, generics, protocols, and strict type checking |
+| `python-code-style` | Python linting, formatting, naming conventions, type safety, and documentation |
 | `writing-clearly-and-concisely` | Clear prose for docs, commits, error messages, and UI text |
 
 ### Evals
 
 Each skill has an `evals/evals.json` file that defines test cases to measure skill effectiveness. To run the evals paste the following command your AI agent prompt.
-
-```bash
 
 1. Read the eval definitions in `agents/skills/<skill>/evals/evals.json`
 2. Generate outputs — Run each eval prompt twice per skill (once with the skill loaded, once without) and save the results to agents/skills-workspace/iteration-1/<eval-id>/with_skill/outputs/ and without_skill/outputs/.
