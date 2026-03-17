@@ -14,6 +14,7 @@
         "Uses gh pr create with --body-file flag instead of inline --body",
         "PR description includes a summary of the authentication changes",
         "Adds --assignee @me to the gh pr create command",
+        "Creates the PR as a draft with --draft flag",
         "Displays the PR URL after creation"
       ]
     },
@@ -28,6 +29,7 @@
         "PR description is concise and proportional to the change",
         "Does not ask unnecessary questions for such a simple change",
         "Uses gh pr create with --body-file approach",
+        "Creates the PR as a draft with --draft flag",
         "Pushes the branch if not already pushed"
       ]
     },

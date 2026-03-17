@@ -143,7 +143,7 @@ Avoid passing the PR body directly as a command-line argument, as this often fai
 ```bash
 # Example
 echo "PR_BODY_CONTENT" > pr_body.txt
-gh pr create --title "PR_TITLE" --body-file pr_body.txt --base master --assignee "@me"
+gh pr create --title "PR_TITLE" --body-file pr_body.txt --base master --draft --assignee "@me"
 rm pr_body.txt # Clean up
 ```
 
@@ -193,3 +193,4 @@ Before finalizing, ensure:
 - [ ] PR description follows the template exactly
 - [ ] Appropriate type of change is selected
 - [ ] Pre-flight checklist items are addressed
+- [ ] PR is created in draft mode (`--draft`)
