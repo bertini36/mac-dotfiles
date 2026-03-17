@@ -1,6 +1,6 @@
 ---
 name: django-patterns
-description: Django architecture patterns, REST API design with DRF, ORM best practices, caching, signals, middleware, and production-grade Django apps.
+description: Django architecture patterns, REST API design with Pydantic for validation and serialization, ORM best practices, caching, signals, middleware, and production-grade Django apps.
 ---
 
 # Django Development Patterns
@@ -10,7 +10,7 @@ Production-grade Django architecture patterns for scalable, maintainable applica
 ## When to Activate
 
 - Building Django web applications
-- Designing Django REST Framework APIs
+- Designing REST APIs using Pydantic for validation and serialization
 - Working with Django ORM and models
 - Setting up Django project structure
 - Implementing caching, signals, middleware
@@ -39,10 +39,8 @@ myproject/
     │   ├── __init__.py
     │   ├── models.py
     │   ├── views.py
-    │   ├── serializers.py
+    │   ├── schemas.py
     │   ├── urls.py
-    │   ├── permissions.py
-    │   ├── filters.py
     │   ├── services.py
     │   └── tests/
     └── products/
@@ -68,8 +66,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'rest_framework.authtoken',
     'corsheaders',
     # Local apps
     'apps.users',
@@ -294,180 +290,163 @@ class Product(models.Model):
     custom = ProductManager()
 ```
 
-## Django REST Framework Patterns
+## API Patterns with Pydantic
 
-### Serializer Patterns
+Use Pydantic models in `schemas.py` for request validation and response serialization. Django views parse request bodies manually and return `JsonResponse`.
 
-```python
-from rest_framework import serializers
-from django.contrib.auth.password_validation import validate_password
-from .models import Product, User
+### Schema Patterns
 
-class ProductSerializer(serializers.ModelSerializer):
-    """Serializer for Product model."""
-
-    category_name = serializers.CharField(source='category.name', read_only=True)
-    average_rating = serializers.FloatField(read_only=True)
-    discount_price = serializers.SerializerMethodField()
-
-    class Meta:
-        model = Product
-        fields = [
-            'id', 'name', 'slug', 'description', 'price',
-            'discount_price', 'stock', 'category_name',
-            'average_rating', 'created_at'
-        ]
-        read_only_fields = ['id', 'slug', 'created_at']
-
-    def get_discount_price(self, obj):
-        """Calculate discount price if applicable."""
-        if hasattr(obj, 'discount') and obj.discount:
-            return obj.price * (1 - obj.discount.percent / 100)
-        return obj.price
-
-    def validate_price(self, value):
-        """Ensure price is non-negative."""
-        if value < 0:
-            raise serializers.ValidationError("Price cannot be negative.")
-        return value
-
-class ProductCreateSerializer(serializers.ModelSerializer):
-    """Serializer for creating products."""
-
-    class Meta:
-        model = Product
-        fields = ['name', 'description', 'price', 'stock', 'category']
-
-    def validate(self, data):
-        """Custom validation for multiple fields."""
-        if data['price'] > 10000 and data['stock'] > 100:
-            raise serializers.ValidationError(
-                "Cannot have high-value products with large stock."
-            )
-        return data
-
-class UserRegistrationSerializer(serializers.ModelSerializer):
-    """Serializer for user registration."""
-
-    password = serializers.CharField(
-        write_only=True,
-        required=True,
-        validators=[validate_password],
-        style={'input_type': 'password'}
-    )
-    password_confirm = serializers.CharField(write_only=True, style={'input_type': 'password'})
-
-    class Meta:
-        model = User
-        fields = ['email', 'username', 'password', 'password_confirm']
-
-    def validate(self, data):
-        """Validate passwords match."""
-        if data['password'] != data['password_confirm']:
-            raise serializers.ValidationError({
-                "password_confirm": "Password fields didn't match."
-            })
-        return data
-
-    def create(self, validated_data):
-        """Create user with hashed password."""
-        validated_data.pop('password_confirm')
-        password = validated_data.pop('password')
-        user = User.objects.create(**validated_data)
-        user.set_password(password)
-        user.save()
-        return user
-```
-
-### ViewSet Patterns
+Define input and output schemas separately. Input schemas validate and coerce incoming data; output schemas control what gets serialized.
 
 ```python
-from rest_framework import viewsets, status, filters
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from django_filters.rest_framework import DjangoFilterBackend
-from .models import Product
-from .serializers import ProductSerializer, ProductCreateSerializer
-from .permissions import IsOwnerOrReadOnly
-from .filters import ProductFilter
-from .services import ProductService
+# apps/products/schemas.py
+import json
+from decimal import Decimal
+from datetime import datetime
+from pydantic import BaseModel, field_validator, model_validator, Field
+from pydantic import ValidationError
 
-class ProductViewSet(viewsets.ModelViewSet):
-    """ViewSet for Product model."""
+class ProductOut(BaseModel):
+    id: int
+    name: str
+    slug: str
+    description: str
+    price: Decimal
+    stock: int
+    category_name: str
+    created_at: datetime
 
-    queryset = Product.objects.select_related('category').prefetch_related('tags')
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_class = ProductFilter
-    search_fields = ['name', 'description']
-    ordering_fields = ['price', 'created_at', 'name']
-    ordering = ['-created_at']
+    model_config = {"from_attributes": True}
 
-    def get_serializer_class(self):
-        """Return appropriate serializer based on action."""
-        if self.action == 'create':
-            return ProductCreateSerializer
-        return ProductSerializer
-
-    def perform_create(self, serializer):
-        """Save with user context."""
-        serializer.save(created_by=self.request.user)
-
-    @action(detail=False, methods=['get'])
-    def featured(self, request):
-        """Return featured products."""
-        featured = self.queryset.filter(is_featured=True)[:10]
-        serializer = self.get_serializer(featured, many=True)
-        return Response(serializer.data)
-
-    @action(detail=True, methods=['post'])
-    def purchase(self, request, pk=None):
-        """Purchase a product."""
-        product = self.get_object()
-        service = ProductService()
-        result = service.purchase(product, request.user)
-        return Response(result, status=status.HTTP_201_CREATED)
-
-    @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
-    def my_products(self, request):
-        """Return products created by current user."""
-        products = self.queryset.filter(created_by=request.user)
-        page = self.paginate_queryset(products)
-        serializer = self.get_serializer(page, many=True)
-        return self.get_paginated_response(serializer.data)
-```
-
-### Custom Actions
-
-```python
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def add_to_cart(request):
-    """Add product to user cart."""
-    product_id = request.data.get('product_id')
-    quantity = request.data.get('quantity', 1)
-
-    try:
-        product = Product.objects.get(id=product_id)
-    except Product.DoesNotExist:
-        return Response(
-            {'error': 'Product not found'},
-            status=status.HTTP_404_NOT_FOUND
+    @classmethod
+    def from_orm_obj(cls, product) -> "ProductOut":
+        return cls(
+            id=product.id,
+            name=product.name,
+            slug=product.slug,
+            description=product.description,
+            price=product.price,
+            stock=product.stock,
+            category_name=product.category.name,
+            created_at=product.created_at,
         )
 
-    cart, _ = Cart.objects.get_or_create(user=request.user)
-    CartItem.objects.create(
-        cart=cart,
-        product=product,
-        quantity=quantity
-    )
+class ProductCreateIn(BaseModel):
+    name: str = Field(min_length=1, max_length=200)
+    description: str = ""
+    price: Decimal = Field(gt=0)
+    stock: int = Field(ge=0)
+    category_id: int
 
-    return Response({'message': 'Added to cart'}, status=status.HTTP_201_CREATED)
+    @model_validator(mode='after')
+    def check_high_value_stock(self) -> "ProductCreateIn":
+        if self.price > 10000 and self.stock > 100:
+            raise ValueError("Cannot have high-value products with large stock.")
+        return self
+
+class UserRegistrationIn(BaseModel):
+    email: str
+    username: str
+    password: str = Field(min_length=8)
+    password_confirm: str
+
+    @model_validator(mode='after')
+    def passwords_match(self) -> "UserRegistrationIn":
+        if self.password != self.password_confirm:
+            raise ValueError("Password fields didn't match.")
+        return self
+```
+
+### View Patterns
+
+Parse and validate request data with Pydantic, then return `JsonResponse`. Extract a helper to keep views clean.
+
+```python
+# apps/core/utils.py
+import json
+from django.http import JsonResponse
+from pydantic import BaseModel, ValidationError
+
+def parse_body[T: BaseModel](request, schema: type[T]) -> tuple[T | None, JsonResponse | None]:
+    """Parse and validate request body against a Pydantic schema.
+
+    Returns (parsed_data, None) on success or (None, error_response) on failure.
+    """
+    try:
+        data = json.loads(request.body)
+        return schema.model_validate(data), None
+    except (json.JSONDecodeError, ValueError):
+        return None, JsonResponse({"detail": "Invalid JSON."}, status=400)
+    except ValidationError as exc:
+        return None, JsonResponse({"detail": exc.errors()}, status=422)
+```
+
+```python
+# apps/products/views.py
+import json
+from django.http import JsonResponse
+from django.views import View
+from django.shortcuts import get_object_or_404
+from .models import Product
+from .schemas import ProductOut, ProductCreateIn
+from .services import ProductService
+from apps.core.utils import parse_body
+
+class ProductListView(View):
+    def get(self, request):
+        search = request.GET.get("search", "")
+        qs = Product.objects.active().with_category()
+        if search:
+            qs = qs.search(search)
+        return JsonResponse([ProductOut.from_orm_obj(p).model_dump(mode="json") for p in qs], safe=False)
+
+    def post(self, request):
+        payload, error = parse_body(request, ProductCreateIn)
+        if error:
+            return error
+        product = ProductService.create(payload)
+        return JsonResponse(ProductOut.from_orm_obj(product).model_dump(mode="json"), status=201)
+
+class ProductDetailView(View):
+    def get(self, request, product_id: int):
+        product = get_object_or_404(Product.objects.with_category(), id=product_id)
+        return JsonResponse(ProductOut.from_orm_obj(product).model_dump(mode="json"))
+```
+
+```python
+# apps/products/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("", views.ProductListView.as_view()),
+    path("<int:product_id>/", views.ProductDetailView.as_view()),
+]
+```
+
+### Validation Error Handling
+
+Return consistent error shapes across views by handling `ValidationError` centrally, either in a helper (as above) or via Django middleware.
+
+```python
+# apps/core/middleware.py
+import json
+from django.http import JsonResponse
+from pydantic import ValidationError
+
+class PydanticValidationMiddleware:
+    """Convert unhandled Pydantic ValidationErrors into 422 responses."""
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        return self.get_response(request)
+
+    def process_exception(self, request, exception):
+        if isinstance(exception, ValidationError):
+            return JsonResponse({"detail": exception.errors()}, status=422)
+        return None
 ```
 
 ## Service Layer Pattern
@@ -515,7 +494,6 @@ class OrderService:
         if payment.success:
             order.status = Order.Status.PAID
             order.save()
-            # Send confirmation email
             OrderService.send_confirmation_email(order)
             return True
 
@@ -524,7 +502,6 @@ class OrderService:
     @staticmethod
     def send_confirmation_email(order: Order):
         """Send order confirmation email."""
-        # Email sending logic
         pass
 ```
 
@@ -744,8 +721,8 @@ Product.objects.filter(stock=0).delete()
 | Split settings | Separate dev/prod/test settings |
 | Custom QuerySet | Reusable query methods |
 | Service Layer | Business logic separation |
-| ViewSet | REST API endpoints |
-| Serializer validation | Request/response transformation |
+| Django class-based views | REST API endpoints |
+| Pydantic schemas | Request/response validation and serialization |
 | select_related | Foreign key optimization |
 | prefetch_related | Many-to-many optimization |
 | Cache first | Cache expensive operations |

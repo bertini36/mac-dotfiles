@@ -156,6 +156,20 @@ def _normalize_email(email: str) -> str:
 
 The idea is that giving a module the coder can know which functions are meant to be used outside of the module and which are only for internal use. This is a convention, not an enforcement, but it helps signal intent.
 
+**Variables:**
+
+Never prefix variables with `_`. The underscore prefix is reserved exclusively for functions intended for local/internal use within a module.
+
+```python
+# Bad
+_count = 0
+_result = compute()
+
+# Good
+count = 0
+result = compute()
+```
+
 **Constants:**
 
 Never prepend constants with `_` to indicate "private" — use module-level constants without underscores.

@@ -25,6 +25,7 @@ to separate code sections. Instead, use blank lines and clear naming to organize
 - Linting and formatting with `ruff` (replaces flake8, isort, black)
 - Type hints on all public APIs; strict mypy or pyright where configured
 - Naming: `snake_case` for functions/variables, `PascalCase` for classes, `SCREAMING_SNAKE_CASE` for constants
+- Only prefix functions with `_` when they are intended for internal/local use within a module; never use `_` prefix on variables or constants
 - Line length: 120 characters
 - Absolute imports only; group as stdlib → third-party → local
 - Avoid adding pydocs to test functions, as they are often self-explanatory and can become outdated

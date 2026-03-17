@@ -16,15 +16,17 @@
     },
     {
       "id": 2,
-      "prompt": "Build a REST API endpoint for listing and creating products using Django REST Framework. Products have a name, price, stock, and belong to a category. Only authenticated users can create products.",
-      "expected_output": "Implements a ModelViewSet with appropriate serializers, permission classes, and URL routing via a router",
+      "prompt": "Build a REST API endpoint for listing and creating products using plain Django views and Pydantic. Products have a name, price, stock, and belong to a category. Validate that price is positive and that high-value products (price > 10000) cannot have stock > 100.",
+      "expected_output": "Defines Pydantic input/output schemas in schemas.py, implements a class-based Django view that parses and validates the request body, and returns JsonResponse",
       "files": [],
       "expectations": [
-        "Creates a ProductSerializer with ModelSerializer",
-        "Uses a ModelViewSet (or ListCreateAPIView) for list and create actions",
-        "Sets permission_classes to require authentication for write actions",
-        "Registers the ViewSet with a DRF router",
-        "Validates that price is non-negative in the serializer",
+        "Defines a ProductCreateIn Pydantic BaseModel with field constraints (price > 0, stock >= 0)",
+        "Uses a model_validator to enforce the high-value/stock business rule",
+        "Defines a ProductOut schema for response serialization with a from_orm_obj classmethod",
+        "Uses a Django class-based view (View) with get and post methods",
+        "Parses request.body with json.loads and validates with ProductCreateIn.model_validate",
+        "Returns 422 with Pydantic error details on ValidationError",
+        "Returns JsonResponse with product.model_dump(mode='json') on success",
         "Uses select_related('category') in the queryset to avoid N+1"
       ]
     },
@@ -56,6 +58,20 @@
     },
     {
       "id": 5,
+      "prompt": "I want a reusable helper to parse and validate JSON request bodies in my Django views using Pydantic. It should return either the validated schema instance or a JsonResponse with the errors. Show me how to use it in a view.",
+      "expected_output": "Implements a parse_body generic helper that catches json.JSONDecodeError and pydantic.ValidationError, returning a tuple of (data, None) or (None, error_response), and demonstrates its use in a view",
+      "files": [],
+      "expectations": [
+        "Defines a parse_body function that accepts a request and a Pydantic schema class",
+        "Catches json.JSONDecodeError and returns a 400 JsonResponse",
+        "Catches pydantic.ValidationError and returns a 422 JsonResponse with exc.errors()",
+        "Returns a tuple (parsed_data, None) on success and (None, error_response) on failure",
+        "Demonstrates unpacking the tuple in a view and returning the error early if present",
+        "Does not import DRF or any third-party API framework"
+      ]
+    },
+    {
+      "id": 6,
       "prompt": "I need to import 50,000 product records from a CSV into the database as fast as possible. How should I do this with Django ORM?",
       "expected_output": "Uses bulk_create with a reasonable batch_size to minimize round-trips, and explains why individual save() calls are too slow",
       "files": [],
