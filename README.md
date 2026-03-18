@@ -93,12 +93,17 @@ My personal Mac config files
   ```bash
   ln ~/.dotfiles/git/.gitignore_global ~/.gitignore_global
   git config --global core.excludesfile ~/.gitignore_global
+
   ln ~/.dotfiles/editors/vim/.vimrc ~/.vimrc
+
   ln -s ~/.dotfiles/editors/claude/settings.json ~/.claude/settings.json
   ln -s ~/.dotfiles/editors/claude/statusline-command.sh ~/.claude/statusline-command.sh
-  ln -s ~/.dotfiles/agents ~/.agents
   ln -s ~/.dotfiles/agents/skills ~/.claude/skills
   ln -s ~/.dotfiles/agents/AGENTS.md ~/.claude/AGENTS.md
+  ln -s ~/.dotfiles/agents/CLAUDE.md ~/.claude/CLAUDE.md
+
+  ln -s ~/.dotfiles/agents ~/.agents
+
   ln -s ~/.dotfiles/agents/skills ~/.copilot/skills
   ln -s ~/.dotfiles/agents/AGENTS.md ~/.copilot/AGENTS.md
   ```
@@ -140,4 +145,4 @@ Install the following MCP server plugins in Claude:
 | `context7` | Up-to-date documentation and code examples for any library |
 
 <br />
-<p align="center">&mdash; Built with ❤️ from Mallorca &mdash;</p>
+<p align="center">Built with ❤️ from Mallorca</p>
