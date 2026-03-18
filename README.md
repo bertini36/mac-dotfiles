@@ -112,7 +112,6 @@ This repo includes a set of reusable AI agent skills under `agents/skills/`. Eac
 | `create-pull-request` | Create a GitHub PR following project conventions using `gh` CLI |
 | `ddd-patterns` | DDD entities, aggregate roots, value objects, repositories, domain services, and specifications |
 | `django-patterns` | Django architecture, REST APIs with Pydantic, ORM best practices, caching, and signals |
-| `kaizen-continuous-improvement` | Continuous improvement, error proofing, and standardization |
 | `langchain-architecture` | LangChain 1.x and LangGraph for agents, memory, and tool integration |
 | `production-code-audit` | Deep-scan a codebase and transform it to production-grade quality |
 | `python-code-style` | Python linting, formatting, naming conventions, type safety, and documentation |
@@ -134,7 +133,7 @@ Install the following MCP server plugins in Claude:
 
 | Plugin | Description |
 |---|---|
-| `superpowers` | Agentic development workflow with TDD, brainstorming, planning, subagent-driven execution, and code review skills |
+| `superpowers` | Spec driven development (SDD) based on brainstorming, planning, subagent-driven execution, TDD, and code review skills |
 | `pyright-lsp` | Python type checking and language server integration |
 | `notion` | Read and manage Notion pages and databases |
 | `figma` | Read Figma designs and generate code from them |
