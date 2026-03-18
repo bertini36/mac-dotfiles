@@ -444,6 +444,26 @@ pytest
 
 Every public function, method, and class should have type annotations.
 
+**Never annotate `-> None`.** Omit the return annotation entirely when a function returns nothing — it adds noise without value.
+
+```python
+# Bad: -> None is redundant and noisy
+def reset_cache() -> None:
+    self._cache.clear()
+
+class UserRepository:
+    def __init__(self, db: Database) -> None:
+        self._db = db
+
+# Good: omit the return annotation
+def reset_cache():
+    self._cache.clear()
+
+class UserRepository:
+    def __init__(self, db: Database):
+        self._db = db
+```
+
 ```python
 def get_user(user_id: str) -> User:
     """Retrieve user by ID."""
@@ -457,7 +477,7 @@ def process_batch(
     ...
 
 class UserRepository:
-    def __init__(self, db: Database) -> None:
+    def __init__(self, db: Database):
         self._db = db
 
     async def find_by_id(self, user_id: str) -> User | None:
@@ -708,7 +728,7 @@ def process_items(
 9. **Target Python 3.10+** - For new projects, Python 3.12+ is recommended
 
 **Type Safety:**
-1. **Annotate all public APIs** - Functions, methods, class attributes
+1. **Annotate all public APIs** - Functions, methods, class attributes; omit `-> None` (adds noise without value)
 2. **Use `T | None`** - Modern union syntax over `Optional[T]`
 3. **Enable strict mypy** - Catch type errors before runtime
 4. **Use generics** - Preserve type info in reusable code

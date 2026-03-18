@@ -5,6 +5,39 @@ description: DDD patterns - Entities, Aggregate Roots, value objects, Repositori
 
 # DDD Patterns (Python)
 
+## Django Projects: Pragmatic Approach
+
+**Do not force full DDD on Django projects.** Django's ORM, admin, and conventions work against a strict domain layer. Imposing it creates unnecessary friction.
+
+**The one rule that matters:** keep business logic out of views.
+
+- Views handle HTTP concerns only: parse input, call a service, return a response
+- Put logic in **domain services** — plain Python classes that accept and return values
+- Django models can hold simple invariants and methods, but complex cross-model logic belongs in services
+- No need for abstract repositories, aggregate roots, or domain events unless the complexity genuinely warrants it
+
+```python
+# Bad: logic in view
+def complete_order(request, order_id):
+    order = Order.objects.get(id=order_id)
+    if order.status != "created":
+        return HttpResponse(status=400)
+    order.status = "completed"
+    order.save()
+    send_confirmation_email(order)
+    return HttpResponse(status=200)
+
+# Good: view delegates to service
+def complete_order(request, order_id):
+    try:
+        order_service.complete(order_id)
+    except OrderException as e:
+        return HttpResponse(str(e), status=400)
+    return HttpResponse(status=200)
+```
+
+---
+
 ## Anti-Patterns to Avoid
 
 - **Anemic entities**: public attributes with no behavior — use private state + methods that enforce invariants
