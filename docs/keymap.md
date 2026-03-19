@@ -123,3 +123,4 @@
 * `/context` → Visualize context usage in your current chat
 * `/compact` → Reduce context usage when the context window fills up
 * `ultrathink` → Unlocks maximum reasoning depth (up to 31,999 tokens)
+* `claude --dangerously-skip-permissions` → Bypass all safety checks and permissions (use with caution)

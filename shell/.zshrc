@@ -164,3 +164,11 @@ esac
 
 export PATH="$PATH:/usr/share/code/bin"
 export PATH="$HOME/.local/bin:$PATH"
+# bun completions
+[ -s "/Users/bertini36/.bun/_bun" ] && source "/Users/bertini36/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+alias claude-mem='/Users/bertini36/.bun/bin/bun "/Users/bertini36/.claude/plugins/cache/thedotmack/claude-mem/10.6.1/scripts/worker-service.cjs"'
