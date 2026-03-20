@@ -2,7 +2,7 @@
     bertini36/mac-dotfiles 
 </h3>
 <p align="center">
-My personal Mac config files
+My personal Mac setup and configurations
 </p>
 
 ## 🚀 Setup
