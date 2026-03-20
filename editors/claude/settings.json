@@ -11,13 +11,20 @@
     "github@claude-plugins-official": true,
     "notion@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
-    "claude-mem@thedotmack": true
+    "claude-mem@thedotmack": true,
+    "sentry-skills@sentry-skills": true
   },
   "extraKnownMarketplaces": {
     "thedotmack": {
       "source": {
         "source": "github",
         "repo": "thedotmack/claude-mem"
+      }
+    },
+    "sentry-skills": {
+      "source": {
+        "source": "github",
+        "repo": "getsentry/skills"
       }
     }
   }
