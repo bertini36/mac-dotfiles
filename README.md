@@ -21,24 +21,24 @@ My personal Mac config files
 
     | Package | Description |
     |---|---|
-    | `bat` | `cat` with syntax highlighting |
-    | `eza` | Modern `ls` replacement |
-    | `fzf` | Fuzzy finder for the terminal |
-    | `gh` | GitHub CLI |
-    | `pre-commit` | Git hook manager |
-    | `graphviz` | Graph visualization tools |
-    | `jq` | JSON processor |
-    | `libmagic` | File type detection library |
-    | `gotop` | Terminal system monitor |
-    | `gemini-cli` | Google Gemini AI CLI |
-    | `copilot-cli` | GitHub Copilot CLI (cask) |
-    | `mole` | macOS disk space cleaner and system optimizer |
-    | `postgresql@18` | PostgreSQL database |
-    | `pyenv` | Python version manager |
-    | `uv` | Fast Python package manager |
-    | `python@3.14` | Python interpreter |
-    | `tldr` | Simplified man pages with practical examples |
-    | `karabiner-elements` | Keyboard remapper (cask) |
+    | [`bat`](https://github.com/sharkdp/bat) | `cat` with syntax highlighting |
+    | [`eza`](https://github.com/eza-community/eza) | Modern `ls` replacement |
+    | [`fzf`](https://github.com/junegunn/fzf) | Fuzzy finder for the terminal |
+    | [`gh`](https://github.com/cli/cli) | GitHub CLI |
+    | [`pre-commit`](https://github.com/pre-commit/pre-commit) | Git hook manager |
+    | [`graphviz`](https://gitlab.com/graphviz/graphviz) | Graph visualization tools |
+    | [`jq`](https://github.com/jqlang/jq) | JSON processor |
+    | [`libmagic`](https://github.com/file/file) | File type detection library |
+    | [`gotop`](https://github.com/xxxserxxx/gotop) | Terminal system monitor |
+    | [`gemini-cli`](https://github.com/google-gemini/gemini-cli) | Google Gemini AI CLI |
+    | [`copilot-cli`](https://github.com/github/copilot-cli) | GitHub Copilot CLI (cask) |
+    | [`mole`](https://github.com/tw93/Mole) | macOS disk space cleaner and system optimizer |
+    | [`postgresql@18`](https://github.com/postgres/postgres) | PostgreSQL database |
+    | [`pyenv`](https://github.com/pyenv/pyenv) | Python version manager |
+    | [`uv`](https://github.com/astral-sh/uv) | Fast Python package manager |
+    | [`python@3.14`](https://github.com/python/cpython) | Python interpreter |
+    | [`tldr`](https://github.com/tldr-pages/tldr) | Simplified man pages with practical examples |
+    | [`karabiner-elements`](https://github.com/pqrs-org/Karabiner-Elements) | Keyboard remapper (cask) |
 
 - Extra packages installation (not available through Brew):
 
@@ -138,11 +138,13 @@ Install the following MCP server plugins in Claude:
 
 | Plugin | Description |
 |---|---|
-| `superpowers` | Spec driven development (SDD) based on brainstorming, planning, subagent-driven execution, TDD, and code review skills |
-| `pyright-lsp` | Python type checking and language server integration |
-| `notion` | Read and manage Notion pages and databases |
-| `figma` | Read Figma designs and generate code from them |
-| `context7` | Up-to-date documentation and code examples for any library |
+| [`superpowers`](https://github.com/obra/superpowers) | Spec driven development (SDD) based on brainstorming, planning, subagent-driven execution, TDD, and code review skills |
+| [`pyright-lsp`](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/pyright-lsp) | Python type checking and language server integration |
+| [`notion`](https://github.com/makenotion/notion-mcp-server) | Read and manage Notion pages and databases |
+| [`figma`](https://github.com/figma/mcp-server-guide) | Read Figma designs and generate code from them |
+| [`context7`](https://github.com/upstash/context7) | Up-to-date documentation and code examples for any library |
+| [`claude-mem`](https://github.com/thedotmack/claude-mem) | Persistent cross-session memory database with smart search and timeline reports |
+| [`sentry-skills`](https://github.com/getsentry/skills) | Sentry engineering skills: PR writing, code review, Django patterns, security review, and more |
 
 <br />
 <p align="center">Built with ❤️ from Mallorca</p>
