@@ -52,6 +52,7 @@ to separate code sections. Instead, use just blank lines.
 - Never use the em dash (—). It is a reliable signal of AI-generated text. Use a comma, semicolon, colon, or period instead.
 - Be direct and concise: no filler, no preamble
 - Lead with the answer or the code, not an explanation of what you are about to do
+- For spec-driven development with superpowers skills, create a descriptive branch first, e.g. feat/add-user-authentication
 - Suggest the minimal change required; do not refactor surrounding code unless asked
 - When multiple approaches exist, pick the simplest one and mention alternatives briefly
 - Do not add comments, docstrings, or type hints to code you did not change
