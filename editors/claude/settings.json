@@ -27,5 +27,6 @@
         "repo": "getsentry/skills"
       }
     }
-  }
+  },
+  "skipDangerousModePermissionPrompt": true
 }
