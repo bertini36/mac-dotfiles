@@ -11,16 +11,12 @@
   - `langchain-architecture`
 
 ### Code comments and docstrings
-- Apply the `writing-clearly-and-concisely` skill to all prose, including code comments and docstrings. Avoid AI patterns like hedging, passive voice, and grandiose language.
+- Apply the `writing-clearly-and-concisely` skill to all prose, including code comments and docstrings. Avoid AI patterns: hedging, passive voice, grandiose language.
 - Google-style docstrings for public classes and functions
 - DON'T ADD DOCSTRINGS FOR EVERY FUNCTION OR METHOD. Add them only to public functions, services, and classes whose purpose isn't clear from the name alone.
 - Add comments only for non-obvious *why*, never for *what*
 - DON'T USE COMMENTS IN TESTS unless absolutely necessary. Tests should be self-explanatory through clear naming and structure. If a test needs a comment, refactor for clarity instead.
-- DON'T USE HEADERS like 
-# ---------------------------------------------------------------------------
-# Function definitions
-# ---------------------------------------------------------------------------
-to separate code sections. Instead, use just blank lines.
+- No `# ---` section dividers; use blank lines instead.
 
 ### Python
 
@@ -31,8 +27,7 @@ to separate code sections. Instead, use just blank lines.
 - Only prefix functions with `_` when they are intended for internal/local use within a module; never use `_` prefix on variables or constants
 - Line length: 120 characters
 - Absolute imports only; group as stdlib → third-party → local
-- Before running any Python script, pytest, ruff or Django command, activate the virtual environment with `workon` alias or `source .venv/bin/activate`. Also take into account if the project requires to run `source config/postactivate` to set up environment variables.
-- Use the `python-code-style` skill.
+- Activate the venv before running Python/pytest/ruff/Django commands: `workon` or `source .venv/bin/activate`. Check if `source config/postactivate` is also needed.
 
 ## Workflow
 
@@ -57,19 +52,4 @@ to separate code sections. Instead, use just blank lines.
 - When multiple approaches exist, pick the simplest one and mention alternatives briefly
 - Do not add comments, docstrings, or type hints to code you did not change
 - Consult skills in `~/.agents/skills/` when suggesting code or commands.
-- Use ASCII art for schemas, diagrams, and tables when it helps clarify a concept or structure. For example:
-```
-+-----------------+       +-----------------+
-|     Service A   |       |     Service B   |
-+-----------------+       +-----------------+
-| - method_a()    |       | - method_b()    |
-+-----------------+       +-----------------+
-        |                       |
-        | calls                  | calls
-        v                       v   
-+-----------------+       +-----------------+       
-|     Service C   |       |     Service D   |
-+-----------------+       +-----------------+
-| - method_c()    |       | - method_d()    |
-+-----------------+       +-----------------+
-```                                                     
+- Use ASCII art for schemas, diagrams, and tables when it helps clarify a concept or structure.                                                     
