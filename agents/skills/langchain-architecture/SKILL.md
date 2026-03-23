@@ -7,16 +7,6 @@ description: Design LLM applications using LangChain 1.x and LangGraph for agent
 
 Master modern LangChain 1.x and LangGraph for building sophisticated LLM applications with agents, state management, memory, and tool integration.
 
-## When to Use This Skill
-
-- Building autonomous AI agents with tool access
-- Implementing complex multi-step LLM workflows
-- Managing conversation memory and state
-- Integrating LLMs with external data sources and APIs
-- Creating modular, reusable LLM application components
-- Implementing document processing pipelines
-- Building production-grade LLM applications
-
 ## Package Structure (LangChain 1.x)
 
 ```
@@ -545,45 +535,6 @@ async for event in agent.astream_events(
         print(event["data"]["chunk"].content, end="")
     elif event["event"] == "on_tool_start":
         print(f"\n[Using tool: {event['name']}]")
-```
-
-## Testing Strategies
-
-```python
-import pytest
-from unittest.mock import AsyncMock, patch
-
-@pytest.mark.asyncio
-async def test_agent_tool_selection():
-    """Test agent selects correct tool."""
-    with patch.object(llm, 'ainvoke') as mock_llm:
-        mock_llm.return_value = AsyncMock(content="Using search_database")
-
-        result = await agent.ainvoke({
-            "messages": [("user", "search for documents")]
-        })
-
-        # Verify tool was called
-        assert "search_database" in str(result)
-
-@pytest.mark.asyncio
-async def test_memory_persistence():
-    """Test memory persists across invocations."""
-    config = {"configurable": {"thread_id": "test-thread"}}
-
-    # First message
-    await agent.ainvoke(
-        {"messages": [("user", "Remember: the code is 12345")]},
-        config
-    )
-
-    # Second message should remember
-    result = await agent.ainvoke(
-        {"messages": [("user", "What was the code?")]},
-        config
-    )
-
-    assert "12345" in result["messages"][-1].content
 ```
 
 ## Performance Optimization

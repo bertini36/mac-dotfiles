@@ -71,11 +71,6 @@ If any critical information is missing, use `ask_followup_question` to ask the u
 3. **Type of Change**: Bug fix, new feature, breaking change, refactor, cosmetic, documentation, or workflow
 4. **Test Procedure**: How was this tested? What could break?
 
-### Example clarifying question
-
-If the issue number is not found:
-> I couldn't find a related issue number in the commit messages or branch name. What GitHub issue does this PR address? (Enter the issue number, e.g., "123" or "N/A" for small fixes)
-
 ## Git Best Practices
 
 Before creating the PR, consider these best practices:

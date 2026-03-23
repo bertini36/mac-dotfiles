@@ -7,52 +7,6 @@ description: Python code style, linting, formatting, naming conventions, documen
 
 Consistent code style, clear documentation, and a strong type system make Python codebases maintainable and collaborative. This skill covers modern Python tooling, naming conventions, documentation standards, and type annotations.
 
-## When to Use This Skill
-
-- Setting up linting and formatting for a new project
-- Writing or reviewing docstrings
-- Establishing team coding standards
-- Configuring ruff, mypy, or pyright
-- Reviewing code for style consistency
-- Adding type hints to existing code
-- Creating generic, reusable classes
-- Defining structural interfaces with protocols
-- Understanding type narrowing and guards
-- Building type-safe APIs and libraries
-
-## Core Concepts
-
-### 1. Automated Formatting
-
-Let tools handle formatting debates. Configure once, enforce automatically.
-
-### 2. Consistent Naming
-
-Follow PEP 8 conventions with meaningful, descriptive names.
-
-### 3. Documentation as Code
-
-Docstrings should be maintained alongside the code they describe.
-
-### 4. Type Annotations
-
-Modern Python code should include type hints for all public APIs. Type annotations serve as enforced documentation that tooling validates automatically.
-
-## Quick Start
-
-```bash
-# Install modern tooling
-pip install ruff mypy
-
-# Configure in pyproject.toml
-[tool.ruff]
-line-length = 120
-target-version = "py312"  # Adjust based on your project's minimum Python version
-
-[tool.mypy]
-strict = true
-```
-
 ## Style Patterns
 
 ### Pattern 1: Modern Python Tooling
@@ -383,59 +337,6 @@ error_message = (
     f"received status {response.status_code} "
     f"with body {response.text[:100]}"
 )
-```
-
-### Pattern 8: Project Documentation
-
-**README Structure:**
-
-```markdown
-# Project Name
-
-Brief description of what the project does.
-
-## Installation
-
-\`\`\`bash
-pip install myproject
-\`\`\`
-
-## Quick Start
-
-\`\`\`python
-from myproject import Client
-
-client = Client(api_key="...")
-result = client.process(data)
-\`\`\`
-
-## Configuration
-
-Document environment variables and configuration options.
-
-## Development
-
-\`\`\`bash
-pip install -e ".[dev]"
-pytest
-\`\`\`
-```
-
-**CHANGELOG Format (Keep a Changelog):**
-
-```markdown
-# Changelog
-
-## [Unreleased]
-
-### Added
-- New feature X
-
-### Changed
-- Modified behavior of Y
-
-### Fixed
-- Bug in Z
 ```
 
 ## Type Safety Patterns
