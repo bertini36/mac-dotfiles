@@ -39,6 +39,7 @@ My personal Mac setup and configurations
     | [`python@3.14`](https://github.com/python/cpython) | Python interpreter |
     | [`tldr`](https://github.com/tldr-pages/tldr) | Simplified man pages with practical examples |
     | [`karabiner-elements`](https://github.com/pqrs-org/Karabiner-Elements) | Keyboard remapper (cask) |
+    | [`rtk`](https://github.com/rtk-ai/rtk) | CLI proxy that reduces LLM token consumption by 60-90% |
 
 - Extra packages installation (not available through Brew):
 
