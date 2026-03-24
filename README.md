@@ -145,6 +145,13 @@ Install the following MCP server plugins in Claude:
 | [`context7`](https://github.com/upstash/context7) | Up-to-date documentation and code examples for any library |
 | [`claude-mem`](https://github.com/thedotmack/claude-mem) | Persistent cross-session memory database with smart search and timeline reports |
 | [`sentry-skills`](https://github.com/getsentry/skills) | Sentry engineering skills: PR writing, code review, Django patterns, security review, and more |
+| `datadog-mcp` | Datadog observability: logs, metrics, traces, incidents, monitors, and dashboards |
+
+Install Datadog MCP:
+
+```bash
+claude mcp add --transport http datadog-mcp https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp
+```
 
 <br />
 <p align="center">Built with ❤️ from Mallorca</p>
