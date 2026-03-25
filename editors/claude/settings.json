@@ -7,11 +7,9 @@
     "context7@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "github@claude-plugins-official": true,
-    "notion@claude-plugins-official": true,
-    "figma@claude-plugins-official": true,
     "claude-mem@thedotmack": true,
-    "sentry-skills@sentry-skills": true
+    "sentry-skills@sentry-skills": true,
+    "minimalist-entrepreneur@minimalist-entrepreneur": true
   },
   "extraKnownMarketplaces": {
     "thedotmack": {
@@ -24,6 +22,12 @@
       "source": {
         "source": "github",
         "repo": "getsentry/skills"
+      }
+    },
+    "minimalist-entrepreneur": {
+      "source": {
+        "source": "github",
+        "repo": "slavingia/skills"
       }
     }
   },
