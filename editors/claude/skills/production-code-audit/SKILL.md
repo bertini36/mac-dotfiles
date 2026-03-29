@@ -5,6 +5,8 @@ description: "Autonomously deep-scan entire codebase line-by-line, understand ar
 
 # Production Code Audit
 
+For read-only audits (report without fixing), prefer the `code-reviewer` agent instead.
+
 Scan the entire codebase autonomously, identify all issues, fix them, and report results. Do all of this without asking the user for input.
 
 ## Step 1: Codebase Discovery

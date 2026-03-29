@@ -99,19 +99,20 @@ My personal Mac setup and configurations
 
   ln -s ~/.dotfiles/editors/claude/settings.json ~/.claude/settings.json
   ln -s ~/.dotfiles/editors/claude/statusline-command.sh ~/.claude/statusline-command.sh
-  ln -s ~/.dotfiles/agents/skills ~/.claude/skills
-  ln -s ~/.dotfiles/agents/AGENTS.md ~/.claude/AGENTS.md
-  ln -s ~/.dotfiles/agents/CLAUDE.md ~/.claude/CLAUDE.md
-
-  ln -s ~/.dotfiles/agents ~/.agents
-
-  ln -s ~/.dotfiles/agents/skills ~/.copilot/skills
-  ln -s ~/.dotfiles/agents/AGENTS.md ~/.copilot/AGENTS.md
+  ln -s ~/.dotfiles/editors/claude/CLAUDE.md ~/.claude/CLAUDE.md
+  ln -s ~/.dotfiles/editors/claude/skills ~/.claude/skills
+  ln -s ~/.dotfiles/editors/claude/rules ~/.claude/rules
+  ln -s ~/.dotfiles/editors/claude/agents ~/.claude/agents
+  ln -s ~/.dotfiles/editors/claude/commands ~/.claude/commands
   ```
 
-## 🧠 Skills
+## 🧠 Claude Configuration
 
-This repo includes a set of reusable AI agent skills under `agents/skills/`. Each skill encodes domain-specific knowledge that the agent can apply when a task falls within its scope.
+All Claude Code configuration lives under `editors/claude/` and is symlinked into `~/.claude/`.
+
+### Skills
+
+Reusable AI agent skills that Claude invokes autonomously when a task matches their description.
 
 | Skill | Description |
 |---|---|
@@ -120,17 +121,47 @@ This repo includes a set of reusable AI agent skills under `agents/skills/`. Eac
 | `django-patterns` | Django architecture, REST APIs with Pydantic, ORM best practices, caching, and signals |
 | `langchain-architecture` | LangChain 1.x and LangGraph for agents, memory, and tool integration |
 | `production-code-audit` | Deep-scan a codebase and transform it to production-grade quality |
-| `python-code-style` | Python linting, formatting, naming conventions, type safety, and documentation |
+| `python-code-style` | Python type safety, generics, protocols, and advanced type annotations |
 | `writing-clearly-and-concisely` | Clear prose for docs, commits, error messages, and UI text |
+
+### Agents
+
+Specialized subagents that run in isolated context windows with restricted tools.
+
+| Agent | Description |
+|---|---|
+| `code-reviewer` | Read-only production code audit with A-F graded report (architecture, security, performance, quality, testing) |
+| `security-reviewer` | OWASP Top 10 and Django-specific security vulnerability scanner |
+
+### Rules
+
+Path-scoped rules that load automatically only when working on matching files.
+
+| Rule | Scope |
+|---|---|
+| `python` | `**/*.py` - Python 3.12+ conventions, ruff, uv, naming, imports |
+| `django` | Django files (views, models, urls, admin, etc.) |
+| `tests` | Test files - no comments, self-explanatory naming |
+| `langchain` | LangChain/LangGraph files |
+
+### Commands
+
+Custom slash commands for common workflows.
+
+| Command | Usage |
+|---|---|
+| `/project:review` | Review current branch changes for quality and security |
+| `/project:fix-issue <number>` | Fetch a GitHub issue and implement the fix |
+| `/project:audit` | Run full production audit with both agents |
 
 ### Evals
 
 Each skill has an `evals/evals.json` file that defines test cases to measure skill effectiveness. To run the evals paste the following command your AI agent prompt.
 
-1. Read the eval definitions in `agents/skills/<skill>/evals/evals.json`
-2. Generate outputs — Run each eval prompt twice per skill (once with the skill loaded, once without) and save the results to agents/skills-workspace/iteration-1/<eval-id>/with_skill/outputs/ and without_skill/outputs/.
-3. Create eval_metadata.json — Record the assertions from each eval's expectations array alongside references to the output files.
-4. Compare outputs in `agents/skills-workspace/iteration-1/<eval>/with_skill/outputs/` vs `without_skill/outputs/`
+1. Read the eval definitions in `editors/claude/skills/<skill>/evals/evals.json`
+2. Generate outputs - run each eval prompt twice per skill (once with the skill loaded, once without) and save the results to `editors/claude/skills-workspace/iteration-1/<eval-id>/with_skill/outputs/` and `without_skill/outputs/`
+3. Create `eval_metadata.json` - record the assertions from each eval's expectations array alongside references to the output files
+4. Compare outputs in `with_skill/outputs/` vs `without_skill/outputs/`
 5. Verify each assertion from `eval_metadata.json` against the corresponding output
 
 ## 🔌 Claude Plugins
