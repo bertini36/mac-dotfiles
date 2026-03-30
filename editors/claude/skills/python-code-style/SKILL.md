@@ -1,6 +1,7 @@
 ---
 name: python-code-style
 description: Python type safety patterns, generics, protocols, and advanced type annotations. Use when adding type annotations, implementing generic classes, defining structural interfaces, or configuring type checkers.
+effort: high
 ---
 
 # Python Type Safety & Advanced Patterns
