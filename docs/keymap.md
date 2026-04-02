@@ -30,6 +30,7 @@
 * Open Downloads `Caps Lock + D`
 * Pomodoro `Caps Lock + O`
 * DeepL `Caps Lock + L`
+* Keep `Caps Lock + K`
 * Left half of the screen `Caps Lock + ←`
 * Bottom half of the screen `Caps Lock + ↓`
 * Top half of the screen `Caps Lock + ↑`
