@@ -37,6 +37,10 @@
 * Right half of the screen `Caps Lock + →`
 * Maximize `Caps Lock + Enter`
 
+## Handy
+
+* Keep `OPT + Shift` for transcript
+
 ## Other Raycast useful CMDs without shortcut
 
 * Kill process (plugin)
