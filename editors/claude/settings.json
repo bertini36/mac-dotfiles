@@ -59,6 +59,5 @@
       }
     }
   },
-  "skipDangerousModePermissionPrompt": true,
-  "model": "haiku"
+  "skipDangerousModePermissionPrompt": true
 }
