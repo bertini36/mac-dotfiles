@@ -37,7 +37,9 @@
     "superpowers@claude-plugins-official": true,
     "claude-mem@thedotmack": true,
     "sentry-skills@sentry-skills": true,
-    "minimalist-entrepreneur@minimalist-entrepreneur": true
+    "minimalist-entrepreneur@minimalist-entrepreneur": true,
+    "notion@claude-plugins-official": true,
+    "figma@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "thedotmack": {
