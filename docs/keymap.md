@@ -130,3 +130,6 @@
 * `ultrathink` → Unlocks maximum reasoning depth (up to 31,999 tokens)
 * `claude --dangerously-skip-permissions` → Bypass all safety checks and permissions (use with caution)
 * `claude --worktree` → Enable automatic git worktree creation for each new conversation (experimental)
+* `/rename` -> Name the current session to resume it later with `claude --resume <session-name>`
+* `claude --resume` -> Resume a previous session
+* Consult claude-mem memories in `localhost:37777`
