@@ -46,7 +46,7 @@ My personal Mac setup and configurations
     | [`gitleaks`](https://github.com/gitleaks/gitleaks) | Secret detection in git commits |
     | [`nvm`](https://github.com/nvm-sh/nvm) | Node version manager |
     | [`pnpm`](https://github.com/pnpm/pnpm) | Fast Node package manager |
-    | [`handy`](https://github.com/nicosommi/handy) | Handy CLI utilities |
+    | [`handy`](https://github.com/cjpais/Handy) | Speech-to-text utility |
 
 - Extra packages installation (not available through Brew):
 
