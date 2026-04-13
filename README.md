@@ -40,6 +40,13 @@ My personal Mac setup and configurations
     | [`tldr`](https://github.com/tldr-pages/tldr) | Simplified man pages with practical examples |
     | [`karabiner-elements`](https://github.com/pqrs-org/Karabiner-Elements) | Keyboard remapper (cask) |
     | [`rtk`](https://github.com/rtk-ai/rtk) | CLI proxy that reduces LLM token consumption by 60-90% |
+    | [`fd`](https://github.com/sharkdp/fd) | Fast `find` replacement |
+    | [`ripgrep`](https://github.com/BurntSushi/ripgrep) | Fast `grep` replacement |
+    | [`semgrep`](https://github.com/semgrep/semgrep) | Static analysis (SAST) scanner |
+    | [`gitleaks`](https://github.com/gitleaks/gitleaks) | Secret detection in git commits |
+    | [`nvm`](https://github.com/nvm-sh/nvm) | Node version manager |
+    | [`pnpm`](https://github.com/pnpm/pnpm) | Fast Node package manager |
+    | [`handy`](https://github.com/nicosommi/handy) | Handy CLI utilities |
 
 - Extra packages installation (not available through Brew):
 
@@ -50,6 +57,7 @@ My personal Mac setup and configurations
     | Package | Description |
     |---|---|
     | `claude` | Anthropic Claude CLI |
+    | `gitleaks` hook | Global git pre-commit hook for secret detection |
 
 - Add fonts (`fonts/`) to `Font Book`
 - Configure [Karabiner](https://karabiner-elements.pqrs.org/)
@@ -68,6 +76,7 @@ My personal Mac setup and configurations
 - Install [Raycast](https://www.raycast.com/)
   * Disable Spotlight shortcut to enable Raycast one (System Preferences -> Keyboard -> Shortcuts -> Spotlight -> Uncheck `Show Spotlight search`)
   * Configure shortcuts following [keymap.md](docs/keymap.md)
+  * See [workflow.md](docs/workflow.md) for the feature development workflow
 - Install [Iterm2](https://iterm2.com/)
 - Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
 - Install [Jetbrains Toolbox](https://www.jetbrains.com/toolbox-app/) and [Pycharm](https://www.jetbrains.com/pycharm/)
@@ -132,6 +141,7 @@ Specialized subagents that run in isolated context windows with restricted tools
 |---|---|
 | `code-reviewer` | Read-only production code audit with A-F graded report (architecture, security, performance, quality, testing) |
 | `security-reviewer` | OWASP Top 10 and Django-specific security vulnerability scanner |
+| `evaluator` | Quality gate that scores implementation plans on 7 criteria with GO/NO-GO verdict |
 
 ### Rules
 
@@ -150,9 +160,9 @@ Custom slash commands for common workflows.
 
 | Command | Usage |
 |---|---|
-| `/project:review` | Review current branch changes for quality and security |
-| `/project:fix-issue <number>` | Fetch a GitHub issue and implement the fix |
-| `/project:audit` | Run full production audit with both agents |
+| `/review` | Review current branch changes for quality and security |
+| `/fix-issue <number>` | Fetch a GitHub issue and implement the fix |
+| `/audit` | Run full production audit with both agents |
 
 ### Evals
 
@@ -185,7 +195,7 @@ Install Datadog MCP:
 claude mcp add --transport http datadog-mcp https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp
 ```
 
-Install The Minimalist enterpreneur skills:
+Install The Minimalist Entrepreneur skills:
 
 ```bash
 /plugin marketplace add slavingia/skills

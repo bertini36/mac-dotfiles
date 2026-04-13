@@ -37,5 +37,20 @@
       }
     }
   },
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "permissions": {
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(dd *)",
+      "Bash(mkfs *)",
+      "Bash(shred *)",
+      "Bash(git push --force*)",
+      "Bash(git filter-branch*)",
+      "Bash(git filter-repo*)",
+      "Bash(cat /etc/passwd)",
+      "Bash(cat /etc/shadow)",
+      "Bash(cat /etc/ssh/**)",
+      "Bash(cat ~/.ssh/*)"
+    ]
+  }
 }

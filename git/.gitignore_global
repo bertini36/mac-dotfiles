@@ -18,6 +18,17 @@ __pycache__
 
 # Environment
 .env
+.env.*
+.env.local
+.env.*.local
+
+# Secrets and keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+id_rsa
 
 # Others
 dist/
