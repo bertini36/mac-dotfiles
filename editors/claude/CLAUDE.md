@@ -30,7 +30,7 @@
   - What does this PR do / which problem does it solve?
   - How does it solve it?
   - Are there any potential side effects or risks?
-  - Use the `writing-clearly-and-concisely` `skill to draft the description and make it easy to understand
+  - Use the `writing-clearly-and-concisely` skill to draft the description and make it easy to understand
 
 ## Guardrails
 

@@ -44,7 +44,7 @@ The `superpowers:verification-before-completion` skill runs before any success c
 Review your branch changes:
 
 ```
-/project:review
+/review
 ```
 
 This dispatches the `code-reviewer` agent on the diff against `main`.
@@ -52,7 +52,7 @@ This dispatches the `code-reviewer` agent on the diff against `main`.
 For a full audit including security:
 
 ```
-/project:audit
+/audit
 ```
 
 This dispatches both the `code-reviewer` and `security-reviewer` agents.
@@ -60,7 +60,7 @@ This dispatches both the `code-reviewer` and `security-reviewer` agents.
 ## 7. Create PR
 
 ```
-/project:create-pull-request
+/create-pull-request
 ```
 
 Uses the `create-pull-request` skill with `writing-clearly-and-concisely` for the description. The `superpowers:finishing-a-development-branch` skill guides the merge/PR decision.
@@ -73,16 +73,16 @@ Brainstorm  -->  Plan  -->  Evaluate  -->  Implement  -->  Verify  -->  Review  
 
 Most steps trigger automatically through the `superpowers` plugin. The manual touchpoints are:
 
-- `/project:review` to run code review
-- `/project:audit` to run full audit
-- `/project:create-pull-request` to open the PR
+- `/review` to run code review
+- `/audit` to run full audit
+- `/create-pull-request` to open the PR
 
 ## Fixing Issues
 
 To pick up a GitHub issue and fix it directly:
 
 ```
-/project:fix-issue 42
+/fix-issue 42
 ```
 
 Fetches the issue, implements the fix, runs tests and pre-commit hooks, and creates a conventional commit referencing the issue.

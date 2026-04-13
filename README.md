@@ -160,9 +160,9 @@ Custom slash commands for common workflows.
 
 | Command | Usage |
 |---|---|
-| `/project:review` | Review current branch changes for quality and security |
-| `/project:fix-issue <number>` | Fetch a GitHub issue and implement the fix |
-| `/project:audit` | Run full production audit with both agents |
+| `/review` | Review current branch changes for quality and security |
+| `/fix-issue <number>` | Fetch a GitHub issue and implement the fix |
+| `/audit` | Run full production audit with both agents |
 
 ### Evals
 
@@ -195,7 +195,7 @@ Install Datadog MCP:
 claude mcp add --transport http datadog-mcp https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp
 ```
 
-Install The Minimalist enterpreneur skills:
+Install The Minimalist Entrepreneur skills:
 
 ```bash
 /plugin marketplace add slavingia/skills
