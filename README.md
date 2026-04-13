@@ -44,6 +44,9 @@ My personal Mac setup and configurations
     | [`ripgrep`](https://github.com/BurntSushi/ripgrep) | Fast `grep` replacement |
     | [`semgrep`](https://github.com/semgrep/semgrep) | Static analysis (SAST) scanner |
     | [`gitleaks`](https://github.com/gitleaks/gitleaks) | Secret detection in git commits |
+    | [`nvm`](https://github.com/nvm-sh/nvm) | Node version manager |
+    | [`pnpm`](https://github.com/pnpm/pnpm) | Fast Node package manager |
+    | [`handy`](https://github.com/nicosommi/handy) | Handy CLI utilities |
 
 - Extra packages installation (not available through Brew):
 
@@ -73,6 +76,7 @@ My personal Mac setup and configurations
 - Install [Raycast](https://www.raycast.com/)
   * Disable Spotlight shortcut to enable Raycast one (System Preferences -> Keyboard -> Shortcuts -> Spotlight -> Uncheck `Show Spotlight search`)
   * Configure shortcuts following [keymap.md](docs/keymap.md)
+  * See [workflow.md](docs/workflow.md) for the feature development workflow
 - Install [Iterm2](https://iterm2.com/)
 - Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
 - Install [Jetbrains Toolbox](https://www.jetbrains.com/toolbox-app/) and [Pycharm](https://www.jetbrains.com/pycharm/)
