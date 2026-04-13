@@ -4,9 +4,11 @@ Step-by-step guide for building features using the Claude Code configuration in 
 
 ## 1. Start a worktree
 
-Ask Claude to create a worktree for your feature:
+Open a Claude console in an isolated worktree:
 
-> Start a worktree for feat/my-feature
+```bash
+claude --dangerously-skip-permissions --worktree
+```
 
 This creates an isolated copy of the repo so your work doesn't interfere with the main branch.
 
