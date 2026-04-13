@@ -1,5 +1,5 @@
 <h3 align="center">
-    bertini36/mac-dotfiles 
+    bertini36/dotfiles 
 </h3>
 <p align="center">
 My personal Mac setup and configurations
@@ -10,7 +10,7 @@ My personal Mac setup and configurations
 - Download code:
 
     ```bash
-    git clone https://github.com/bertini36/mac-dotfiles.git ~/.dotfiles/
+    git clone https://github.com/bertini36/dotfiles.git ~/.dotfiles/
     ```
 
 - Brew packages installation:
