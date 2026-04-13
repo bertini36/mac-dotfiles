@@ -5,3 +5,21 @@ set -euo pipefail
 
 echo "Installing Claude CLI..."
 curl -fsSL https://claude.ai/install.sh | bash
+
+echo "Setting up gitleaks pre-commit hook..."
+mkdir -p ~/.git-hooks
+cat > ~/.git-hooks/pre-commit << 'HOOK'
+#!/usr/bin/env bash
+# Run gitleaks on staged changes
+if command -v gitleaks &> /dev/null; then
+  gitleaks git --pre-commit --staged --verbose
+fi
+
+# Chain to repo-local pre-commit hook if it exists
+LOCAL_HOOK="$(git rev-parse --git-dir)/hooks/pre-commit"
+if [ -x "$LOCAL_HOOK" ]; then
+  exec "$LOCAL_HOOK" "$@"
+fi
+HOOK
+chmod +x ~/.git-hooks/pre-commit
+git config --global core.hooksPath ~/.git-hooks

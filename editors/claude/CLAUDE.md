@@ -31,6 +31,12 @@
   - Are there any potential side effects or risks?
   - Use the `writing-clearly-and-concisely` `skill to draft the description and make it easy to understand
 
+## Guardrails
+
+- If 2+ interpretations exist, ask one clarifying question before proceeding
+- Read existing patterns from `main` before coding; ask before inventing new variants
+- Tool priority: LSP > semantic code search > Grep/Glob
+
 ## AI Assistance Preferences
 
 - Never use the em dash. Use a comma, semicolon, colon, or period instead

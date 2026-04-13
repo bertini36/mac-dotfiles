@@ -40,6 +40,10 @@ My personal Mac setup and configurations
     | [`tldr`](https://github.com/tldr-pages/tldr) | Simplified man pages with practical examples |
     | [`karabiner-elements`](https://github.com/pqrs-org/Karabiner-Elements) | Keyboard remapper (cask) |
     | [`rtk`](https://github.com/rtk-ai/rtk) | CLI proxy that reduces LLM token consumption by 60-90% |
+    | [`fd`](https://github.com/sharkdp/fd) | Fast `find` replacement |
+    | [`ripgrep`](https://github.com/BurntSushi/ripgrep) | Fast `grep` replacement |
+    | [`semgrep`](https://github.com/semgrep/semgrep) | Static analysis (SAST) scanner |
+    | [`gitleaks`](https://github.com/gitleaks/gitleaks) | Secret detection in git commits |
 
 - Extra packages installation (not available through Brew):
 
@@ -50,6 +54,7 @@ My personal Mac setup and configurations
     | Package | Description |
     |---|---|
     | `claude` | Anthropic Claude CLI |
+    | `gitleaks` hook | Global git pre-commit hook for secret detection |
 
 - Add fonts (`fonts/`) to `Font Book`
 - Configure [Karabiner](https://karabiner-elements.pqrs.org/)
@@ -132,6 +137,7 @@ Specialized subagents that run in isolated context windows with restricted tools
 |---|---|
 | `code-reviewer` | Read-only production code audit with A-F graded report (architecture, security, performance, quality, testing) |
 | `security-reviewer` | OWASP Top 10 and Django-specific security vulnerability scanner |
+| `evaluator` | Quality gate that scores implementation plans on 7 criteria with GO/NO-GO verdict |
 
 ### Rules
 
