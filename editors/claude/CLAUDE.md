@@ -24,6 +24,7 @@
 - Use `gh` CLI for all GitHub operations (PRs, issues, releases)
 - Run `pre-commit` hooks before suggesting a commit is ready
 - For spec-driven development, use the `superpowers` skills
+- After writing an implementation plan, dispatch the `evaluator` agent before proceeding
 - Before marking a task complete, run the `production-code-audit`, `django-patterns`, and `python-code-style` skills
 - Use `create-pull-request` skill to create PRs with a clear description:
   - What does this PR do / which problem does it solve?
