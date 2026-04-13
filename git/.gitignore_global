@@ -29,7 +29,6 @@ __pycache__
 *.pfx
 *.cer
 id_rsa
-id_ed25519
 
 # Others
 dist/
