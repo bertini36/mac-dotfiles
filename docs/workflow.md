@@ -4,11 +4,11 @@ Step-by-step guide for building features using the Claude Code configuration in 
 
 ## 1. Start a worktree
 
-```
-/worktree feat/my-feature
-```
+Ask Claude to create a worktree for your feature:
 
-Creates an isolated copy of the repo so your work doesn't interfere with the main branch.
+> Start a worktree for feat/my-feature
+
+This creates an isolated copy of the repo so your work doesn't interfere with the main branch.
 
 ## 2. Brainstorm
 
