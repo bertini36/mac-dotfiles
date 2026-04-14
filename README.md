@@ -46,17 +46,17 @@ My personal Mac setup and configurations
     | [`gitleaks`](https://github.com/gitleaks/gitleaks) | Secret detection in git commits |
     | [`nvm`](https://github.com/nvm-sh/nvm) | Node version manager |
     | [`pnpm`](https://github.com/pnpm/pnpm) | Fast Node package manager |
+    | [`claude-code`](https://github.com/anthropics/claude-code) | Anthropic Claude CLI (cask) |
     | [`handy`](https://github.com/cjpais/Handy) | Speech-to-text utility |
 
-- Extra packages installation (not available through Brew):
+- Extra configuration (not available through Brew):
 
     ```bash
-    bash mac/install_extras.sh
+    bash mac/config_extras.sh
     ```
 
-    | Package | Description |
+    | Config | Description |
     |---|---|
-    | `claude` | Anthropic Claude CLI |
     | `gitleaks` hook | Global git pre-commit hook for secret detection |
 
 - Add fonts (`fonts/`) to `Font Book`

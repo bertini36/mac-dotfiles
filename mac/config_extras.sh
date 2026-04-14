@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
-# Packages that can't be installed through Homebrew
+# Extra configuration that can't be done through Homebrew
 
 set -euo pipefail
-
-echo "Installing Claude CLI..."
-curl -fsSL https://claude.ai/install.sh | bash
 
 echo "Setting up gitleaks pre-commit hook..."
 
