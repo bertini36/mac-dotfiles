@@ -28,7 +28,6 @@
     "superpowers@claude-plugins-official": true,
     "claude-mem@thedotmack": true,
     "sentry-skills@sentry-skills": true,
-    "minimalist-entrepreneur@minimalist-entrepreneur": true,
     "notion@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
     "atlassian@claude-plugins-official": true
@@ -44,12 +43,6 @@
       "source": {
         "source": "github",
         "repo": "getsentry/skills"
-      }
-    },
-    "minimalist-entrepreneur": {
-      "source": {
-        "source": "github",
-        "repo": "slavingia/skills"
       }
     }
   },

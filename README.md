@@ -183,7 +183,6 @@ Install the following MCP server plugins in Claude:
 | [`superpowers`](https://github.com/obra/superpowers) | Spec driven development (SDD) based on brainstorming, planning, subagent-driven execution, TDD, and code review skills |
 | [`context7`](https://github.com/upstash/context7) | Up-to-date documentation and code examples for any library |
 | [`claude-mem`](https://github.com/thedotmack/claude-mem) | Persistent cross-session memory database with smart search and timeline reports |
-| [`the minimalist entrepreneur`](https://github.com/slavingia/skills) | Business strategy and operations: idea validation, growth loops, metrics, and more |
 | [`sentry-skills`](https://github.com/getsentry/skills) | Sentry engineering skills: PR writing, code review, Django patterns, security review, and more |
 | [`notion`](https://github.com/makenotion/notion-mcp-server) | Read and manage Notion pages and databases |
 | [`figma`](https://github.com/figma/mcp-server-guide) | Read Figma designs and generate code from them |
@@ -193,13 +192,6 @@ Install Datadog MCP:
 
 ```bash
 claude mcp add --transport http datadog-mcp https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp
-```
-
-Install The Minimalist Entrepreneur skills:
-
-```bash
-/plugin marketplace add slavingia/skills
-/plugin install minimalist-entrepreneur
 ```
 
 <br />
