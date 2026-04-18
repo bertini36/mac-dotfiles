@@ -122,15 +122,14 @@
 ## Claude
 
 * `/mcp` → List and manage connected MCP servers
-* `/plan` or `Shift + Tab` → Enter plan mode
 * `/model` → Choose between Anthropic models to serve your requests
 * `/skills` → See project and local skills available
 * `/context` → Visualize context usage in your current chat
 * `/compact` → Reduce context usage when the context window fills up
-* `ultrathink` → Unlocks maximum reasoning depth (up to 31,999 tokens)
-* `claude --dangerously-skip-permissions` → Bypass all safety checks and permissions (use with caution)
-* `claude --worktree` → Enable automatic git worktree creation for each new conversation (experimental)
+* `/effort` → Toggle effort mode for more thorough responses
 * `/rename` -> Name the current session to resume it later with `claude --resume <session-name>`
 * `claude --resume` -> Resume a previous session
+* `claude --dangerously-skip-permissions` → Bypass all safety checks and permissions (use with caution)
+* `claude --worktree` → Enable automatic git worktree creation for each new conversation (experimental)
 * Consult claude-mem memories in `localhost:37777`
 * Double `option` key → Open Claude
