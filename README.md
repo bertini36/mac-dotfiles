@@ -39,7 +39,6 @@ My personal Mac setup and configurations
     | [`python@3.14`](https://github.com/python/cpython) | Python interpreter |
     | [`tldr`](https://github.com/tldr-pages/tldr) | Simplified man pages with practical examples |
     | [`karabiner-elements`](https://github.com/pqrs-org/Karabiner-Elements) | Keyboard remapper (cask) |
-    | [`rtk`](https://github.com/rtk-ai/rtk) | CLI proxy that reduces LLM token consumption by 60-90% |
     | [`fd`](https://github.com/sharkdp/fd) | Fast `find` replacement |
     | [`ripgrep`](https://github.com/BurntSushi/ripgrep) | Fast `grep` replacement |
     | [`semgrep`](https://github.com/semgrep/semgrep) | Static analysis (SAST) scanner |
@@ -48,6 +47,7 @@ My personal Mac setup and configurations
     | [`pnpm`](https://github.com/pnpm/pnpm) | Fast Node package manager |
     | [`claude`](https://claude.ai) | Anthropic Claude desktop app (cask) |
     | [`claude-code`](https://github.com/anthropics/claude-code) | Anthropic Claude CLI (cask) |
+    | [`rtk`](https://github.com/rtk-ai/rtk) | CLI proxy that reduces LLM token consumption by 60-90% |
     | [`handy`](https://github.com/cjpais/Handy) | Speech-to-text utility |
 
 - Extra configuration (not available through Brew):
