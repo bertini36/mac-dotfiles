@@ -133,3 +133,4 @@
 * `/rename` -> Name the current session to resume it later with `claude --resume <session-name>`
 * `claude --resume` -> Resume a previous session
 * Consult claude-mem memories in `localhost:37777`
+* Double `option` key → Open Claude

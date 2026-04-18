@@ -20,24 +20,13 @@
 
 ## Workflow
 
-Follow this sequence for feature development:
+Pipeline: Brainstorm, Plan, Evaluate, Implement, Verify, Review, PR, Finish.
+Full walkthrough in `workflow.md`. Implementation only proceeds on a GO verdict from the `evaluator` agent.
 
-1. **Brainstorm**: use the `superpowers:brainstorming` skill to explore requirements and design before coding
-2. **Plan**: use the `superpowers:writing-plans` skill to create a step-by-step implementation plan
-3. **Evaluate**: dispatch the `evaluator` agent on the plan; only proceed on a GO verdict
-4. **Implement**: use the `superpowers:executing-plans` skill; for independent tasks use `superpowers:dispatching-parallel-agents`
-5. **Verify**: before claiming completion, run the `production-code-audit`, `django-patterns`, and `python-code-style` skills
-6. **Review**: run `/review` (code quality) or `/audit` (code quality + security)
-7. **PR**: use the `create-pull-request` skill with a clear description:
-   - What does this PR do / which problem does it solve?
-   - How does it solve it?
-   - Are there any potential side effects or risks?
-   - Use the `writing-clearly-and-concisely` skill to draft the description
-
-General rules:
-- Git: conventional commit messages (`feat:`, `fix:`, `docs:`, etc.)
-- Use `gh` CLI for all GitHub operations (PRs, issues, releases)
-- Run `pre-commit` hooks before suggesting a commit is ready
+Rules:
+- Conventional commit messages (`feat:`, `fix:`, `docs:`, etc.)
+- Use `gh` CLI for all GitHub operations
+- Run `pre-commit` hooks before claiming a commit is ready
 
 ## Guardrails
 

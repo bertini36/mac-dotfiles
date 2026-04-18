@@ -1,5 +1,7 @@
 # Feature Development Workflow
 
+> Directives live in `CLAUDE.md`. This file is the walkthrough.
+
 Step-by-step guide for building features using the Claude Code configuration in this repo.
 
 ## 1. Start a worktree
