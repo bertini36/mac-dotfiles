@@ -46,6 +46,7 @@ My personal Mac setup and configurations
     | [`gitleaks`](https://github.com/gitleaks/gitleaks) | Secret detection in git commits |
     | [`nvm`](https://github.com/nvm-sh/nvm) | Node version manager |
     | [`pnpm`](https://github.com/pnpm/pnpm) | Fast Node package manager |
+    | [`claude`](https://claude.ai) | Anthropic Claude desktop app (cask) |
     | [`claude-code`](https://github.com/anthropics/claude-code) | Anthropic Claude CLI (cask) |
     | [`handy`](https://github.com/cjpais/Handy) | Speech-to-text utility |
 
