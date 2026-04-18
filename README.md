@@ -178,7 +178,7 @@ Custom slash commands for common workflows.
 | `/fix-issue <number>` | Fetch a GitHub issue and implement the fix |
 | `/audit` | Run full production audit with both agents |
 
-## 🔌 Claude Plugins
+### 🔌 Claude Plugins
 
 Install the following MCP server plugins in Claude:
 
@@ -188,6 +188,7 @@ Install the following MCP server plugins in Claude:
 | [`context7`](https://github.com/upstash/context7) | Up-to-date documentation and code examples for any library |
 | [`claude-mem`](https://github.com/thedotmack/claude-mem) | Persistent cross-session memory database with smart search and timeline reports (localhost:37777) |
 | [`sentry-skills`](https://github.com/getsentry/skills) | Sentry engineering skills: PR writing, code review, Django patterns, security review, and more |
+| [`caveman`](https://github.com/JuliusBrussee/caveman) | Caveman-speak mode that cuts ~75% of output tokens while keeping technical accuracy |
 | [`notion`](https://github.com/makenotion/notion-mcp-server) | Read and manage Notion pages and databases |
 | [`figma`](https://github.com/figma/mcp-server-guide) | Read Figma designs and generate code from them |
 | `datadog-mcp` | Datadog observability: logs, metrics, traces, incidents, monitors, and dashboards |
@@ -196,6 +197,19 @@ Install Datadog MCP:
 
 ```bash
 claude mcp add --transport http datadog-mcp https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp
+```
+
+Install Caveman:
+
+```bash
+claude plugin marketplace add JuliusBrussee/caveman
+claude plugin install caveman@caveman
+```
+
+Activate [rtk](https://github.com/rtk-ai/rtk):
+
+```bash
+rtk init -g
 ```
 
 <br />

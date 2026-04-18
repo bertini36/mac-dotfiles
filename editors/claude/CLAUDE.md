@@ -44,3 +44,5 @@ Rules:
 - When multiple approaches exist, pick the simplest one and mention alternatives briefly
 - Do not add comments, docstrings, or type hints to code you did not change
 - Use ASCII art for schemas, diagrams, and tables when it helps clarify a concept or structure
+
+@RTK.md
