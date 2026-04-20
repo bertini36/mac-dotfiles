@@ -177,6 +177,7 @@ Custom slash commands for common workflows.
 | `/review` | Review current branch changes for quality and security |
 | `/fix-issue <number>` | Fetch a GitHub issue and implement the fix |
 | `/audit` | Run full production audit with both agents |
+| `/dev-start` | Start the feature development pipeline from `workflow.md` |
 
 ### 🔌 Claude Plugins
 
