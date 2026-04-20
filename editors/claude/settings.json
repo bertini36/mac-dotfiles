@@ -53,14 +53,6 @@
       }
     }
   },
-  "hooks": { 
-    "PreToolUse": [{
-      "matcher": "Bash",
-      "hooks": [{ "type": "command",
-        "command": "/Users/bertini36/.claude/hooks/rtk-rewrite.sh"
-      }]
-    }]
-  },
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true
 }
