@@ -138,7 +138,9 @@ Avoid passing the PR body directly as a command-line argument, as this often fai
 
 ```bash
 # Example
-echo "PR_BODY_CONTENT" > pr_body.txt
+cat > pr_body.txt <<'EOF'
+PR_BODY_CONTENT
+EOF
 gh pr create --title "PR_TITLE" --body-file pr_body.txt --base master --draft --assignee "@me"
 rm pr_body.txt # Clean up
 ```
@@ -146,7 +148,9 @@ rm pr_body.txt # Clean up
 If the project belongs to the Abacum organization (e.g., remote URL contains `abacum`), add `--label "Engine"`:
 
 ```bash
-echo "PR_BODY_CONTENT" > pr_body.txt
+cat > pr_body.txt <<'EOF'
+PR_BODY_CONTENT
+EOF
 gh pr create --title "PR_TITLE" --body-file pr_body.txt --base master --draft --assignee "@me" --label "Engine"
 rm pr_body.txt # Clean up
 ```

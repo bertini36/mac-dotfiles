@@ -432,12 +432,11 @@ result2 = await agent.ainvoke({"messages": [("user", "What's my name?")]}, confi
 ### Production Memory with PostgreSQL
 
 ```python
+import os
 from langgraph.checkpoint.postgres import PostgresSaver
 
-# Production checkpointer
-checkpointer = PostgresSaver.from_conn_string(
-    "postgresql://user:pass@localhost/langgraph"
-)
+# Production checkpointer. Never hardcode DSNs; load from env.
+checkpointer = PostgresSaver.from_conn_string(os.environ["DATABASE_URL"])
 
 agent = create_react_agent(llm, tools, checkpointer=checkpointer)
 ```
@@ -473,10 +472,11 @@ async def store_memory(content: str, metadata: dict = {}):
 import os
 from langchain_anthropic import ChatAnthropic
 
-# Enable LangSmith tracing
+# Enable LangSmith tracing. Export LANGCHAIN_API_KEY from .env or secret store,
+# never inline the key in source.
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = "your-api-key"
 os.environ["LANGCHAIN_PROJECT"] = "my-project"
+assert os.environ.get("LANGCHAIN_API_KEY"), "LANGCHAIN_API_KEY must be set"
 
 # All LangChain/LangGraph operations are automatically traced
 llm = ChatAnthropic(model="claude-sonnet-4-6")

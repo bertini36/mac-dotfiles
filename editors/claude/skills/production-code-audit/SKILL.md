@@ -11,6 +11,16 @@ For read-only audits (report without fixing), prefer the `code-reviewer` agent i
 
 Scan the entire codebase autonomously, identify all issues, fix them, and report results. Do all of this without asking the user for input.
 
+## Step 0: Preflight
+
+Destructive scope. Before touching any file, confirm with the user:
+
+1. Current branch is a fork or throwaway branch, not `main`/`master`/`develop`.
+2. Working tree is clean (`git status` empty) or all changes committed.
+3. A backup ref exists: `git tag audit-backup-$(date +%s)` before Step 3.
+
+Abort if any check fails. Never run Step 3 on a branch with uncommitted work or on a shared/protected branch.
+
 ## Step 1: Codebase Discovery
 
 Read every source file. Identify:
