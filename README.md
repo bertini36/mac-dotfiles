@@ -186,6 +186,7 @@ Install the following MCP server plugins in Claude:
 | Plugin | Description |
 |---|---|
 | [`superpowers`](https://github.com/obra/superpowers) | Spec driven development (SDD) based on brainstorming, planning, subagent-driven execution, TDD, and code review skills |
+| `skill-creator` | Create, modify, and benchmark custom skills, including eval runs and description optimization |
 | [`context7`](https://github.com/upstash/context7) | Up-to-date documentation and code examples for any library |
 | [`claude-mem`](https://github.com/thedotmack/claude-mem) | Persistent cross-session memory database with smart search and timeline reports (localhost:37777) |
 | [`sentry-skills`](https://github.com/getsentry/skills) | Sentry engineering skills: PR writing, code review, Django patterns, security review, and more |
