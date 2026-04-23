@@ -98,7 +98,7 @@ My personal Mac setup and configurations
     - [Auto-interpreter for PEP723 (uv)](https://marketplace.visualstudio.com/items?itemName=nsarrazin.pep723-uv-interpreter)
 
 - Enable auto-focus: `defaults write com.apple.Terminal FocusFollowsMouse -bool true`
-- Link the rest of configuration files
+- Link the rest of configuration files (install Claude Code first so `~/.claude/` exists)
 
   ```bash
   ln -s ~/.dotfiles/git/.gitignore_global ~/.gitignore_global
@@ -177,7 +177,7 @@ Custom slash commands for common workflows.
 | `/review` | Review current branch changes for quality and security |
 | `/fix-issue <number>` | Fetch a GitHub issue and implement the fix |
 | `/audit` | Run full production audit with both agents |
-| `/dev-start` | Start the feature development pipeline from `workflow.md` |
+| `/start-feature` | Start the feature development pipeline from `workflow.md` |
 
 ### 🔌 Claude Plugins
 
