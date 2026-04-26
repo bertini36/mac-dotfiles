@@ -1,11 +1,26 @@
 ---
 name: wiki-karpathy
-description: Initialize, manage, and ingest knowledge into a Karpathy-style personal wiki system inside an Obsidian vault. Use when the user says "initialize the wiki", "start ingestion", "do wiki maintenance", or similar.
+description: Initialize, ingest, query, and lint a Karpathy-style personal wiki inside an Obsidian vault. Use when the user says "initialize the wiki", "start ingestion", "ask the wiki", "what does the wiki say about...", "do wiki maintenance", or similar.
 ---
 
 # Skill: Karpathy Wiki for Obsidian
 
 You are the manager of a persistent knowledge system based on Andrej Karpathy's method. Your job is to build and maintain a personal Wikipedia inside an Obsidian vault, using interconnected Markdown files.
+
+---
+
+## Philosophy
+
+The wiki is a **persistent, compounding artifact**, not on-demand retrieval. Each ingestion synthesizes new sources into existing structured pages, so prior context does not need re-deriving.
+
+Three layers:
+1. **Raw sources** — immutable input (`raw/`). Never edited.
+2. **The wiki** — generated, structured Markdown (`wiki/`). Written and updated.
+3. **The schema** — configuration (`CLAUDE.md`). Defines structure, conventions, workflows.
+
+Three operations: **Ingest**, **Query**, **Lint**.
+
+Core principle: the LLM bears the maintenance burden (cross-references, consistency, deduplication). The human curates sources, directs analysis, asks questions. Knowledge compounds because per-update cost approaches zero.
 
 ---
 
@@ -62,22 +77,34 @@ Exact content to write in `CLAUDE.md`:
 3. Never read files from `raw/` except during ingestion
 
 ## Ingestion process
-1. Read documents from `raw/`
-2. Extract: key concepts, entities, main ideas
-3. Create or update pages in `wiki/concepts/`, `wiki/entities/`, `wiki/sources/`
-4. Update `wiki/index.md` with the new pages
-5. Record operation in `log.md`
-6. Do NOT delete files from `raw/` after processing them
+1. Process sources **one at a time**, in order. Do not batch.
+2. For each source: read in full, extract key concepts/entities/ideas, then create or update pages in `wiki/concepts/`, `wiki/entities/`, `wiki/sources/`.
+3. Add bidirectional `[[]]` links between every related pair.
+4. Update `wiki/index.md` with the new pages, placed under the right category.
+5. Append `INGEST` entry to `log.md`.
+6. Do NOT delete files from `raw/` after processing them.
+
+## Query process
+1. Read `wiki/index.md` first; identify candidate pages.
+2. Read only relevant pages; follow `[[]]` outward only when needed.
+3. Answer with citations to the pages used.
+4. If the answer produces a non-trivial new connection, file it back as a `wiki/synthesis/` page and link bidirectionally.
+5. Append `QUERY` entry to `log.md`.
 
 ## Maintenance process (linting)
-1. Review pages with no incoming links (orphans)
-2. Detect contradictions between pages
-3. Update outdated information
-4. Consolidate duplicate pages
-5. Record changes in `log.md`
+1. Orphan pages (no incoming links).
+2. Missing cross-references and bidirectional gaps.
+3. Contradictions between pages.
+4. Outdated information.
+5. Duplicate pages → consolidate.
+6. Data gaps (thin content) → flag for further ingestion.
+7. Index sync.
+8. Append `LINT` entry to `log.md`.
 ```
 
 ### 3. Generate `wiki/index.md`
+
+`index.md` is a **content-oriented catalog organized by category**, not a flat file list. Group entries by topical category within each section so a reader can scan it like a table of contents. Update categories as the wiki grows.
 
 ```markdown
 ---
@@ -90,28 +117,32 @@ date: YYYY-MM-DD (current date)
 > Read this file before any search in the wiki.
 
 ## Concepts
-*(empty — will be filled on first ingestion)*
+*(grouped by topical category; e.g. "Machine Learning", "Productivity")*
 
 ## Entities
-*(empty — will be filled on first ingestion)*
+*(grouped by kind; e.g. "People", "Tools", "Companies")*
 
 ## Processed sources
-*(empty — will be filled on first ingestion)*
+*(chronological or grouped by source type)*
 
 ## Synthesis
-*(empty — will be filled on first ingestion)*
+*(cross-domain insights linking 2+ concepts)*
 ```
 
 ### 4. Generate `log.md`
 
+`log.md` is append-only, chronological. Each entry uses a parseable prefix so future tooling can grep by operation type:
+
+- `INIT` — initialization
+- `INGEST` — source ingestion
+- `QUERY` — query answered (and any synthesis filed back)
+- `LINT` — maintenance pass
+- `EDIT` — manual structural change
+
 ```markdown
 # System Log
 
-## YYYY-MM-DD — Initialization
-- Wiki system initialized
-- Folder structure created
-- CLAUDE.md generated
-- Master index created
+YYYY-MM-DDTHH:MM INIT — wiki initialized; folder structure, CLAUDE.md, index.md created
 ```
 
 ### 5. Confirm to the user
@@ -234,6 +265,31 @@ tags: [tags]
 
 ---
 
+## COMMAND: Query the wiki
+
+When the user asks a question about wiki content (e.g. **"what does the wiki say about X?"**, **"summarize what we know about Y"**, **"compare A and B"**):
+
+### Process
+
+1. **Read `wiki/index.md` first** to identify candidate pages by category. Do not grep the whole vault.
+2. Read only the relevant pages from `wiki/concepts/`, `wiki/entities/`, `wiki/sources/`, `wiki/synthesis/`. Follow `[[wikilinks]]` outward only when needed.
+3. Synthesize an answer **with citations** to the pages used: `[[concept-name]]`, `[[source-name]]`. Every non-trivial claim should cite the page it came from.
+4. **File valuable results back into the wiki.** If the synthesis produces a non-trivial connection, comparison, or insight that is not already captured:
+   - Create or update a page in `wiki/synthesis/` capturing it.
+   - Add `[[]]` links from the relevant concept and source pages back to the new synthesis page (bidirectional).
+   - Update `wiki/index.md`.
+5. Record in `log.md`: `QUERY` entry with question summary and pages touched (read or created).
+
+### Why file results back
+
+Querying without writing back wastes work. The next equivalent question would re-derive the same synthesis. The wiki only compounds if non-trivial answers become persistent pages.
+
+### When NOT to file back
+
+Trivial lookups (single-page recall, restating an existing summary). Reserve `wiki/synthesis/` for new connections that the existing pages do not already express.
+
+---
+
 ## COMMAND: Maintenance (Linting)
 
 When the user says **"do maintenance"**, **"lint the wiki"**, or similar:
@@ -241,19 +297,24 @@ When the user says **"do maintenance"**, **"lint the wiki"**, or similar:
 ### Process
 
 1. **Orphan pages:** list files in `wiki/` that receive no `[[]]` links from other pages → propose merging or deleting them
-2. **Contradictions:** find opposing statements about the same concept on different pages → resolve by updating to the most recent information
-3. **Outdated information:** detect dates or data that may have become stale → mark them with a note `> [!warning] Review — information from YYYY-MM-DD`
-4. **Duplicates:** detect pages with very similar content → merge into one
-5. **Broken index:** verify that `wiki/index.md` lists all existing pages → update if any are missing
-6. Record all changes in `log.md`
+2. **Missing cross-references:** for each page, scan body text for names of concepts/entities that already have a page but are not linked → add `[[]]` links. Also detect bidirectional gaps (page A links to B but B does not link back to A where it should)
+3. **Contradictions:** find opposing statements about the same concept on different pages → resolve by updating to the most recent information
+4. **Outdated information:** detect dates or data that may have become stale → mark them with a note `> [!warning] Review — information from YYYY-MM-DD`
+5. **Duplicates:** detect pages with very similar content → merge into one
+6. **Data gaps:** identify concept or entity pages with thin content (e.g. only a one-line definition, no sources, no connections) → flag as candidates for deeper ingestion or research
+7. **Broken index:** verify that `wiki/index.md` lists all existing pages and reflects current categories → update if any are missing or miscategorized
+8. Record all changes in `log.md` as a `LINT` entry summarizing counts per category
 
 ---
 
 ## GENERAL RULES
 
-- Never delete files from `raw/` — they are the immutable original sources
-- Always use `[[wikilinks]]` for internal links, never relative paths
-- If a concept appears in multiple sources, a single concept page centralizes it — do not create duplicates
-- Write in the same language as the documents in `raw/`
-- If unsure where to classify something, use `wiki/synthesis/`
-- Always update `log.md` at the end of each operation
+- Never delete files from `raw/`. They are immutable original sources.
+- Always use `[[wikilinks]]` for internal links, never relative paths.
+- Links should be bidirectional. If A links to B, B should link back to A from a relevant section.
+- One concept = one page. If a concept appears in multiple sources, a single concept page centralizes it.
+- When answering from the wiki, cite the pages used.
+- Write in the same language as the documents in `raw/`.
+- If unsure where to classify something, use `wiki/synthesis/`.
+- Always append a parseable entry to `log.md` at the end of each operation (`INIT`, `INGEST`, `QUERY`, `LINT`, `EDIT`).
+- The schema (`CLAUDE.md`) is the user's to evolve. Treat it as configuration, not a fixed contract; suggest changes when the wiki outgrows it.
