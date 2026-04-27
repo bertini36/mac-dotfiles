@@ -135,7 +135,7 @@ Reusable AI agent skills that Claude invokes autonomously when a task matches th
 | `langchain-architecture` | LangChain 1.x and LangGraph for agents, memory, and tool integration |
 | `production-code-audit` | Deep-scan a codebase and transform it to production-grade quality |
 | `python-code-style` | Python type safety, generics, protocols, and advanced type annotations |
-| `writing-clearly-and-concisely` | Clear prose for docs, commits, error messages, and UI text |
+| `writing-clearly` | Clear prose for docs, commits, error messages, and UI text |
 
 #### Evals
 

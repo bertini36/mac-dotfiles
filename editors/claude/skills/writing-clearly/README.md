@@ -127,7 +127,7 @@ The skill identifies and eliminates common LLM writing patterns:
 ## Directory Structure
 
 ```
-writing-clearly-and-concisely/
+writing-clearly/
   SKILL.md                 # Main skill definition
   README.md                # This file
   signs-of-ai-writing.md   # AI pattern detection guide
@@ -143,7 +143,7 @@ writing-clearly-and-concisely/
 
 **Claude Code:**
 ```bash
-cp -r skills/writing-clearly-and-concisely ~/.claude/skills/
+cp -r skills/writing-clearly ~/.claude/skills/
 ```
 
 **Claude.ai:**

@@ -121,7 +121,7 @@ When filling out the template:
 
 ### Complex Logic — Deeper Descriptions
 
-If the PR introduces non-trivial logic (e.g., algorithmic changes, architectural decisions, subtle bug fixes, or multi-step workflows), the description must go deeper. Apply the `writing-clearly-and-concisely` skill to write a clear, precise explanation that covers:
+If the PR introduces non-trivial logic (e.g., algorithmic changes, architectural decisions, subtle bug fixes, or multi-step workflows), the description must go deeper. Apply the `writing-clearly` skill to write a clear, precise explanation that covers:
 
 - **Why**: The problem or motivation behind the change
 - **What**: The approach taken and why it was chosen over alternatives

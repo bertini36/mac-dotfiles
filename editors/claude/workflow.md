@@ -67,7 +67,7 @@ This dispatches both the `code-reviewer` and `security-reviewer` agents.
 /create-pull-request
 ```
 
-Uses the `create-pull-request` skill with `writing-clearly-and-concisely` for the description. The `superpowers:finishing-a-development-branch` skill guides the merge/PR decision.
+Uses the `create-pull-request` skill with `writing-clearly` for the description. The `superpowers:finishing-a-development-branch` skill guides the merge/PR decision.
 
 ## Quick Reference
 

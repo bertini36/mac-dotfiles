@@ -12,7 +12,7 @@
 
 ## Docstrings and Comments
 
-- Apply the `writing-clearly-and-concisely` skill to all prose, including code comments and docstrings
+- Apply the `writing-clearly` skill to all prose, including code comments and docstrings
 - Google-style docstrings for public classes and functions only
 - Add docstrings only to public functions, services, and classes whose purpose is not clear from the name alone
 - Add comments only for non-obvious *why*, never for *what*
