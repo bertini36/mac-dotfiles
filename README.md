@@ -106,6 +106,7 @@ My personal Mac setup and configurations
     - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
     - [Auto-interpreter for PEP723 (uv)](https://marketplace.visualstudio.com/items?itemName=nsarrazin.pep723-uv-interpreter)
 - Install [Iterm2](https://iterm2.com/)
+  * Configure shortcuts following [keymap.md](docs/keymap.md)
 - Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
 - Install [Raycast](https://www.raycast.com/)
   * Disable Spotlight shortcut to enable Raycast one (System Preferences -> Keyboard -> Shortcuts -> Spotlight -> Uncheck `Show Spotlight search`)
@@ -120,6 +121,9 @@ My personal Mac setup and configurations
   git config --global core.excludesfile ~/.gitignore_global
 
   ln -s ~/.dotfiles/editors/vim/.vimrc ~/.vimrc
+
+  mkdir -p ~/.config/herdr
+  ln -s ~/.dotfiles/herdr/config.toml ~/.config/herdr/config.toml
 
   ln -s ~/.dotfiles/.claude/settings.json ~/.claude/settings.json
   ln -s ~/.dotfiles/.claude/statusline-command.sh ~/.claude/statusline-command.sh
@@ -368,6 +372,31 @@ transparently. Activate with:
 ```bash
 rtk init -g
 ```
+
+#### herdr
+
+[herdr](https://herdr.dev) is a terminal multiplexer built for coding agents. It
+holds each agent in a detachable pane, recognizes when one is idle, working or
+blocked, and keeps every pane alive after the terminal window closes. The
+vendored `herdr` skill teaches Claude to drive it through the `herdr` CLI, so an
+agent can split a pane, start a sibling agent and read its output.
+
+`herdr/config.toml` is symlinked to `~/.config/herdr/config.toml`. Its keyboard
+setup follows two rules.
+
+First, nothing may shadow readline. herdr runs inside iTerm2, and iTerm2
+consumes every `cmd` chord before a TUI sees it, so the line-editing bindings in
+[keymap.md](docs/keymap.md) reach the shell untouched. The two herdr defaults
+that did collide are rebound: the prefix moves from `ctrl+b` (readline
+backward-char, and Claude Code's background bash) to `ctrl+g`, and image paste
+moves off a bare `ctrl+v` (readline quoted-insert) to `prefix+ctrl+v`.
+
+Second, the pane and tab actions that iTerm2 also has carry two bindings each.
+The prefix binding always works. The `ctrl+alt` chord next to it mirrors the
+equivalent iTerm2 shortcut, and `ctrl+alt` is the one modifier family terminals
+and macOS both leave free. Everything with no iTerm2 counterpart stays
+prefix-only. If a direct chord does nothing, iTerm2 ate it; the prefix binding
+still gets you there. `prefix+?` lists whatever is currently active.
 
 ## 🖥️ Claude Desktop
 

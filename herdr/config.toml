@@ -1,0 +1,43 @@
+# Herdr configuration. Reference: https://herdr.dev/docs/config-reference/
+#
+# Herdr runs inside iTerm2, and iTerm2 consumes every cmd chord before a TUI
+# can see it. The readline bindings of the iTerm2 profile (cmd+arrows, cmd+b,
+# cmd+f, cmd+delete) therefore still reach the shell untouched. This file has
+# two jobs: keep herdr's own bindings off the control bytes iTerm2 emits, and
+# rebuild the iTerm2 window bindings on chords that survive the trip.
+#
+# Every action below carries both a prefix binding and a direct chord. The
+# prefix binding always works. The direct chord mirrors iTerm2 muscle memory
+# and uses the ctrl+alt family, the one modifier family terminals leave free.
+
+[theme]
+name = "tokyo-night"
+
+[keys]
+# The default prefix, ctrl+b, is readline backward-char and Claude Code's
+# background bash. ctrl+g is readline abort, which esc already covers.
+prefix = "ctrl+g"
+
+# The default is a bare ctrl+v, which is readline quoted-insert.
+remote_image_paste = "prefix+ctrl+v"
+
+# iTerm2 cmd+t and cmd+w
+new_tab = ["prefix+c", "ctrl+alt+c"]
+close_pane = ["prefix+x", "ctrl+alt+w"]
+
+# iTerm2 ctrl+tab and ctrl+shift+tab, which iTerm2 keeps for its own tabs
+next_tab = ["prefix+n", "ctrl+alt+]"]
+previous_tab = ["prefix+p", "ctrl+alt+["]
+
+# iTerm2 ctrl+shift+e splits side by side, ctrl+shift+o stacks
+split_vertical = ["prefix+v", "ctrl+alt+e"]
+split_horizontal = ["prefix+minus", "ctrl+alt+o"]
+
+# iTerm2 cmd+alt+arrows
+focus_pane_left = ["prefix+h", "ctrl+alt+left"]
+focus_pane_down = ["prefix+j", "ctrl+alt+down"]
+focus_pane_up = ["prefix+k", "ctrl+alt+up"]
+focus_pane_right = ["prefix+l", "ctrl+alt+right"]
+
+# iTerm2 cmd+shift+enter
+zoom = ["prefix+z", "ctrl+alt+z"]

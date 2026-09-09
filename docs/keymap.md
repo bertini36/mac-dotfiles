@@ -85,6 +85,34 @@
 * Copy `CMD + C`
 * Delete line `CMD + Backspace`
 
+## Herdr (prefix based)
+
+Herdr runs inside iTerm2. iTerm2 swallows every `CMD` chord first, so the
+Readline and Terminal bindings above keep working unchanged inside a Herdr
+pane. Only the pane and tab management has a Herdr equivalent. Where iTerm2 has
+the same action, the binding below carries a `CTL + Option` chord that mirrors
+it; the rest are prefix-only.
+
+Prefix is `CTL + G`, not the Herdr default `CTL + B`, because `CTL + B` is
+Readline's backward-char and Claude Code's background bash.
+
+* Show every active binding `prefix + ?`
+* Create new tab `prefix + C` or `CTL + Option + C`
+* Close pane `prefix + X` or `CTL + Option + W`
+* Next tab `prefix + N` or `CTL + Option + ]`
+* Previous tab `prefix + P` or `CTL + Option + [`
+* Jump to tab 1-9 `prefix + 1..9`
+* Vertical split `prefix + V` or `CTL + Option + E`
+* Horizontal split `prefix + -` or `CTL + Option + O`
+* Activate pane left/down/up/right `prefix + H/J/K/L` or `CTL + Option + arrows`
+* Zoom pane `prefix + Z` or `CTL + Option + Z`
+* Copy mode `prefix + [`
+* Workspace picker `prefix + W`
+* Jump to anything `prefix + G`
+* Toggle sidebar `prefix + B`
+* Detach, leaving every pane running `prefix + Q`
+* Paste a clipboard image `prefix + CTL + V`
+
 ## IDE (CMD based)
 
 * Vertical split `CTL + Shift + E`
