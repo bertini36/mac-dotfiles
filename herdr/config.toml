@@ -47,3 +47,7 @@ cycle_pane_previous = "prefix+shift+tab"
 # Spanish layout, which a pipe or a backslash is not.
 split_vertical = "prefix+v"
 split_horizontal = "prefix+minus"
+
+# Close the focused pane, and the agent inside it. x is herdr's own default,
+# and it is the one letter no navigation chord above wants.
+close_pane = "prefix+x"
