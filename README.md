@@ -403,11 +403,12 @@ background bash, for `ctrl+h`. `ctrl+h` is itself readline
 sends `0x7f` from Backspace and never `0x08`, so Backspace still deletes and
 only a typed `ctrl+h` reaches herdr.
 
-`prefix+space` cycles to the next space and `prefix+ctrl+tab` cycles to the next
-tab inside it, the two bindings the config overrides. A bare `prefix+tab` is
-herdr's own `cycle_pane_next`, so the tab chord carries `ctrl` to stay clear of
-it. Every other action keeps its herdr default behind the same prefix, and
-`prefix+?` lists them.
+Three chords cycle the three levels. `prefix+space` moves to the next space,
+`prefix+ctrl+tab` to the next tab inside it, and `prefix+tab` to the next pane
+inside that, with `prefix+shift+tab` walking the panes back. The tab chord
+carries `ctrl` because the bare form belongs to the pane, one level below it.
+`prefix+h/j/k/l` reaches a pane by direction instead. Every other action keeps
+its herdr default behind the same prefix, and `prefix+?` lists them.
 
 Sounds are off. herdr plays one whenever an agent in a background workspace
 changes state, and the sidebar already reports that state.

@@ -102,6 +102,9 @@ deleting with Backspace is unaffected.
 
 * Cycle to the next space `prefix + Space`
 * Cycle to the next tab of the space `prefix + CTL + Tab`
+* Cycle to the next pane of the tab `prefix + Tab`
+* Cycle to the previous pane of the tab `prefix + Shift + Tab`
+* Focus the pane left, down, up or right `prefix + H/J/K/L`
 
 Everything else keeps its Herdr default behind the same prefix.
 
