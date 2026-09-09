@@ -390,8 +390,13 @@ First, nothing may shadow readline. herdr runs inside iTerm2, and iTerm2
 consumes every `cmd` chord before a TUI sees it, so the line-editing bindings in
 [keymap.md](docs/keymap.md) reach the shell untouched. The two herdr defaults
 that did collide are rebound: the prefix moves from `ctrl+b` (readline
-backward-char, and Claude Code's background bash) to `ctrl+g`, and image paste
+backward-char, and Claude Code's background bash) to `ctrl+h`, and image paste
 moves off a bare `ctrl+v` (readline quoted-insert) to `ctrl+alt+v`.
+
+`ctrl+h` is readline `backward-delete-char`, so the prefix does cost one
+binding. It is a cheap one to lose: the iTerm2 profile sends `0x7f` from
+Backspace and never `0x08`, so the Backspace key keeps deleting normally and
+only a deliberately typed `ctrl+h` goes to herdr.
 
 Second, the pane and tab actions that iTerm2 also has carry two bindings each.
 The prefix binding always works. The `ctrl+alt` chord next to it mirrors the

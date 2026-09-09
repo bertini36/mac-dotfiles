@@ -20,8 +20,10 @@ name = "tokyo-night"
 
 [keys]
 # The default prefix, ctrl+b, is readline backward-char and Claude Code's
-# background bash. ctrl+g is readline abort, which esc already covers.
-prefix = "ctrl+g"
+# background bash. ctrl+h costs less here: it is readline backward-delete-char,
+# but the iTerm2 profile sends 0x7f from Backspace, never 0x08, so the
+# Backspace key keeps deleting and only a deliberate ctrl+h is given up.
+prefix = "ctrl+h"
 
 # The default is a bare ctrl+v, which is readline quoted-insert. This action
 # rejects every prefix+ form, so it needs a direct chord.

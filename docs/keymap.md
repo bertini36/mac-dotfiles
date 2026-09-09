@@ -96,8 +96,10 @@ pane. Only the pane and tab management has a Herdr equivalent. Where iTerm2 has
 the same action, the binding below carries a `CTL + Option` chord that mirrors
 it; the rest are prefix-only.
 
-Prefix is `CTL + G`, not the Herdr default `CTL + B`, because `CTL + B` is
-Readline's backward-char and Claude Code's background bash.
+Prefix is `CTL + H`, not the Herdr default `CTL + B`, because `CTL + B` is
+Readline's backward-char and Claude Code's background bash. `CTL + H` is
+Readline's backward-delete-char, but iTerm2 sends `0x7f` from Backspace, so
+deleting with Backspace is unaffected.
 
 * Show every active binding `prefix + ?`
 * Create new tab `prefix + C` or `CTL + Option + C`
