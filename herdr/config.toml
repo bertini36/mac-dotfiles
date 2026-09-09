@@ -25,3 +25,12 @@ enabled = false
 # but the iTerm2 profile sends 0x7f from Backspace, never 0x08, so the
 # Backspace key keeps deleting and only a deliberate ctrl+h is given up.
 prefix = "ctrl+h"
+
+# Cycle to the next space. Space for space, and the spacebar is the one key
+# left of the alphabet that no readline or shell binding wants.
+next_workspace = "prefix+space"
+
+# Cycle to the next tab inside the space. ctrl+tab is the tab-switching chord
+# every app on the Mac shares, and behind the prefix it collides with nothing:
+# a bare prefix+tab is herdr's own cycle_pane_next.
+next_tab = "prefix+ctrl+tab"
