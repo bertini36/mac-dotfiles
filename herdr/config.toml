@@ -18,6 +18,11 @@ onboarding = false
 [theme]
 name = "tokyo-night"
 
+# Herdr plays a sound when an agent in a background workspace changes state.
+# The sidebar reports the same state, so the sound only adds noise.
+[ui.sound]
+enabled = false
+
 [keys]
 # The default prefix, ctrl+b, is readline backward-char and Claude Code's
 # background bash. ctrl+h costs less here: it is readline backward-delete-char,

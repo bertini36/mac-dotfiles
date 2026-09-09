@@ -401,6 +401,9 @@ No other chord needs moving. herdr runs inside iTerm2, and iTerm2 consumes every
 `cmd` chord before a TUI sees it, so the line-editing chords in
 [keymap.md](docs/keymap.md) reach the shell unchanged.
 
+Sounds are off. herdr plays one whenever an agent in a background workspace
+changes state, and the sidebar already reports that state.
+
 Each pane and tab action with an iTerm2 counterpart carries two bindings: the
 prefix binding, and a `ctrl+alt` chord mirroring the iTerm2 shortcut. herdr
 surveyed the defaults of ten terminals and found `ctrl+alt` almost untouched,
