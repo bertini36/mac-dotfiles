@@ -41,12 +41,17 @@ next_tab = "prefix+ctrl+tab"
 cycle_pane_next = "prefix+tab"
 cycle_pane_previous = "prefix+shift+tab"
 
-# Split the focused pane. Both are herdr's own defaults, named here for the
-# same reason as the pane cycles. v draws the divider it makes, and minus is
-# the line the stacked split lays down; both are plain keys on a US and on a
-# Spanish layout, which a pipe or a backslash is not.
-split_vertical = "prefix+v"
-split_horizontal = "prefix+minus"
+# Split the focused pane. iTerm2 and the IDE both split with ctrl+shift+e and
+# ctrl+shift+o, so the same two letters behind the prefix leave one split pair
+# to remember across all three.
+split_vertical = "prefix+e"
+split_horizontal = "prefix+o"
+
+# Displaced by the split keys above, which are herdr's edit_scrollback and
+# open_notification_target. Neither is a daily action, so both keep the letter
+# they had and move to its shift form.
+edit_scrollback = "prefix+shift+e"
+open_notification_target = "prefix+shift+o"
 
 # Close the focused pane, and the agent inside it. x is herdr's own default,
 # and it is the one letter no navigation chord above wants.

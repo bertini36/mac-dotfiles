@@ -105,9 +105,16 @@ deleting with Backspace is unaffected.
 * Cycle to the next pane of the tab `prefix + Tab`
 * Cycle to the previous pane of the tab `prefix + Shift + Tab`
 * Focus the pane left, down, up or right `prefix + H/J/K/L`
-* Split the pane side by side `prefix + V`
-* Split the pane stacked `prefix + -`
+* Split the pane side by side `prefix + E`
+* Split the pane stacked `prefix + O`
 * Close the pane, and the agent inside it `prefix + X`
+
+The split pair is `E` and `O` to match the Terminal and IDE splits above. Both
+letters are Herdr defaults themselves, so the two actions they displace move to
+their shift form:
+
+* Edit the scrollback `prefix + Shift + E`
+* Open the notification target `prefix + Shift + O`
 
 Everything else keeps its Herdr default behind the same prefix.
 
