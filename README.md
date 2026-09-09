@@ -375,53 +375,6 @@ transparently. Activate with:
 rtk init -g
 ```
 
-#### herdr
-
-[herdr](https://herdr.dev) is a terminal multiplexer for coding agents. It holds
-each agent in a detachable pane, reports its lifecycle state as `idle`,
-`working`, `blocked`, `done` or `unknown`, and keeps every pane running after
-the terminal window closes. The vendored `herdr` skill drives it through the
-`herdr` CLI, so Claude can split a pane, start a sibling agent and read its
-output.
-
-`herdr/config.toml` symlinks to `~/.config/herdr/config.toml`. It sets the
-`tokyo-night` theme, skips first-run setup, and maps the keyboard as described
-below. Skipping setup matters because herdr writes to this file: finishing
-onboarding records `onboarding = false`, and the in-app settings persist theme
-changes there.
-
-Every herdr command goes through one pivot key, the prefix, and the config
-binds no direct chord. herdr runs inside iTerm2, iTerm2 consumes every `cmd`
-chord before a TUI sees it, and the chords that do survive cost a readline or
-shell binding inside the pane, so one pivot key is cheaper than a keyboard of
-exceptions. The line-editing chords in [keymap.md](docs/keymap.md) reach the
-shell unchanged.
-
-The prefix leaves `ctrl+b`, which is readline `backward-char` and Claude Code's
-background bash, for `ctrl+h`. `ctrl+h` is itself readline
-`backward-delete-char`, so the prefix costs one binding. The iTerm2 profile
-sends `0x7f` from Backspace and never `0x08`, so Backspace still deletes and
-only a typed `ctrl+h` reaches herdr.
-
-Three chords cycle the three levels. `prefix+space` moves to the next space,
-`prefix+ctrl+tab` to the next tab inside it, and `prefix+tab` to the next pane
-inside that, with `prefix+shift+tab` walking the panes back. The tab chord
-carries `ctrl` because the bare form belongs to the pane, one level below it.
-`prefix+h/j/k/l` reaches a pane by direction instead, and `prefix+v` and
-`prefix+minus` make one, side by side or stacked, and `prefix+x` closes the
-focused pane with the agent inside it. Every other action keeps
-its herdr default behind the same prefix, and `prefix+?` lists them.
-
-Sounds are off. herdr plays one whenever an agent in a background workspace
-changes state, and the sidebar already reports that state.
-
-The installed binary emits the same skill file it documents, so refresh the
-vendored copy after an upgrade:
-
-```bash
-herdr --skill > .claude/skills/herdr/SKILL.md
-```
-
 ## 🖥️ Claude Desktop
 
 Only the `mcpServers` block is tracked. The rest of
