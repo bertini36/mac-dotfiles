@@ -10,6 +10,11 @@
 # prefix binding always works. The direct chord mirrors iTerm2 muscle memory
 # and uses the ctrl+alt family, the one modifier family terminals leave free.
 
+# herdr writes to this file itself: finishing first-run setup records
+# onboarding = false, and the in-app Settings persist theme changes here.
+# Skipping onboarding keeps it from editing a tracked file on first launch.
+onboarding = false
+
 [theme]
 name = "tokyo-night"
 
