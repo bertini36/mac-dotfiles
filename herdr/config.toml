@@ -40,3 +40,10 @@ next_tab = "prefix+ctrl+tab"
 # tab without ctrl reads as the pane, one step below the tab itself.
 cycle_pane_next = "prefix+tab"
 cycle_pane_previous = "prefix+shift+tab"
+
+# Split the focused pane. Both are herdr's own defaults, named here for the
+# same reason as the pane cycles. v draws the divider it makes, and minus is
+# the line the stacked split lays down; both are plain keys on a US and on a
+# Spanish layout, which a pipe or a backslash is not.
+split_vertical = "prefix+v"
+split_horizontal = "prefix+minus"

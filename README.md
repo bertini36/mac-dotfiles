@@ -407,7 +407,8 @@ Three chords cycle the three levels. `prefix+space` moves to the next space,
 `prefix+ctrl+tab` to the next tab inside it, and `prefix+tab` to the next pane
 inside that, with `prefix+shift+tab` walking the panes back. The tab chord
 carries `ctrl` because the bare form belongs to the pane, one level below it.
-`prefix+h/j/k/l` reaches a pane by direction instead. Every other action keeps
+`prefix+h/j/k/l` reaches a pane by direction instead, and `prefix+v` and
+`prefix+minus` make one, side by side or stacked. Every other action keeps
 its herdr default behind the same prefix, and `prefix+?` lists them.
 
 Sounds are off. herdr plays one whenever an agent in a background workspace

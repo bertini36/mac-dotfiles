@@ -105,6 +105,8 @@ deleting with Backspace is unaffected.
 * Cycle to the next pane of the tab `prefix + Tab`
 * Cycle to the previous pane of the tab `prefix + Shift + Tab`
 * Focus the pane left, down, up or right `prefix + H/J/K/L`
+* Split the pane side by side `prefix + V`
+* Split the pane stacked `prefix + -`
 
 Everything else keeps its Herdr default behind the same prefix.
 
