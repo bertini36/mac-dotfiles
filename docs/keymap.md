@@ -100,8 +100,6 @@ Readline's backward-char and Claude Code's background bash. `CTL + H` is
 Readline's backward-delete-char, but iTerm2 sends `0x7f` from Backspace, so
 deleting with Backspace is unaffected.
 
-* Cycle to the next space `prefix + Space`
-* Cycle to the next tab of the space `prefix + CTL + Tab`
 * Show every active binding `prefix + ?`
 
 Everything else keeps its Herdr default behind the same prefix.

@@ -390,44 +390,24 @@ below. Skipping setup matters because herdr writes to this file: finishing
 onboarding records `onboarding = false`, and the in-app settings persist theme
 changes there.
 
-Two herdr defaults shadow readline, and the config moves both. The prefix leaves
-`ctrl+b`, which is readline `backward-char` and Claude Code's background bash,
-for `ctrl+h`. Image paste leaves a bare `ctrl+v`, readline `quoted-insert`, for
-`ctrl+alt+v`. `ctrl+h` is itself readline `backward-delete-char`, so the prefix
-costs one binding. The iTerm2 profile sends `0x7f` from Backspace and never
-`0x08`, so Backspace still deletes and only a typed `ctrl+h` reaches herdr.
+Every herdr command goes through one pivot key, the prefix, and the config
+binds no direct chord. herdr runs inside iTerm2, iTerm2 consumes every `cmd`
+chord before a TUI sees it, and the chords that do survive cost a readline or
+shell binding inside the pane, so one pivot key is cheaper than a keyboard of
+exceptions. The line-editing chords in [keymap.md](docs/keymap.md) reach the
+shell unchanged.
 
-No other chord needs moving. herdr runs inside iTerm2, and iTerm2 consumes every
-`cmd` chord before a TUI sees it, so the line-editing chords in
-[keymap.md](docs/keymap.md) reach the shell unchanged.
+The prefix leaves `ctrl+b`, which is readline `backward-char` and Claude Code's
+background bash, for `ctrl+h`. `ctrl+h` is itself readline
+`backward-delete-char`, so the prefix costs one binding. The iTerm2 profile
+sends `0x7f` from Backspace and never `0x08`, so Backspace still deletes and
+only a typed `ctrl+h` reaches herdr.
+
+The config overrides nothing. Every action keeps its herdr default behind the
+prefix, and `prefix+?` lists them.
 
 Sounds are off. herdr plays one whenever an agent in a background workspace
 changes state, and the sidebar already reports that state.
-
-Each pane and tab action with an iTerm2 counterpart carries two bindings: the
-prefix binding, and a `ctrl+alt` chord mirroring the iTerm2 shortcut. herdr
-surveyed the defaults of ten terminals and found `ctrl+alt` almost untouched,
-and macOS does not compose it into accented characters the way it composes plain
-`alt`. Actions with no iTerm2 counterpart stay prefix-only. A dead `ctrl+alt`
-chord means iTerm2 consumed it first, and the prefix binding reaches the same
-action. `prefix+?` lists the active bindings.
-
-Validate the file after linking it, and after every edit:
-
-```bash
-herdr config check
-```
-
-It prints `config: ok`, or names the rejected line and reports the binding it
-disabled. Checking matters because herdr accepts an invalid binding at startup
-and disables it with no further warning. `remote_image_paste`, for instance,
-rejects every `prefix+` form. To apply an edit without restarting the server,
-run `herdr server reload-config`.
-
-`brew services start herdr` is optional. Running `herdr` starts the server, and
-the CLI returns `server_not_running` until a server exists. Start the service to
-get one at login, so `herdr agent` and the rest of the CLI work before the TUI
-opens.
 
 The installed binary emits the same skill file it documents, so refresh the
 vendored copy after an upgrade:
