@@ -102,7 +102,6 @@ deleting with Backspace is unaffected.
 
 * Cycle to the next space `prefix + Space`
 * Cycle to the next tab of the space `prefix + CTL + Tab`
-* Show every active binding `prefix + ?`
 
 Everything else keeps its Herdr default behind the same prefix.
 
