@@ -62,13 +62,16 @@
 
 ## Readline (CTL based)
 
-* Move cursor to beginning of line `CTL + A`
-* Move cursor to end of line `CTL + E`
-* Move cursor one word left `CTL + B`
-* Move cursor one word right `CTL + F`
-* Delete one word left `CTL + W`
-* Delete line `CTL + X`
-* Duplicate line `CTL + D`
+* Move cursor to beginning of line `CTL + A` or `CMD + ←`
+* Move cursor to end of line `CTL + E` or `CMD + →`
+* Move cursor one character left `CTL + B`
+* Move cursor one character right `CTL + F`
+* Move cursor one word left `CMD + B`
+* Move cursor one word right `CMD + F`
+* Delete one word left `CTL + W`, `CMD + Backspace` or `Option + Backspace`
+* Delete one word right `Option + Fn + Delete`
+* Delete from the cursor to the beginning of the line `CTL + U` or `CMD + Shift + Backspace`
+* Delete the character under the cursor `CTL + D` or `Fn + Delete`
 
 ## Terminal (CMD based)
 
@@ -83,7 +86,7 @@
 * Activate upper pane `CMD + Option + ↑`
 * Activate lower pane `CMD + Option + ↓`
 * Copy `CMD + C`
-* Delete line `CMD + Backspace`
+* Delete one word left `CMD + Backspace`
 
 ## Herdr (prefix based)
 
