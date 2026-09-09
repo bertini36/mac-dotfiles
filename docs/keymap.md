@@ -107,14 +107,15 @@ deleting with Backspace is unaffected.
 * Focus the pane left, down, up or right `prefix + H/J/K/L`
 * Split the pane side by side `prefix + E`
 * Split the pane stacked `prefix + O`
-* Close the pane, and the agent inside it `prefix + X`
+* Close the pane, and the agent inside it `prefix + W`
 
-The split pair is `E` and `O` to match the Terminal and IDE splits above. Both
-letters are Herdr defaults themselves, so the two actions they displace move to
-their shift form:
+The split pair is `E` and `O` to match the Terminal and IDE splits above, and
+`W` closes a pane the way `CMD + W` closes a tab everywhere else. All three are
+Herdr defaults themselves, so the actions they displace move elsewhere:
 
 * Edit the scrollback `prefix + Shift + E`
 * Open the notification target `prefix + Shift + O`
+* Open the workspace picker `prefix + F`
 
 Everything else keeps its Herdr default behind the same prefix.
 

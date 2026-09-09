@@ -53,6 +53,11 @@ split_horizontal = "prefix+o"
 edit_scrollback = "prefix+shift+e"
 open_notification_target = "prefix+shift+o"
 
-# Close the focused pane, and the agent inside it. x is herdr's own default,
-# and it is the one letter no navigation chord above wants.
-close_pane = "prefix+x"
+# Close the focused pane, and the agent inside it. cmd+w closes the tab in the
+# system, the browser, the terminal and the IDE, so w behind the prefix closes
+# the thing a pane is here.
+close_pane = "prefix+w"
+
+# Displaced by close_pane, which took herdr's workspace_picker. f reads as find
+# and is one of the letters no chord above wants.
+workspace_picker = "prefix+f"
