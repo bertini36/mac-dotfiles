@@ -412,6 +412,15 @@ it. Every other action keeps its herdr default behind the same prefix, and
 Sounds are off. herdr plays one whenever an agent in a background workspace
 changes state, and the sidebar already reports that state.
 
+Four spaces stand by default: Logs, Agents, Reviews and Management. herdr
+restores workspaces from `session.json` on every restart, so the script below
+only has to run on a fresh machine, or after that state is lost. It skips a
+space that already exists, so running it again is safe.
+
+```bash
+./herdr/spaces.sh
+```
+
 The installed binary emits the same skill file it documents, so refresh the
 vendored copy after an upgrade:
 
