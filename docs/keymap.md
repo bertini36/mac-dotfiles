@@ -114,7 +114,7 @@ Readline's backward-char and Claude Code's background bash.
 * Jump to anything `prefix + G`
 * Toggle sidebar `prefix + B`
 * Detach, leaving every pane running `prefix + Q`
-* Paste a clipboard image `prefix + CTL + V`
+* Paste a clipboard image `CTL + Option + V`
 
 ## IDE (CMD based)
 

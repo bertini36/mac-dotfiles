@@ -390,7 +390,7 @@ consumes every `cmd` chord before a TUI sees it, so the line-editing bindings in
 [keymap.md](docs/keymap.md) reach the shell untouched. The two herdr defaults
 that did collide are rebound: the prefix moves from `ctrl+b` (readline
 backward-char, and Claude Code's background bash) to `ctrl+g`, and image paste
-moves off a bare `ctrl+v` (readline quoted-insert) to `prefix+ctrl+v`.
+moves off a bare `ctrl+v` (readline quoted-insert) to `ctrl+alt+v`.
 
 Second, the pane and tab actions that iTerm2 also has carry two bindings each.
 The prefix binding always works. The `ctrl+alt` chord next to it mirrors the

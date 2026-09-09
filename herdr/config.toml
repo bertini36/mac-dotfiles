@@ -18,8 +18,9 @@ name = "tokyo-night"
 # background bash. ctrl+g is readline abort, which esc already covers.
 prefix = "ctrl+g"
 
-# The default is a bare ctrl+v, which is readline quoted-insert.
-remote_image_paste = "prefix+ctrl+v"
+# The default is a bare ctrl+v, which is readline quoted-insert. This action
+# rejects every prefix+ form, so it needs a direct chord.
+remote_image_paste = "ctrl+alt+v"
 
 # iTerm2 cmd+t and cmd+w
 new_tab = ["prefix+c", "ctrl+alt+c"]
