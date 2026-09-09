@@ -124,6 +124,7 @@ My personal Mac setup and configurations
 
   mkdir -p ~/.config/herdr
   ln -s ~/.dotfiles/herdr/config.toml ~/.config/herdr/config.toml
+  herdr config check   # must print 'config: ok', see herdr below
 
   ln -s ~/.dotfiles/.claude/settings.json ~/.claude/settings.json
   ln -s ~/.dotfiles/.claude/statusline-command.sh ~/.claude/statusline-command.sh
@@ -398,6 +399,31 @@ equivalent iTerm2 shortcut, and `ctrl+alt` is the one modifier family terminals
 and macOS both leave free. Everything with no iTerm2 counterpart stays
 prefix-only. If a direct chord does nothing, iTerm2 ate it; the prefix binding
 still gets you there. `prefix+?` lists whatever is currently active.
+
+After linking the config, confirm herdr accepts it:
+
+```bash
+herdr config check
+```
+
+It prints `config: ok`, or names the offending line and tells you it disabled
+that binding. Silent fallback is the failure mode to watch for here, because an
+unusable binding costs nothing at startup: `remote_image_paste` rejects every
+`prefix+` form, and a stale config kept it disabled until `config check` said
+so. Run it after every edit. `herdr server reload-config` applies a change to a
+running server without dropping panes.
+
+`brew services start herdr` is optional. Without it, the `herdr` TUI starts the
+server on first launch and the CLI reports `server_not_running` until it does.
+Start the service to have a server from login onward, so `herdr agent` and the
+rest of the CLI work before you open the TUI.
+
+Keep the vendored skill in step with the installed binary, which ships its own
+copy:
+
+```bash
+herdr --skill > .claude/skills/herdr/SKILL.md
+```
 
 ## 🖥️ Claude Desktop
 
