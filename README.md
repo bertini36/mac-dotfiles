@@ -377,54 +377,57 @@ rtk init -g
 
 #### herdr
 
-[herdr](https://herdr.dev) is a terminal multiplexer built for coding agents. It
-holds each agent in a detachable pane, recognizes when one is idle, working or
-blocked, and keeps every pane alive after the terminal window closes. The
-vendored `herdr` skill teaches Claude to drive it through the `herdr` CLI, so an
-agent can split a pane, start a sibling agent and read its output.
+[herdr](https://herdr.dev) is a terminal multiplexer for coding agents. It holds
+each agent in a detachable pane, reports its lifecycle state as `idle`,
+`working`, `blocked`, `done` or `unknown`, and keeps every pane running after
+the terminal window closes. The vendored `herdr` skill drives it through the
+`herdr` CLI, so Claude can split a pane, start a sibling agent and read its
+output.
 
-`herdr/config.toml` is symlinked to `~/.config/herdr/config.toml`. Its keyboard
-setup follows two rules.
+`herdr/config.toml` symlinks to `~/.config/herdr/config.toml`. It sets the
+`tokyo-night` theme, skips first-run setup, and maps the keyboard as described
+below. Skipping setup matters because herdr writes to this file: finishing
+onboarding records `onboarding = false`, and the in-app settings persist theme
+changes there.
 
-First, nothing may shadow readline. herdr runs inside iTerm2, and iTerm2
-consumes every `cmd` chord before a TUI sees it, so the line-editing bindings in
-[keymap.md](docs/keymap.md) reach the shell untouched. The two herdr defaults
-that did collide are rebound: the prefix moves from `ctrl+b` (readline
-backward-char, and Claude Code's background bash) to `ctrl+h`, and image paste
-moves off a bare `ctrl+v` (readline quoted-insert) to `ctrl+alt+v`.
+Two herdr defaults shadow readline, and the config moves both. The prefix leaves
+`ctrl+b`, which is readline `backward-char` and Claude Code's background bash,
+for `ctrl+h`. Image paste leaves a bare `ctrl+v`, readline `quoted-insert`, for
+`ctrl+alt+v`. `ctrl+h` is itself readline `backward-delete-char`, so the prefix
+costs one binding. The iTerm2 profile sends `0x7f` from Backspace and never
+`0x08`, so Backspace still deletes and only a typed `ctrl+h` reaches herdr.
 
-`ctrl+h` is readline `backward-delete-char`, so the prefix does cost one
-binding. It is a cheap one to lose: the iTerm2 profile sends `0x7f` from
-Backspace and never `0x08`, so the Backspace key keeps deleting normally and
-only a deliberately typed `ctrl+h` goes to herdr.
+No other chord needs moving. herdr runs inside iTerm2, and iTerm2 consumes every
+`cmd` chord before a TUI sees it, so the line-editing chords in
+[keymap.md](docs/keymap.md) reach the shell unchanged.
 
-Second, the pane and tab actions that iTerm2 also has carry two bindings each.
-The prefix binding always works. The `ctrl+alt` chord next to it mirrors the
-equivalent iTerm2 shortcut, and `ctrl+alt` is the one modifier family terminals
-and macOS both leave free. Everything with no iTerm2 counterpart stays
-prefix-only. If a direct chord does nothing, iTerm2 ate it; the prefix binding
-still gets you there. `prefix+?` lists whatever is currently active.
+Each pane and tab action with an iTerm2 counterpart carries two bindings: the
+prefix binding, and a `ctrl+alt` chord mirroring the iTerm2 shortcut. herdr
+surveyed the defaults of ten terminals and found `ctrl+alt` almost untouched,
+and macOS does not compose it into accented characters the way it composes plain
+`alt`. Actions with no iTerm2 counterpart stay prefix-only. A dead `ctrl+alt`
+chord means iTerm2 consumed it first, and the prefix binding reaches the same
+action. `prefix+?` lists the active bindings.
 
-After linking the config, confirm herdr accepts it:
+Validate the file after linking it, and after every edit:
 
 ```bash
 herdr config check
 ```
 
-It prints `config: ok`, or names the offending line and tells you it disabled
-that binding. Silent fallback is the failure mode to watch for here, because an
-unusable binding costs nothing at startup: `remote_image_paste` rejects every
-`prefix+` form, and a stale config kept it disabled until `config check` said
-so. Run it after every edit. `herdr server reload-config` applies a change to a
-running server without dropping panes.
+It prints `config: ok`, or names the rejected line and reports the binding it
+disabled. Checking matters because herdr accepts an invalid binding at startup
+and disables it with no further warning. `remote_image_paste`, for instance,
+rejects every `prefix+` form. To apply an edit without restarting the server,
+run `herdr server reload-config`.
 
-`brew services start herdr` is optional. Without it, the `herdr` TUI starts the
-server on first launch and the CLI reports `server_not_running` until it does.
-Start the service to have a server from login onward, so `herdr agent` and the
-rest of the CLI work before you open the TUI.
+`brew services start herdr` is optional. Running `herdr` starts the server, and
+the CLI returns `server_not_running` until a server exists. Start the service to
+get one at login, so `herdr agent` and the rest of the CLI work before the TUI
+opens.
 
-Keep the vendored skill in step with the installed binary, which ships its own
-copy:
+The installed binary emits the same skill file it documents, so refresh the
+vendored copy after an upgrade:
 
 ```bash
 herdr --skill > .claude/skills/herdr/SKILL.md
