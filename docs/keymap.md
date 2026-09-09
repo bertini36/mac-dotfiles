@@ -62,13 +62,16 @@
 
 ## Readline (CTL based)
 
-* Move cursor to beginning of line `CTL + A`
-* Move cursor to end of line `CTL + E`
-* Move cursor one word left `CTL + B`
-* Move cursor one word right `CTL + F`
-* Delete one word left `CTL + W`
-* Delete line `CTL + X`
-* Duplicate line `CTL + D`
+* Move cursor to beginning of line `CTL + A` or `CMD + ←`
+* Move cursor to end of line `CTL + E` or `CMD + →`
+* Move cursor one character left `CTL + B`
+* Move cursor one character right `CTL + F`
+* Move cursor one word left `CMD + B`
+* Move cursor one word right `CMD + F`
+* Delete one word left `CTL + W`, `CMD + Backspace` or `Option + Backspace`
+* Delete one word right `Option + Fn + Delete`
+* Delete from the cursor to the beginning of the line `CTL + U` or `CMD + Shift + Backspace`
+* Delete the character under the cursor `CTL + D` or `Fn + Delete`
 
 ## Terminal (CMD based)
 
@@ -83,7 +86,38 @@
 * Activate upper pane `CMD + Option + ↑`
 * Activate lower pane `CMD + Option + ↓`
 * Copy `CMD + C`
-* Delete line `CMD + Backspace`
+* Delete one word left `CMD + Backspace`
+
+## Herdr (prefix based)
+
+Herdr runs inside iTerm2, and iTerm2 swallows every `CMD` chord first, so the
+Readline and Terminal bindings above keep working unchanged inside a Herdr
+pane. Every Herdr command goes through one pivot key, the prefix, so nothing
+here competes with the shell or the agent running in the pane.
+
+Prefix is `CTL + H`, not the Herdr default `CTL + B`, because `CTL + B` is
+Readline's backward-char and Claude Code's background bash. `CTL + H` is
+Readline's backward-delete-char, but iTerm2 sends `0x7f` from Backspace, so
+deleting with Backspace is unaffected.
+
+* Cycle to the next space `prefix + Space`
+* Cycle to the next tab of the space `prefix + CTL + Tab`
+* Cycle to the next pane of the tab `prefix + Tab`
+* Cycle to the previous pane of the tab `prefix + Shift + Tab`
+* Focus the pane left, down, up or right `prefix + H/J/K/L`
+* Split the pane side by side `prefix + E`
+* Split the pane stacked `prefix + O`
+* Close the pane, and the agent inside it `prefix + W`
+
+The split pair is `E` and `O` to match the Terminal and IDE splits above, and
+`W` closes a pane the way `CMD + W` closes a tab everywhere else. All three are
+Herdr defaults themselves, so the actions they displace move elsewhere:
+
+* Edit the scrollback `prefix + Shift + E`
+* Open the notification target `prefix + Shift + O`
+* Open the workspace picker `prefix + F`
+
+Everything else keeps its Herdr default behind the same prefix.
 
 ## IDE (CMD based)
 

@@ -1,0 +1,63 @@
+# Herdr configuration. Reference: https://herdr.dev/docs/config-reference/
+#
+# Every herdr command goes through one pivot key, the prefix. Nothing here
+# binds a direct chord: herdr runs inside iTerm2, iTerm2 consumes every cmd
+# chord before a TUI sees it, and the chords that do survive cost a readline
+# or shell binding inside the pane. The prefix costs one key and leaves the
+# rest of the keyboard to the programs running in the panes.
+
+# herdr writes to this file itself: finishing first-run setup records
+# onboarding = false, and the in-app Settings persist theme changes here.
+# Skipping onboarding keeps it from editing a tracked file on first launch.
+onboarding = false
+
+[theme]
+name = "tokyo-night"
+
+# Herdr plays a sound when an agent in a background workspace changes state.
+# The sidebar reports the same state, so the sound only adds noise.
+[ui.sound]
+enabled = false
+
+[keys]
+# The pivot. The default, ctrl+b, is readline backward-char and Claude Code's
+# background bash. ctrl+h costs less here: it is readline backward-delete-char,
+# but the iTerm2 profile sends 0x7f from Backspace, never 0x08, so the
+# Backspace key keeps deleting and only a deliberate ctrl+h is given up.
+prefix = "ctrl+h"
+
+# Cycle to the next space. Space for space, and the spacebar is the one key
+# left of the alphabet that no readline or shell binding wants.
+next_workspace = "prefix+space"
+
+# Cycle to the next tab inside the space. ctrl+tab is the tab-switching chord
+# every app on the Mac shares, and behind the prefix it collides with nothing:
+# a bare prefix+tab is herdr's own cycle_pane_next.
+next_tab = "prefix+ctrl+tab"
+
+# Cycle panes inside the tab. Both are herdr's own defaults; naming them here
+# keeps the three levels, space, tab and pane, side by side in one file, and
+# tab without ctrl reads as the pane, one step below the tab itself.
+cycle_pane_next = "prefix+tab"
+cycle_pane_previous = "prefix+shift+tab"
+
+# Split the focused pane. iTerm2 and the IDE both split with ctrl+shift+e and
+# ctrl+shift+o, so the same two letters behind the prefix leave one split pair
+# to remember across all three.
+split_vertical = "prefix+e"
+split_horizontal = "prefix+o"
+
+# Displaced by the split keys above, which are herdr's edit_scrollback and
+# open_notification_target. Neither is a daily action, so both keep the letter
+# they had and move to its shift form.
+edit_scrollback = "prefix+shift+e"
+open_notification_target = "prefix+shift+o"
+
+# Close the focused pane, and the agent inside it. cmd+w closes the tab in the
+# system, the browser, the terminal and the IDE, so w behind the prefix closes
+# the thing a pane is here.
+close_pane = "prefix+w"
+
+# Displaced by close_pane, which took herdr's workspace_picker. f reads as find
+# and is one of the letters no chord above wants.
+workspace_picker = "prefix+f"

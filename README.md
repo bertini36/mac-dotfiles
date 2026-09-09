@@ -48,6 +48,7 @@ My personal Mac setup and configurations
     | [`claude-code`](https://github.com/anthropics/claude-code) | Anthropic Claude CLI (cask) |
     | [`granola`](https://www.granola.ai) | AI meeting notepad that captures and summarizes meetings (cask) |
     | [`rtk`](https://github.com/rtk-ai/rtk) | CLI proxy that reduces LLM token consumption by 60-90% |
+    | [`herdr`](https://github.com/herdrdev/herdr) | Terminal multiplexer that keeps coding agents running in panes |
     | [`handy`](https://github.com/cjpais/Handy) | Speech-to-text utility |
 
 - Extra configuration (not available through Brew):
@@ -105,6 +106,7 @@ My personal Mac setup and configurations
     - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
     - [Auto-interpreter for PEP723 (uv)](https://marketplace.visualstudio.com/items?itemName=nsarrazin.pep723-uv-interpreter)
 - Install [Iterm2](https://iterm2.com/)
+  * Configure shortcuts following [keymap.md](docs/keymap.md)
 - Install [Docker](https://docs.docker.com/desktop/install/mac-install/)
 - Install [Raycast](https://www.raycast.com/)
   * Disable Spotlight shortcut to enable Raycast one (System Preferences -> Keyboard -> Shortcuts -> Spotlight -> Uncheck `Show Spotlight search`)
@@ -112,6 +114,12 @@ My personal Mac setup and configurations
 - Install [Amphetamine](https://apps.apple.com/app/amphetamine/id937984704) and set it to keep the computer awake indefinitely
 
 - Enable auto-focus: `defaults write com.apple.Terminal FocusFollowsMouse -bool true`
+- Install [`reviewr`](https://github.com/persiyanov/herdr-reviewr), the herdr plugin that reviews an agent's diff in a pane beside it and sends the line comments back
+
+  ```bash
+  herdr plugin install persiyanov/herdr-reviewr
+  ```
+
 - Link the rest of configuration files (install Claude Code first so `~/.claude/` exists)
 
   ```bash
@@ -119,6 +127,13 @@ My personal Mac setup and configurations
   git config --global core.excludesfile ~/.gitignore_global
 
   ln -s ~/.dotfiles/editors/vim/.vimrc ~/.vimrc
+
+  mkdir -p ~/.config/herdr
+  ln -s ~/.dotfiles/herdr/config.toml ~/.config/herdr/config.toml
+  herdr config check   # must print 'config: ok'
+
+  mkdir -p ~/.config/herdr/plugins/config/persiyanov.reviewr
+  ln -s ~/.dotfiles/herdr/reviewr.toml ~/.config/herdr/plugins/config/persiyanov.reviewr/config.toml
 
   ln -s ~/.dotfiles/.claude/settings.json ~/.claude/settings.json
   ln -s ~/.dotfiles/.claude/statusline-command.sh ~/.claude/statusline-command.sh
@@ -216,6 +231,7 @@ without them. See [Per-project plugins](#per-project-plugins) and
 | `feature-router` | Classifies a `start-feature` task as Quick Change, Standard Implementation, or Needs Grill/Plan, and routes the pipeline accordingly | None |
 | `fix-until-green` | Loop project checks and pre-commit, dispatching a fixer subagent per failure, until green or 5 iterations | None |
 | `grill-me` | Stress-test a plan or design by interviewing one question at a time across the decision tree, recording each resolved decision into the plan file | None |
+| `herdr` | Drive [herdr](https://herdr.dev) through its CLI: inspect panes, tabs and workspaces, split layout, start sibling agents and read their output ([source](https://github.com/herdrdev/herdr/tree/master/skills/herdr)) | None |
 | `investigate-sentry` | Investigate a Sentry exception down to root cause and propose a fix | Required: `sentry`. Optional: `datadog-mcp` to correlate the request behind the exception |
 | `langchain-architecture` | LangChain 1.x and LangGraph for agents, memory, and tool integration | None |
 | `memento` | Morning briefing from the previous working day's Granola meetings and Slack conversations: up to 5 importance-sorted points, action-flagged, with the review window resolved against Google Calendar | Required: `granola`, `slack`, `google-calendar` (all three checked in a preflight gate) |

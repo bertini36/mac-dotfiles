@@ -1,0 +1,7 @@
+# reviewr, the code-review pane for herdr. Reference:
+# https://github.com/persiyanov/herdr-reviewr#configuration
+#
+# reviewr reads this file alone. Nothing in herdr's own config.toml reaches it,
+# so the theme it shares with herdr is set again here.
+
+theme = "tokyo-night"
