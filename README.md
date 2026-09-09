@@ -48,6 +48,7 @@ My personal Mac setup and configurations
     | [`claude-code`](https://github.com/anthropics/claude-code) | Anthropic Claude CLI (cask) |
     | [`granola`](https://www.granola.ai) | AI meeting notepad that captures and summarizes meetings (cask) |
     | [`rtk`](https://github.com/rtk-ai/rtk) | CLI proxy that reduces LLM token consumption by 60-90% |
+    | [`herdr`](https://github.com/herdrdev/herdr) | Terminal multiplexer that keeps coding agents running in panes |
     | [`handy`](https://github.com/cjpais/Handy) | Speech-to-text utility |
 
 - Extra configuration (not available through Brew):
