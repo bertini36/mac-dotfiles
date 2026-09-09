@@ -114,6 +114,12 @@ My personal Mac setup and configurations
 - Install [Amphetamine](https://apps.apple.com/app/amphetamine/id937984704) and set it to keep the computer awake indefinitely
 
 - Enable auto-focus: `defaults write com.apple.Terminal FocusFollowsMouse -bool true`
+- Install [`reviewr`](https://github.com/persiyanov/herdr-reviewr), the herdr plugin that reviews an agent's diff in a pane beside it and sends the line comments back
+
+  ```bash
+  herdr plugin install persiyanov/herdr-reviewr
+  ```
+
 - Link the rest of configuration files (install Claude Code first so `~/.claude/` exists)
 
   ```bash
@@ -125,6 +131,9 @@ My personal Mac setup and configurations
   mkdir -p ~/.config/herdr
   ln -s ~/.dotfiles/herdr/config.toml ~/.config/herdr/config.toml
   herdr config check   # must print 'config: ok'
+
+  mkdir -p ~/.config/herdr/plugins/config/persiyanov.reviewr
+  ln -s ~/.dotfiles/herdr/reviewr.toml ~/.config/herdr/plugins/config/persiyanov.reviewr/config.toml
 
   ln -s ~/.dotfiles/.claude/settings.json ~/.claude/settings.json
   ln -s ~/.dotfiles/.claude/statusline-command.sh ~/.claude/statusline-command.sh
