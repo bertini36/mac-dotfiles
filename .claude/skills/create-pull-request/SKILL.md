@@ -79,25 +79,16 @@ If any critical information is missing, use `AskUserQuestion` to ask the user:
 
 Before creating the PR, consider these best practices:
 
-### Commit Hygiene
-
-1. **Atomic commits**: Each commit should represent a single logical change
-2. **Clear commit messages**: Follow conventional commit format when possible
-3. **No merge commits**: Prefer rebasing over merging to keep history clean
+Commits follow the Commits rules in `CLAUDE.md`. Prefer rebasing over merge commits.
 
 ### Branch Management
 
-1. **Rebase on the latest base branch** (if needed):
-   ```bash
-   git fetch origin
-   git rebase "origin/$BASE"
-   ```
+Rebase on the latest base branch if needed:
 
-2. **Squash if appropriate**: If there are many small "WIP" commits, consider interactive rebase:
-   ```bash
-   git rebase -i "origin/$BASE"
-   ```
-   Only suggest this if commits appear messy and the user is comfortable with rebasing.
+```bash
+git fetch origin
+git rebase "origin/$BASE"
+```
 
 ### Push Changes
 
@@ -209,7 +200,7 @@ Avoid passing the PR body directly as a command-line argument, as this often fai
 cat > pr_body.txt <<'EOF'
 PR_BODY_CONTENT
 EOF
-gh pr create --title "🚧 PR_TITLE" --body-file pr_body.txt --base "$BASE" --draft --assignee "@me" --reviewer "Copilot"
+gh pr create --title "🚧 PR_TITLE" --body-file pr_body.txt --base "$BASE" --draft --assignee "@me"
 rm pr_body.txt # Clean up
 ```
 
@@ -219,7 +210,7 @@ If the project belongs to the Abacum organization (e.g., remote URL contains `ab
 cat > pr_body.txt <<'EOF'
 PR_BODY_CONTENT
 EOF
-gh pr create --title "🚧 PR_TITLE" --body-file pr_body.txt --base "$BASE" --draft --assignee "@me" --reviewer "Copilot" --label "Engine"
+gh pr create --title "🚧 PR_TITLE" --body-file pr_body.txt --base "$BASE" --draft --assignee "@me" --label "Engine"
 rm pr_body.txt # Clean up
 ```
 

@@ -16,8 +16,8 @@ If a superpowers implementation plan was produced in this session (from `superpo
 - **Goal and Architecture:** Does the stated approach actually deliver the goal? What does it rule out that it should not, or admit that it should not?
 - **File Structure:** Are the boundaries right? Does each file carry one responsibility? What changes together but lives apart, or the reverse?
 - **Tasks and ordering:** Does each task stand alone and compile? Does any task depend on a later one? Is each TDD step real, a failing test that pins the behavior, or a formality?
-- **Spec coverage:** Map every spec requirement to a task and name any gap. Map every task back to the goal and name any task that serves nothing.
-- **Internal consistency:** Do the types, signatures, and names defined in early tasks match their uses in later ones?
+
+Skip what earlier steps already settled: decisions the user made in the Spec during brainstorming, and the spec coverage and type consistency checks that `writing-plans` runs in its self-review.
 
 Surface the delta between the plan in my head and the plan on the page: unstated assumptions, unhandled edge cases, and internal contradictions, while they are still words instead of code.
 
