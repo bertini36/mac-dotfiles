@@ -54,21 +54,27 @@ Do not implement anything. Hand off to `start-feature`'s existing Brainstorm sta
 
 Complete the routing decision when exactly one route is selected.
 
+## Choose the workspace
+
+- **Current checkout** when the session is already in a worktree or on a branch other than `main`.
+- Otherwise **Branch** for Quick Change, and **Worktree** for Standard Implementation and Needs Grill/Plan.
+
 ## Present the recommendation
 
 Use this compact structure:
 
 ```markdown
 **Route:** <one route>
+**Workspace:** <Current checkout, Branch, or Worktree>
 **Reason:** <why this is the lightest safe route>
 **Scope:** <likely files, symbols, or subsystems>
 **Rules:** <applicable repository and personal conventions>
 **Tests:** <new behavior to cover, or None>
 **Risks and uncertainties:** <material items, or None>
 
-Confirm this route, or tell me which of Quick Change, Standard Implementation, or Needs Grill/Plan you prefer instead.
+Confirm this route and workspace, or tell me which to change.
 ```
 
 For Quick Change, keep each field to one line. For Standard Implementation, include enough detail to catch scope errors, duplicate tests, and convention mismatches before editing. For Needs Grill/Plan, describe why the lightweight path is unsafe rather than attempting a plan here.
 
-Stop after requesting confirmation. The step is complete when the response contains the recommendation and confirmation request, with no edit or implementation started. If the user selects another route, follow their choice.
+Stop after requesting confirmation. The step is complete when the response contains the recommendation and confirmation request, with no edit or implementation started. If the user selects another route or workspace, follow their choice.
