@@ -4,28 +4,25 @@
     {
       "id": 1,
       "prompt": "Evaluate this implementation plan:\n\nPlan: Add a REST API endpoint for user registration.\n1. Create UserRegistrationSerializer with email, password, and name fields\n2. Add POST /api/register/ endpoint\n3. Hash password with Django's make_password\n4. Return 201 with user data on success\n5. No tests planned\n6. No input validation beyond serializer defaults",
-      "expected_output": "Produces a scored report identifying missing tests and weak validation as blockers, resulting in a NO-GO verdict",
+      "expected_output": "Answers the 4 criteria yes/no, flags security as a blocker, and issues a NO-GO verdict",
       "files": [],
       "expectations": [
-        "Scores each of the 7 criteria (correctness, completeness, simplicity, consistency, testability, security, reversibility)",
-        "Flags completeness below 5 due to missing edge cases (duplicate email, weak password)",
-        "Flags testability below 5 due to no tests planned",
-        "Flags security concerns around password validation and rate limiting",
+        "Answers each of the 4 criteria (simplicity, consistency, security, reversibility) with yes/no and a one-line justification",
+        "Flags Security as a rework risk: no password strength validation, no rate limiting, or account enumeration on duplicate email",
         "Issues a NO-GO verdict",
-        "Provides actionable suggestions to fix the blockers"
+        "Lists what the plan must change for each blocker"
       ]
     },
     {
       "id": 2,
       "prompt": "Evaluate this implementation plan:\n\nPlan: Add pagination to the product listing API.\n1. Import PageNumberPagination from DRF\n2. Set page_size = 20 in the paginator\n3. Apply paginator to the existing ProductListView queryset\n4. Add tests for page 1, last page, and out-of-range page\n5. Update API docs with pagination parameters",
-      "expected_output": "Produces a scored report with all criteria above 5, resulting in a GO verdict",
+      "expected_output": "Answers the 4 criteria with no rework risk and issues a GO verdict",
       "files": [],
       "expectations": [
-        "Scores each of the 7 criteria",
-        "All scores are 5 or above",
+        "Answers each of the 4 criteria with yes/no",
+        "Every criterion is answered no",
         "Issues a GO verdict",
-        "Recognizes the plan covers testing and documentation",
-        "May suggest minor improvements but no blockers"
+        "Lists at most 3 suggestions and no blockers"
       ]
     }
   ]
