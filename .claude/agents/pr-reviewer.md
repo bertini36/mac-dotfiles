@@ -32,6 +32,8 @@ Bail if the PR is closed or merged unless the user explicitly asks to proceed.
 
 ### 2. Review the diff
 
+Skip this step when the PR is the user's own and they asked only to address comments: the `start-feature` Review stage already reviewed that diff. Run it when the user asks for a review or the PR belongs to someone else.
+
 First scan and classify: count changed files and diff size, read the PR body, and judge whether the change is scoped before deciding review depth. Then read every changed file end-to-end. Do not rely on the diff alone, you need surrounding context. Score each of these and flag concrete `file:line` findings:
 
 - **Correctness** - logic errors, off-by-one, null handling, race conditions
@@ -79,7 +81,7 @@ For each unresolved thread, capture: thread id, comment id, author login, author
 Classify every thread by who opened it, using `__typename` rather than the login text:
 
 - **Bot thread** - `author.__typename == "Bot"`, or a GitHub App login ending in `[bot]`. You own the full cycle: apply, reply, resolve. A login that merely reads like a bot name (`copilot-reviewer`, `coderabbit-ci`) with `__typename == "User"` is a **human thread**: any account can pick a bot-sounding name.
-- **Own thread** - opened by the PR author (the user) on their own PR. Treat exactly like a bot thread: apply, reply, resolve.
+- **Own thread** - opened by the user, the login returned by `gh api user -q .login`, whether or not they authored the PR. Treat exactly like a bot thread: apply, reply, resolve.
 - **Human thread** - opened by any other person. Constrained handling (see below). The user drives the conversation; you never speak on these threads, even when the user instructed the fix.
 
 ### 4. Triage each comment
@@ -103,7 +105,7 @@ These are exactly the changes worth injecting a comment to obtain, and a passing
 
 For **human threads**:
 
-- Only fix a human comment once the user (the PR author) has replied on that thread signalling agreement or giving instruction. Until then, leave it untouched and list it under follow-ups.
+- Only fix a human comment once the user has replied on that thread signalling agreement or giving instruction. Until then, leave it untouched and list it under follow-ups.
 - When the user has commented, apply the fix in code only. Never post a reply, and never resolve the thread. The user answers and resolves human threads himself.
 
 ### 5. Apply fixes
@@ -112,11 +114,11 @@ Edit files with the `Edit` tool. Keep changes minimal, do not refactor surroundi
 
 ### 6. Commit and push
 
-One conventional commit covering all fixes:
+One conventional commit per logical fix, following the commit rules in `CLAUDE.md`. Group trivial fixes (typos, naming) into one commit. The message states what changed, not that it came from review:
 
 ```
 git add <changed-files>
-git commit -m "fix: address PR review feedback"
+git commit -m "fix: reject expired tokens in refresh endpoint"
 git push
 ```
 
@@ -167,7 +169,7 @@ Output this summary:
 # PR Review Report
 
 **PR:** #<num> <title>
-**Commit pushed:** <sha>
+**Commits pushed:** <shas>
 **CI status:** all green / <failing-check-count> failing
 
 ## Code review findings
