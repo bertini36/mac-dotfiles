@@ -12,8 +12,8 @@ Worktrees: !`git worktree list`
 
 Steps:
 
-1. **Capture context** - record the current branch name as `FEATURE_BRANCH` and the default branch (usually `main`) as `BASE_BRANCH`. Refuse to continue if they are equal.
-2. **Verify merge** - run `gh pr view --json state,mergedAt,headRefName` for the current branch. Abort if `state != MERGED`. Do not delete unmerged work.
+1. **Capture context** - record the default branch (usually `main`) as `BASE_BRANCH`. Set `FEATURE_BRANCH` to `$ARGUMENTS` when given, otherwise to the current branch. When the current branch equals `BASE_BRANCH` and no argument was given (the usual case after a worktree feature, since step 4 requires running from the main repo path), list the branches checked out in other worktrees and ask which one to finalize.
+2. **Verify merge** - run `gh pr view $FEATURE_BRANCH --json state,mergedAt,headRefName`. Abort if `state != MERGED`. Do not delete unmerged work.
 3. **Check working tree** - if uncommitted changes exist, stop and ask the user before any destructive step.
 4. **Detect worktree** - run `git worktree list --porcelain`. If `$FEATURE_BRANCH` is checked out in a worktree other than the main repo path, record it as `FEATURE_WORKTREE`. If the current session is inside `$FEATURE_WORKTREE`, ask the user to switch to the main repo path first; do not proceed.
 5. **Switch and update** - `git checkout $BASE_BRANCH && git pull --ff-only origin $BASE_BRANCH` (run from main repo path, not from `$FEATURE_WORKTREE`).
@@ -25,5 +25,4 @@ Steps:
 
 Rules:
 - Never run destructive deletes without confirming PR merge state via `gh`.
-- Use `gh` CLI for all GitHub operations.
 - Stop and ask the user if any step fails unexpectedly.
