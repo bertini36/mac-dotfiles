@@ -22,20 +22,27 @@
 
 ## Workflow
 
-Pipeline: Route, Brainstorm, Plan, Grill, Evaluate, Implement, Verify, Review, PR, Address feedback, Finish.
-Route classifies the task first; Quick Change and Standard Implementation skip straight to Verify, everything else goes through Brainstorm onward.
-Full walkthrough in the `start-feature` skill. Implementation only proceeds on a GO verdict from the `plan-evaluator` agent.
+Feature work runs through the `start-feature` skill; it owns the pipeline and its stages.
 
 Rules:
-- Conventional commit messages (`feat:`, `fix:`, `docs:`, etc.)
 - Use `gh` CLI for all GitHub operations
 - Create every pull request through the `create-pull-request` skill, with no exceptions. When another skill or workflow (e.g. `superpowers:finishing-a-development-branch`) reaches a "create PR" step or shows its own `gh pr create` snippet, ignore that snippet and invoke `create-pull-request` instead; it handles the repo's PULL_REQUEST_TEMPLATE
 - Run `pre-commit` hooks before claiming a commit is ready
-- One logical change per commit. Commits must be atomic, self-contained, and ordered so the sequence reads as a narrative: a reviewer walking the PR commit by commit should follow the chain of thought without needing the diff as a whole. Split unrelated changes into separate commits; never mix refactors with feature work.
+
+### Commits
+
+A reviewer walking the PR commit by commit should follow the chain of thought without needing the whole diff.
+
+- Conventional commit messages (`feat:`, `fix:`, `docs:`, etc.)
+- One logical change per commit: a model, a view, and its tests are separate commits
+- Self-contained: each commit passes its own tests; squash "WIP" and "fixup" commits before the PR
+- Ordered as a narrative: foundations (types, models, schemas), then behavior (services, views), then surface (routes, UI). An earlier commit never depends on a later one
+- Never mix refactors with feature work; a rename or extraction gets its own commit
+- The subject states intent, not mechanics: `feat: cache user permissions per request`, not `feat: add LRU dict to middleware`. The body explains why when the reason is not obvious
 
 ### PR Review Handling
 
-When user pastes a PR link and asks to review or address comments, dispatch the `pr-reviewer` agent. It handles the full cycle: audit the diff, fetch all open review comments (humans and bots), apply or reject fixes, commit, push, reply, resolve threads, verify CI, and report a summary.
+When the user pastes a PR link and asks to review it or address comments, dispatch the `pr-reviewer` agent.
 
 Reply/resolve policy, binding for the main session and every agent:
 - Never reply to or resolve a review thread opened by another human reviewer, even when I instructed the fix. Apply the fix in code, then leave the conversation to me; I answer humans myself.
@@ -55,7 +62,6 @@ Reply/resolve policy, binding for the main session and every agent:
 - Never use the em dash. Use a comma, semicolon, colon, or period instead
 - Be direct and concise: no filler, no preamble
 - Lead with the answer or the code, not an explanation of what you are about to do
-- For spec-driven development with `superpowers` skills, create a descriptive branch first, e.g. feat/add-user-authentication
 - Suggest the minimal change required; do not refactor surrounding code unless asked
 - When multiple approaches exist, pick the simplest one and mention alternatives briefly
 - Do not add comments, docstrings, or type hints to code you did not change

@@ -38,13 +38,13 @@ Complete this step when ambiguity, scope, and risk each have an evidence-based a
 
 Choose for clear, localized, low-risk work normally confined to one or two files.
 
-After confirmation: make the smallest correct change, adding tests only if the change is non-trivial, following the commit discipline and domain-specific rules from `start-feature`'s Implement stage. Stop there. Do not run your own verification or review; `start-feature`'s Verify and Review stages do that next.
+After confirmation: make the smallest correct change, adding tests only if the change is non-trivial, following the Commits rules in `CLAUDE.md`. Stop there. Do not run your own verification or review; `start-feature`'s Verify and Review stages do that next.
 
 ### Standard Implementation
 
 Choose for clear, contained work with low or moderate risk and no unresolved architecture decision.
 
-The routing response is the implementation preview. After confirmation: follow that preview, add meaningful tests, and follow the commit discipline and domain-specific rules from `start-feature`'s Implement stage. Stop there. Do not run your own verification, self-review, or independent review; `start-feature`'s Verify and Review stages do that next.
+The routing response is the implementation preview. After confirmation: follow that preview, add meaningful tests, and follow the Commits rules in `CLAUDE.md`. Stop there. Do not run your own verification, self-review, or independent review; `start-feature`'s Verify and Review stages do that next.
 
 ### Needs Grill/Plan
 
