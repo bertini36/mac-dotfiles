@@ -156,34 +156,34 @@ All Claude Code configuration lives under `.claude/` and is symlinked into `~/.c
 
 ### Workflow
 
-This is spec-driven development (SDD): no code before a spec you approved and a plan that passed a GO. The `superpowers` plugin supplies the SDD stages; this repo supplies the gates around them, `feature-router`, `grill-me`, `plan-evaluator`, `fix-until-green` and `/audit`. Full walkthrough in `.claude/skills/start-feature/SKILL.md`.
+This is spec-driven development (SDD): no code before a spec you approved and a plan that passed a GO. The `superpowers` plugin supplies the SDD stages; this repo supplies the gates around them, `feature-router`, `grill-me`, `plan-evaluator`, `fix-until-green` and the review agents. Full walkthrough in `.claude/skills/start-feature/SKILL.md`.
 
-`/start-feature "<task>"` walks the pipeline, stopping where it needs you. Route classifies the task first, so a one-line fix skips the Brainstorm/Plan/Grill/Evaluate ceremony and lands straight on the same Verify → Review → PR tail as everything else.
+`/start-feature "<task>"` walks the pipeline, stopping where it needs you. Route classifies the task and picks the workspace in one confirmation, so a one-line fix skips the Brainstorm/Plan/Grill/Evaluate ceremony and lands straight on the same Verify → Review → PR tail as everything else.
 
 🙋 orange waits for you · 🤖 gray runs alone · ❓ blue runs alone but can interrupt · 📄 green are the documents it writes.
 
 ```mermaid
 flowchart TD
     K["🙋 0 · Kick off<br><b>/start-feature</b><br><i>you describe the task, plus the Jira ticket</i>"]
-    W["🤖 1 · Worktree<br><b>superpowers:using-git-worktrees</b><br><i>the hook provisions the virtualenv<br>in Python worktrees</i>"]
-    RT["🙋 2 · Route<br><b>feature-router</b><br><i>classifies the task; you confirm the route</i>"]
+    RT["🙋 1 · Route<br><b>feature-router</b><br><i>classifies the task and picks the workspace;<br>you confirm both at once</i>"]
+    W["🤖 2 · Workspace<br>branch · Quick Change<br><b>superpowers:using-git-worktrees</b> · larger work<br><i>the hook provisions the virtualenv<br>in Python worktrees</i>"]
     B["🙋 3 · Brainstorm<br><b>superpowers:brainstorming</b><br><i>you answer questions one at a time,<br>then approve the design section by section</i>"]
     SPEC[/"📄 SPEC · what and why<br>docs/superpowers/specs/&lt;date&gt;-&lt;topic&gt;-design.md<br><i>you review the file</i>"/]
     P["🙋 4 · Plan<br><b>superpowers:writing-plans</b>"]
     PLAN[/"📄 PLAN · how, task by task<br>docs/superpowers/plans/&lt;date&gt;-&lt;feature&gt;.md<br><i>you read it</i>"/]
-    G["🙋 4 · Grill<br><b>grill-me</b><br><i>you answer the interview until<br>no decision in the plan is fuzzy</i>"]
-    E["🙋 4 · Evaluate<br><b>plan-evaluator</b> agent<br><i>checks the plan against the real codebase;<br>you read the verdict and its blockers</i>"]
+    G["🙋 5 · Grill<br><b>grill-me</b><br><i>you answer only the decisions<br>the spec left open</i>"]
+    E["🙋 6 · Evaluate<br><b>plan-evaluator</b> agent<br><i>checks the plan against the real codebase;<br>you read the verdict and its blockers</i>"]
     V{"verdict"}
-    I["❓ 5 · Implement<br><b>superpowers:executing-plans</b> · small plans<br><b>superpowers:subagent-driven-development</b> · 3+ tasks<br><b>superpowers:test-driven-development</b> · every task<br><i>runs task to task without checking in;<br>reviewer subagents, not you, gate each task</i>"]
-    Y["🤖 6 · Verify<br><b>superpowers:verification-before-completion</b><br>fix-until-green · on failing checks<br>superpowers:systematic-debugging · on surprises<br><i>you get the evidence: tests + pre-commit output</i>"]
-    R["🙋 7 · Review<br><b>/review-branch</b> · code-reviewer<br><b>/audit</b> · code-reviewer + security-reviewer<br><i>you pick the depth and judge each finding</i>"]
-    PR["🙋 8 · PR<br><b>create-pull-request</b> skill<br>writing-clearly · superpowers:finishing-a-development-branch<br><i>you read the title and body before they go out</i>"]
-    F["🙋 9 · Feedback<br><b>pr-reviewer</b> agent<br><i>you paste the PR link,<br>and you answer human reviewers yourself</i>"]
-    Z["🙋 10 · Finish<br><b>/end-feature</b><br><i>you merge the PR first, then run it</i>"]
+    I["❓ 7 · Implement<br><b>superpowers:subagent-driven-development</b><br><b>superpowers:test-driven-development</b> · every task<br><i>runs task to task without checking in;<br>reviewer subagents gate each task and the branch</i>"]
+    Y["🤖 8 · Verify<br><b>fix-until-green</b><br><i>you get the evidence: checks + pre-commit output</i>"]
+    R["🤖 9 · Review · by route<br>Quick Change · none<br>Standard · <b>/review-branch</b><br>Grill/Plan · already reviewed in Implement<br><b>security-reviewer</b> · when the router flags risk"]
+    PR["🙋 10 · PR<br><b>create-pull-request</b> skill<br><i>you read the title and body before they go out</i>"]
+    F["🙋 11 · Feedback<br><b>pr-reviewer</b> agent<br><i>you paste the PR link,<br>and you answer human reviewers yourself</i>"]
+    Z["🙋 12 · Finish<br><b>/end-feature</b><br><i>you merge the PR first, then run it</i>"]
 
-    K --> W --> RT
-    RT -- "Quick Change / Standard Implementation:<br>implement per the router's preview" --> Y
-    RT -- "Needs Grill/Plan" --> B
+    K --> RT --> W
+    W -- "Quick Change / Standard Implementation:<br>implement per the router's preview" --> Y
+    W -- "Needs Grill/Plan" --> B
     B --> SPEC --> P
     P --> PLAN --> G
     G --> E --> V
@@ -196,14 +196,14 @@ flowchart TD
     classDef auto fill:#E5E7EB,stroke:#6B7280,color:#111827
     classDef ask fill:#DBEAFE,stroke:#1D4ED8,color:#111827
     classDef doc fill:#DCFCE7,stroke:#15803D,color:#111827
-    class K,RT,B,P,G,E,R,PR,F,Z you
-    class W,Y auto
+    class K,RT,B,P,G,E,PR,F,Z you
+    class W,Y,R auto
     class I ask
     class SPEC,PLAN doc
     class V you
 ```
 
-Only the Needs Grill/Plan route reaches the spec and plan at all. Route (stage 2) sends Quick Change and Standard Implementation straight to Verify (stage 6) instead, so there is one verification path, not two.
+Only the Needs Grill/Plan route reaches the spec and plan at all. Route (stage 1) sends Quick Change and Standard Implementation straight to Verify (stage 8) instead, so there is one verification path, not two.
 
 Two rules never bend:
 
@@ -224,7 +224,7 @@ without them. See [Per-project plugins](#per-project-plugins) and
 |---|---|---|
 | `audit` | Run a full production audit with the `code-reviewer` and `security-reviewer` agents | None |
 | `create-pull-request` | Create a GitHub PR following project conventions using `gh` CLI | None |
-| `end-feature` | Finalize a merged PR: switch to main, pull, and remove the merged feature branch | None |
+| `end-feature` | Finalize a merged PR: switch to main, pull, and remove the worktree and merged feature branch | None |
 | `ddd-patterns` | DDD entities, aggregate roots, value objects, repositories, domain services, and specifications | None |
 | `django-patterns` | Django architecture, REST APIs with Pydantic, ORM best practices, caching, and signals | None |
 | `explain` | Turn a link into a local HTML page that explains it visually, with diagrams built from pure CSS and inline SVG, then open it in Chrome via `/explain` | Optional: `atlassian` for Jira and Confluence links, `notion` for Notion links. Other link types use WebFetch and `gh` |
